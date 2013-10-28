@@ -23,6 +23,9 @@
 
 - (AGBinding*)copyWithModelObject:(id)modelObject;
 
+// this is used to apply the binding to a cell that isn't actually going to be bound
+- (void)applyDataToCell:(UITableViewCell*)cell forObject:(id)anObject;
+
 - (id)currentModelValue;
 
 @end

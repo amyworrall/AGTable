@@ -190,6 +190,20 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	return nil;
 }
 
+// for offscreen prototype
+- (void)populateCell:(UITableViewCell*)cell;
+{
+	NSAssert(self.isStaticRow, @"Only static rows should gain cells via this method.");
+	for (AGBinding *b in self.staticBindings)
+	{
+		[b applyDataToCell:cell forObject:b.modelObject];
+	}
+	for (AGBinding *b in self.dataObjectBindings)
+	{
+		[b applyDataToCell:cell forObject:self.object];
+	}
+}
+
 - (void)rowDidGainCell:(UITableViewCell*)cell;
 {
 	NSAssert(self.isStaticRow, @"Only static rows should gain cells via this method.");
@@ -201,6 +215,15 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	for (AGBinding *b in self.dataObjectBindings)
 	{
 		b.cell = cell;
+	}
+}
+
+- (void)dynamicPopulateCell:(UITableViewCell*)cell forObject:(id)object;
+{
+	NSAssert(self.isRowPrototype, @"Only prototypes should lose cells via this method.");
+	for (AGBinding *b in self.dataObjectBindings)
+	{
+		[b applyDataToCell:cell forObject:object]; // using passed in object
 	}
 }
 

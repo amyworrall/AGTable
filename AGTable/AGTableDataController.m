@@ -27,6 +27,8 @@
 
 @property (nonatomic, assign) NSInteger previousNumberOfSections;
 
+@property (nonatomic, strong) NSMapTable *cellHeightPrototypesForReuseIdentifiers;
+
 @end
 
 @implementation AGTableDataController
@@ -41,6 +43,8 @@
 		self.tableView.dataSource = self;
 		
 		self.sections_mutable = [NSMutableArray array];
+		
+		self.cellHeightPrototypesForReuseIdentifiers = [NSMapTable strongToWeakObjectsMapTable];
 		
 		self.editingTextField = nil;
 		
@@ -558,6 +562,24 @@
 	AGTableRow *row = [self rowForTableIndexPath:indexPath];
 	id object = row.object;
 	
+	if (row.calculateHeightWithAutoLayout)
+	{
+		// 1. create cell to do the height calculation if needed
+		NSString *reuseIdentifier = [self reuseIdentifierForIndexPath:indexPath];
+		UITableViewCell *heightTestCell = [self.cellHeightPrototypesForReuseIdentifiers objectForKey:reuseIdentifier];
+		 if (!heightTestCell)
+		 {
+			 heightTestCell = [self createCellForIndexPath:indexPath];
+			 [self.cellHeightPrototypesForReuseIdentifiers setObject:heightTestCell forKey:reuseIdentifier];
+		 }
+		
+		// 2. configure the cell, then ask for its layout
+		[self configureCell:heightTestCell forIndexPath:indexPath isForOffscreenUse:YES];
+		[heightTestCell layoutIfNeeded];
+		CGSize size = [heightTestCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+		return size.height;
+	}
+	
 	if (row.rowHeight)
 	{
 		return row.rowHeight;
@@ -628,13 +650,20 @@
 	}
 }
 
+#pragma mark - Creation
+
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	UITableViewCell *cell = [self createCellForIndexPath:indexPath];
+	[self configureCell:cell forIndexPath:indexPath isForOffscreenUse:NO];
+	
+	return cell;
+}
+
+- (UITableViewCellStyle)cellStyleForIndexPath:(NSIndexPath*)indexPath;
 {
 	AGTableRow *row = [self rowForTableIndexPath:indexPath];
 	row.objectIndex = [self indexOfDynamicObjectAtTableIndexPath:indexPath];
-
-	Class cellClass = [self cellClassForRow:row];
-	
 	
 	UITableViewCellStyle style = row.cellStyle;
 	if ([row.textFieldBoundToProperty length]>0 && style == UITableViewCellStyleDefault && [row.text length]>0)
@@ -651,9 +680,15 @@
 	{
 		style = UITableViewCellStyleValue2;
 	}
+	return style;
+}
 
+- (NSString*)reuseIdentifierForIndexPath:(NSIndexPath*)indexPath
+{
+	AGTableRow *row = [self rowForTableIndexPath:indexPath];
+	Class cellClass = [self cellClassForRow:row];
+	UITableViewCellStyle style = [self cellStyleForIndexPath:indexPath];
 	
-	// dequeue cell
 	NSString *reuseIdentifier = nil;
 	
 	if ([self.delegate respondsToSelector:@selector(tableDataController:reuseIdentifierForRow:)])
@@ -671,23 +706,56 @@
 		{
 			// possible optimisation: use a switch and constant strings, to get pointer comparisons.
 			reuseIdentifier = [NSString stringWithFormat:@"UITableViewCell-%i-%@-%@-%p", style, row.textFieldBoundToProperty, NSStringFromSelector(row.initialSetupSelector), row.initialSetupBlock];
-			
+			reuseIdentifier = @"Bob";
 		}
 		else
 		{
 			reuseIdentifier = NSStringFromClass(cellClass);
 		}
 	}
+	return reuseIdentifier;
+}
+
+- (UITableViewCell*)createCellForIndexPath:(NSIndexPath*)indexPath;
+{
+	AGTableRow *row = [self rowForTableIndexPath:indexPath];
+	row.objectIndex = [self indexOfDynamicObjectAtTableIndexPath:indexPath];
+	
+	Class cellClass = [self cellClassForRow:row];
+	
+	UITableViewCellStyle style = [self cellStyleForIndexPath:indexPath];
+		
+	
+	// dequeue cell
+	NSString *reuseIdentifier = [self reuseIdentifierForIndexPath:indexPath];
 	
 	// Attempt to dequeue
 	UITableViewCell *cell = nil;
 	cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 	
-
+	
 	if (!cell)
 	{
 		
-		cell = [[cellClass alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
+		if (row.cellNibName.length > 0)
+		{
+			NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:row.cellNibName owner:self options:nil];
+			
+			for (NSObject *obj in topLevelObjects)
+			{
+				if ([obj isKindOfClass:[UITableViewCell class]])
+				{
+					cell = (UITableViewCell*)obj;
+				}
+			}
+		}
+		
+		if (!cell) // still no cell after loading the xib
+		{
+			cell = [[cellClass alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
+		}
+		
+		NSLog(@"Created a cell");
 		
 		if (row.initialSetupKeyValueData)
 		{
@@ -710,8 +778,8 @@
 		
 		if ([row.textFieldBoundToProperty length]>0)
 		{
-			UITextField *tf = [[UITextField alloc] init];  
-			tf.adjustsFontSizeToFitWidth = YES;  
+			UITextField *tf = [[UITextField alloc] init];
+			tf.adjustsFontSizeToFitWidth = YES;
 			
 			
 			//tf.textColor = cell.detailTextLabel.textColor; // [UIColor colorWithRed:56.0f/255.0f green:84.0f/255.0f blue:135.0f/255.0f alpha:1.0f];
@@ -730,6 +798,14 @@
 		}
 		
 	}
+
+	return cell;
+}
+
+- (void)configureCell:(UITableViewCell*)cell forIndexPath:(NSIndexPath*)indexPath isForOffscreenUse:(BOOL)offscreen;
+{
+	AGTableRow *row = [self rowForTableIndexPath:indexPath];
+	row.objectIndex = [self indexOfDynamicObjectAtTableIndexPath:indexPath];
 	
 	cell.tag = row.tag;
 	
@@ -752,7 +828,7 @@
 		}
 		
 	}
-
+	
 	
 	if ([row.dateFieldBoundToProperty length]>0)
 	{
@@ -767,20 +843,20 @@
 		
 		cell.detailTextLabel.text = [self.dateDisplayFormatter stringFromDate:[self.delegate valueForKeyPath:row.dateFieldBoundToProperty]];
 	}
-
+	
 	
 	if ([row.imageFieldBoundToProperty length]>0)
 	{
 		cell.imageView.image = row.imageFieldCachedSmallImage;
 	}
-
+	
 	if ([row.textFieldBoundToProperty length]>0)
 	{
 		UITextField *tf = (UITextField*)[cell viewWithTag:defaultTextfieldTag];
 		
-		tf.placeholder = row.textFieldPlaceholder ;  
-		tf.autocorrectionType = row.textFieldAutocorrectionType ;  
-		tf.autocapitalizationType = row.textFieldAutocapitalizationType;  
+		tf.placeholder = row.textFieldPlaceholder ;
+		tf.autocorrectionType = row.textFieldAutocorrectionType ;
+		tf.autocapitalizationType = row.textFieldAutocapitalizationType;
 		tf.keyboardType = row.textFieldKeyboardType;
 		
 		CGRect tfRect = ([row.text length]>0) ? CGRectMake(93, 11, 210, 20) : CGRectMake(20, 11, 320-40, 22);
@@ -789,9 +865,9 @@
 		{
 			tfRect.origin.y++;
 		}
-		tf.frame = tfRect;  
-
-		if (style == UITableViewCellStyleValue2)
+		tf.frame = tfRect;
+		
+		if ([self cellStyleForIndexPath:indexPath] == UITableViewCellStyleValue2)
 		{
 			tf.font = [UIFont boldSystemFontOfSize:15.0];
 		}
@@ -917,19 +993,33 @@
 	}
 	
 	// START newBindings population
-	
-	objc_setAssociatedObject(cell, "AGRow", row, OBJC_ASSOCIATION_ASSIGN);
-	objc_setAssociatedObject(cell, "AGObject", row.object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-	
-	if (row.isStaticRow)
+	if (!offscreen)
 	{
-		[row rowDidGainCell:cell];
+		objc_setAssociatedObject(cell, "AGRow", row, OBJC_ASSOCIATION_ASSIGN);
+		objc_setAssociatedObject(cell, "AGObject", row.object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+		
+		if (row.isStaticRow)
+		{
+			[row rowDidGainCell:cell];
+		}
+		else if (row.isRowPrototype)
+		{
+			[row dynamicRowDidGainCell:cell forObject:row.object];
+		}
 	}
-	else if (row.isRowPrototype)
+	else
 	{
-		[row dynamicRowDidGainCell:cell forObject:row.object];
+		// An offscreen (i.e. height prototype) cell
+		if (row.isStaticRow)
+		{
+			[row populateCell:cell];
+		}
+		else if (row.isRowPrototype)
+		{
+			[row dynamicPopulateCell:cell forObject:row.object];
+		}
+
 	}
-	
 	// END newBindings
 	
 	if ([cell respondsToSelector:@selector(setCellPosition:)])
@@ -947,10 +1037,11 @@
 	{
 		[((UITableViewCell<AGTableCellProperties> *)cell) setRow:row];
 	}
-	
-	
-	return cell;
+
 }
+
+#pragma mark -
+
 
 - (CellPosition)cellPositionForIndexPath:(NSIndexPath*)indexPath
 {

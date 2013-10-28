@@ -135,12 +135,17 @@ extern NSString * const AGBindingOptionsFormatter;
 @property (strong) NSMutableDictionary *configurationKeyValueData;
 - (void)addConfigurationValue:(id)object forKeyPath:(NSString*)key;
 
+#pragma mark - xibs
+
+@property (copy) NSString *cellNibName;
+@property (assign) BOOL calculateHeightWithAutoLayout;
 
 
 #pragma mark - Cell height
 
 // The height of the UITableView row for this AGTableRow.
 @property (assign) CGFloat rowHeight;
+
 
 // A block or selector that is invoked to allow you to calculate the height yourself.
 @property (copy) CellHeightBlock heightBlock;

@@ -221,6 +221,37 @@ NSString * const AGBindingOptionsUseValueTransformerInReverse = @"AGBindingOptio
 	self.currentlyUpdatingView = NO;
 }
 
+- (void)applyDataToCell:(UITableViewCell*)cell forObject:(id)anObject;
+{
+	id modelValue = [anObject valueForKeyPath:self.modelKeypath];
+	
+	if (self.valueTransformer)
+	{
+		if ([self boolForOption:AGBindingOptionsUseValueTransformerInReverse])
+		{
+			modelValue = [self.valueTransformer reverseTransformedValue:modelValue];
+		}
+		else
+		{
+			modelValue = [self.valueTransformer transformedValue:modelValue];
+		}
+	}
+	if (self.formatter)
+	{
+		modelValue = [self.formatter stringForObjectValue:modelValue];
+	}
+
+	
+	UIView *view = cell;
+	
+	if (self.viewTag != NSNotFound)
+	{
+		view = [cell viewWithTag:self.viewTag];
+	}
+	
+	[view setValue:modelValue forKeyPath:self.viewKeypath];
+}
+
 - (void)populateModelFromCell
 {
 	if (!self.cell || self.isBindingPrototype)

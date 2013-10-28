@@ -9,6 +9,9 @@
 
 @interface AGTableRow ()
 
+- (void)populateCell:(UITableViewCell*)cell;
+- (void)dynamicPopulateCell:(UITableViewCell*)cell forObject:(id)object;
+
 
 // override to make writeable
 @property (nonatomic,assign) NSInteger rowNumber;
