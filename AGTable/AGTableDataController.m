@@ -755,8 +755,6 @@
 			cell = [[cellClass alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
 		}
 		
-		NSLog(@"Created a cell");
-		
 		if (row.initialSetupKeyValueData)
 		{
 			for (NSString *key in row.initialSetupKeyValueData)
