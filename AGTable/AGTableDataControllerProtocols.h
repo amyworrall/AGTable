@@ -67,6 +67,9 @@ typedef enum {
 // This method can be implemented on UITableViewCell subclasses. It allows a cell class to compute the height required for a cell. The row object passed into this method contains the model object, and you're also passed the UITableViewStyle, the cell's position (whether it is first in the section, last, neither or both), the width of the table view, and which (if any) cell accessory is to be displayed.
 + (CGFloat)cellHeightForRow:(AGTableRow*)row tableStyle:(UITableViewStyle)style position:(CellPosition)position width:(CGFloat)width accessoryType:(UITableViewCellAccessoryType)accessoryType;
 
+// This one is called when using the prototype cell method of obtaining height.
+- (CGFloat)desiredCellHeight;
+
 @end
 
 

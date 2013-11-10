@@ -562,7 +562,7 @@
 	AGTableRow *row = [self rowForTableIndexPath:indexPath];
 	id object = row.object;
 	
-	if (row.calculateHeightWithAutoLayout)
+	if (row.calculateHeightWithAutoLayout || row.calculateHeightWithPrototypeCell)
 	{
 		// 1. create cell to do the height calculation if needed
 		NSString *reuseIdentifier = [self reuseIdentifierForIndexPath:indexPath];
@@ -574,10 +574,23 @@
 		 }
 		
 		// 2. configure the cell, then ask for its layout
+		heightTestCell.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 0.0);
+		heightTestCell.accessoryType = [self accessoryTypeForRow:row];
 		[self configureCell:heightTestCell forIndexPath:indexPath isForOffscreenUse:YES];
 		[heightTestCell layoutIfNeeded];
-		CGSize size = [heightTestCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-		return size.height;
+		
+		CGFloat height;
+		if (row.calculateHeightWithAutoLayout)
+		{
+			CGSize size = [heightTestCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+			height = size.height;
+		}
+		else
+		{
+			UITableViewCell<AGTableCellHeight> *agCell = (UITableViewCell<AGTableCellHeight> *)heightTestCell;
+			height = [agCell desiredCellHeight];
+		}
+		return height;
 	}
 	
 	if (row.rowHeight)

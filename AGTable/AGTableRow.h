@@ -138,7 +138,6 @@ extern NSString * const AGBindingOptionsFormatter;
 #pragma mark - xibs
 
 @property (copy) NSString *cellNibName;
-@property (assign) BOOL calculateHeightWithAutoLayout;
 
 
 #pragma mark - Cell height
@@ -150,6 +149,8 @@ extern NSString * const AGBindingOptionsFormatter;
 // A block or selector that is invoked to allow you to calculate the height yourself.
 @property (copy) CellHeightBlock heightBlock;
 @property (assign) SEL heightSelector;
+@property (assign) BOOL calculateHeightWithAutoLayout;
+@property (assign) BOOL calculateHeightWithPrototypeCell;
 
 // Height can also be obtained directly from the UITableViewCell subclass, if it implements the AGTableCellHeight protocol.
 
