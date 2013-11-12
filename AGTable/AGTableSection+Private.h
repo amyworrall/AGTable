@@ -16,22 +16,22 @@
 @property (nonatomic, copy) NSString *dynamicObjectsArrayKeypath;
 
 
-- (int)_numberOfVisibleTableSections;
-- (int)_numberOfRowsInInternalSectionNumber:(int)sectionNumber;
+- (NSInteger)_numberOfVisibleTableSections;
+- (NSInteger)_numberOfRowsInInternalSectionNumber:(NSInteger)sectionNumber;
 - (AGTableRow*)_rowForInternalIndexPath:(NSIndexPath *)indexPath;
-- (AGTableRow*)_rowForSingleSectionSectionRowNumber:(int)rowNumber;
-- (AGTableRow*)_rowForStaticSectionRowNumber:(int)rowNumber;
-- (int)_numberOfStaticVisibleRows;
-- (int)_numberOfDynamicObjects;
-- (id) objectForDynamicRowNumber:(int)num;
+- (AGTableRow*)_rowForSingleSectionSectionRowNumber:(NSInteger)rowNumber;
+- (AGTableRow*)_rowForStaticSectionRowNumber:(NSInteger)rowNumber;
+- (NSInteger)_numberOfStaticVisibleRows;
+- (NSInteger)_numberOfDynamicObjects;
+- (id) objectForDynamicRowNumber:(NSInteger)num;
 - (void)cacheVisibility;
-- (AGTableRow*)_staticRowForTag:(int)aTag;
-- (int)_internalSectionNumberForStaticSection;
-- (int)_rowNumberForRow:(AGTableRow*)r internalSection:(int*)local;
-- (int)_dynamicObjectIndexForInternalIndexPath:(NSIndexPath*)p;
-- (NSIndexPath*)_internalIndexPathForDynamicObjectIndex:(int)index;
-- (int)_numberOfVisibleTableSections_nocache;
-- (int)_numberOfRowPrototypesToShowForObject:(id)object;
+- (AGTableRow*)_staticRowForTag:(NSInteger)aTag;
+- (NSInteger)_internalSectionNumberForStaticSection;
+- (NSInteger)_rowNumberForRow:(AGTableRow*)r internalSection:(NSInteger*)local;
+- (NSInteger)_dynamicObjectIndexForInternalIndexPath:(NSIndexPath*)p;
+- (NSIndexPath*)_internalIndexPathForDynamicObjectIndex:(NSInteger)index;
+- (NSInteger)_numberOfVisibleTableSections_nocache;
+- (NSInteger)_numberOfRowPrototypesToShowForObject:(id)object;
 - (NSUInteger)_numberOfDynamicRows;
 
 @end

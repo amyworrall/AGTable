@@ -119,7 +119,7 @@ enum rowTags {
 }
 
 
-- (id)tableDataController:(AGTableDataController *)c dynamicObjectForIndex:(int)index inSection:(AGTableSection *)section
+- (id)tableDataController:(AGTableDataController *)c dynamicObjectForIndex:(NSInteger)index inSection:(AGTableSection *)section
 {
 	return (self.options)[index];
 }

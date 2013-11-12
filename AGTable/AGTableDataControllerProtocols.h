@@ -21,7 +21,7 @@
 - (NSInteger)	tableDataController:(AGTableDataController*)c numberOfDynamicObjectsInSection:(AGTableSection*)section ;
 
 // Return the model object at a certain index in the current section. Again, not called if you're binding a dynamic objects array.
-- (id)			tableDataController:(AGTableDataController*)c dynamicObjectForIndex:(int)index inSection:(AGTableSection*)section;
+- (id)			tableDataController:(AGTableDataController*)c dynamicObjectForIndex:(NSInteger)index inSection:(AGTableSection*)section;
 
 // If a static row's objectMode is objectModeDelegate (or it is objectModeDefault and it has already tried KVO), it'll ask for the object for a static row using this method.
 - (id)			tableDataController:(AGTableDataController*)c objectForStaticRow:(AGTableRow*)row;
@@ -48,7 +48,7 @@
 - (BOOL)		tableDataController:(AGTableDataController*)c deletePressedForRow:(AGTableRow*)row;
 
 // The if a row's section has canEditReorderDynamicRows set to YES, then when a reorder action happens, this method is called.
-- (void)		tableDataController:(AGTableDataController*)c dynamicItem:(id)object index:(int)oldIndex inSection:(AGTableSection*)section didMoveToIndex:(int)newIndex;
+- (void)		tableDataController:(AGTableDataController*)c dynamicItem:(id)object index:(NSInteger)oldIndex inSection:(AGTableSection*)section didMoveToIndex:(NSInteger)newIndex;
 
 
 @end
