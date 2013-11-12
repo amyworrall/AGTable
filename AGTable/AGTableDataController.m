@@ -718,7 +718,7 @@
 		else if ([cellClass isEqual:[UITableViewCell class]])
 		{
 			// possible optimisation: use a switch and constant strings, to get pointer comparisons.
-			reuseIdentifier = [NSString stringWithFormat:@"UITableViewCell-%li-%@-%@-%p", style, row.textFieldBoundToProperty, NSStringFromSelector(row.initialSetupSelector), row.initialSetupBlock];
+			reuseIdentifier = [NSString stringWithFormat:@"UITableViewCell-%li-%@-%@-%p", (long)style, row.textFieldBoundToProperty, NSStringFromSelector(row.initialSetupSelector), row.initialSetupBlock];
 			reuseIdentifier = @"Bob";
 		}
 		else
