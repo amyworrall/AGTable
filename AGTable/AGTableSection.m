@@ -14,7 +14,7 @@
 
 @interface AGTableSection ()
 {
-	int _internalSectionsRowCache[maxInternalSections];
+	NSInteger _internalSectionsRowCache[maxInternalSections];
 }
 @property (nonatomic, weak) id dynamicArrayBindingObject;
 @property (nonatomic, copy) NSString *dynamicArrayBindingKeypath;
@@ -117,12 +117,12 @@
 
 // Logic: if there is no sectionSplitKeypath, then there cannot be more than one section. If there is, then the dynamic rows are automatically split from the static ones, and split from each other wherever the keypath differs.
 
-- (int)_numberOfVisibleTableSections
+- (NSInteger)_numberOfVisibleTableSections
 {
 	return self.cachedNumSections;
 }
 
-- (int)_numberOfVisibleTableSections_nocache
+- (NSInteger)_numberOfVisibleTableSections_nocache
 {
 	if (self.mode == sectionModeStatic)
 	{
@@ -141,7 +141,7 @@
 		return 1; // There are dynamic rows present, we do display them, and they are not in a separate table-section from the static rows.
 	
 	
-	int numS = 0;
+	NSInteger numS = 0;
 	
 	id comparator = nil;
 	for (int i=0; i<numDynamicObjects; i++)
@@ -162,12 +162,12 @@
 	return numS;
 }
 
-- (int)_numberOfRowPrototypes
+- (NSInteger)_numberOfRowPrototypes
 {
 	return self.rowPrototypes.count;
 }
 
-- (int)_numberOfRowPrototypesToShowForObject:(id)object
+- (NSInteger)_numberOfRowPrototypesToShowForObject:(id)object
 {
 	int count = 0;
 	for (AGTableRow *prototype in self.rowPrototypes)
@@ -195,7 +195,7 @@
 	return array;
 }
 
-- (int)_numberOfRowsInInternalSectionNumber:(int)sectionNumber
+- (NSInteger)_numberOfRowsInInternalSectionNumber:(NSInteger)sectionNumber
 {
 	if (sectionNumber >= self.cachedNumSections)
 	{
@@ -208,11 +208,11 @@
 	return _internalSectionsRowCache[sectionNumber];
 }
 
-- (int)_numberOfRowsInInternalSectionNumber_nocache:(int)sectionNumber
+- (NSInteger)_numberOfRowsInInternalSectionNumber_nocache:(int)sectionNumber
 {
 	if ([self.dynamicRowsSectionSplitKeypath length]==0 || self.mode == sectionModeStatic || [self _numberOfDynamicObjects]==0)
 	{
-		int i=[self _numberOfStaticVisibleRows];
+		NSInteger i=[self _numberOfStaticVisibleRows];
 		
 		if (self.mode != sectionModeStatic)
 		{
@@ -238,7 +238,7 @@
 		}
 	}	
 	
-	int numSections = [self _numberOfVisibleTableSections];
+	NSInteger numSections = [self _numberOfVisibleTableSections];
 	
 	if ((sectionNumber == 0 && staticAtStart) || (sectionNumber == numSections-1 && staticAtEnd))
 	{
@@ -252,8 +252,8 @@
 		sectionNumber--;
 	}
 	
-	int sectionCounter = -1;
-	int withinCounter = 0;
+	NSInteger sectionCounter = -1;
+	NSInteger withinCounter = 0;
 	
 	id comparator = nil;
 	for (int i=0; i<[self _numberOfDynamicObjects]; i++)
@@ -288,8 +288,8 @@
 
 - (AGTableRow*)_rowForInternalIndexPath:(NSIndexPath *)indexPath
 {
-	int targetSectionNum = indexPath.section;
-	int rowNum = indexPath.row;
+	NSInteger targetSectionNum = indexPath.section;
+	NSInteger rowNum = indexPath.row;
 	
 	if ([self.dynamicRowsSectionSplitKeypath length]==0 || self.mode == sectionModeStatic || [self _numberOfDynamicObjects]==0)
 	{
@@ -315,7 +315,7 @@
 		}
 	}	
 	
-	int numVisibleSections = [self _numberOfVisibleTableSections];
+	NSInteger numVisibleSections = [self _numberOfVisibleTableSections];
 	
 	if ((targetSectionNum == 0 && staticAtStart) || (targetSectionNum == numVisibleSections-1 && staticAtEnd))
 	{
@@ -341,8 +341,8 @@
 	
 	/* Loop through dynamic objects, work out how many prototypes for each one, stop when value takes you past the desired number. */
 	/* We need an object and a prototype to use */
-	int targetRow = rowNum+beforeCounter;
-	int rowCount = 0;
+	NSInteger targetRow = rowNum+beforeCounter;
+	NSInteger rowCount = 0;
 	
 	id chosenObject;
 	AGTableRow *chosenPrototype;
@@ -376,7 +376,7 @@
 
 
 
-- (int)_dynamicObjectIndexForInternalIndexPath:(NSIndexPath*)p
+- (NSInteger)_dynamicObjectIndexForInternalIndexPath:(NSIndexPath*)p
 {
 	AGTableRow *row = [self _rowForInternalIndexPath:p];
 	return row.dynamicObjectIndex;
@@ -435,14 +435,14 @@
 }
 
 
-- (NSIndexPath*)_internalIndexPathForDynamicObjectIndex:(int)index
+- (NSIndexPath*)_internalIndexPathForDynamicObjectIndex:(NSInteger)index
 {
 	if ([self.dynamicRowsSectionSplitKeypath length]==0)
 	{
 		// Do it the old way. Calculate dynamic offset.
-		int numStatic = [self _numberOfStaticVisibleRows];
+		NSInteger numStatic = [self _numberOfStaticVisibleRows];
 		
-		int dynamicOffset = (self.mode == sectionModeStaticFirst) ? numStatic : 0;
+		NSInteger dynamicOffset = (self.mode == sectionModeStaticFirst) ? numStatic : 0;
 		
 		return [NSIndexPath indexPathForRow:index + dynamicOffset inSection:0];
 	}
@@ -484,7 +484,7 @@
 	return nil;
 }
 
-- (int)_internalSectionNumberForStaticSection
+- (NSInteger)_internalSectionNumberForStaticSection
 {
 	if ([self _numberOfStaticVisibleRows]>0)
 	{
@@ -501,14 +501,14 @@
 }
 
 
-- (int)_rowNumberForRow:(AGTableRow*)r internalSection:(int*)local
+- (NSInteger)_rowNumberForRow:(AGTableRow*)r internalSection:(NSInteger*)local
 {
 	NSAssert(r.isStaticRow, @"Row number for row not working for dynamic rows yet");
 	
 	
-	int staticS = [self _internalSectionNumberForStaticSection];
+	NSInteger staticS = [self _internalSectionNumberForStaticSection];
 	
-	int staticOffset;
+	NSInteger staticOffset;
 	if ([self.dynamicRowsSectionSplitKeypath length]>0)
 	{
 		staticOffset = 0;
@@ -556,21 +556,21 @@
 	return count;
 }
 
-- (AGTableRow*)_rowForSingleSectionSectionRowNumber:(int)rowNumber
+- (AGTableRow*)_rowForSingleSectionSectionRowNumber:(NSInteger)rowNumber
 {
-	int numDynamicObjects = (self.mode != sectionModeStatic) ? [self _numberOfDynamicObjects] : 0;
-	int numDynamicRows = [self _numberOfDynamicRows];
-	int numStatic = [self _numberOfStaticVisibleRows];
+	NSInteger numDynamicObjects = (self.mode != sectionModeStatic) ? [self _numberOfDynamicObjects] : 0;
+	NSInteger numDynamicRows = [self _numberOfDynamicRows];
+	NSInteger numStatic = [self _numberOfStaticVisibleRows];
 	
-	int dynamicOffset = (self.mode == sectionModeStaticFirst) ? numStatic : 0;
-	int staticOffset = (self.mode == sectionModeDynamicFirst) ? numDynamicRows : 0;
+	NSInteger dynamicOffset = (self.mode == sectionModeStaticFirst) ? numStatic : 0;
+	NSInteger staticOffset = (self.mode == sectionModeDynamicFirst) ? numDynamicRows : 0;
 	
 	if ( rowNumber >= dynamicOffset && rowNumber < (dynamicOffset + numDynamicRows) )
 	{
 		
 		
-		int targetRow = rowNumber - dynamicOffset;
-		int rowCount = 0;
+		NSInteger targetRow = rowNumber - dynamicOffset;
+		NSInteger rowCount = 0;
 		
 		id chosenObject;
 		AGTableRow *chosenPrototype;
@@ -605,7 +605,7 @@
 	
 	if ( rowNumber >= staticOffset && rowNumber < (staticOffset + numStatic) )
 	{
-		int desiredRowNum = rowNumber - staticOffset;
+		NSInteger desiredRowNum = rowNumber - staticOffset;
 		AGTableRow *foundRow = nil;
 		
 		int i=0;
@@ -630,12 +630,12 @@
 	}
 	
 	
-	[NSException raise:@"Invalid row number" format:@"Something odd happened finding row %i: numD %i, numS %i, dO %i, sO %i", rowNumber, numDynamicObjects, numStatic, dynamicOffset, staticOffset];
+	[NSException raise:@"Invalid row number" format:@"Something odd happened finding row %li: numD %li, numS %li, dO %li, sO %li", (long)rowNumber, (long)numDynamicObjects, (long)numStatic, (long)dynamicOffset, (long)staticOffset];
 	return nil;	
 }
 
 
-- (AGTableRow*)_rowForStaticSectionRowNumber:(int)rowNumber
+- (AGTableRow*)_rowForStaticSectionRowNumber:(NSInteger)rowNumber
 {
 	AGTableRow *foundRow = nil;
 	
@@ -662,7 +662,7 @@
 }
 
 
-- (int)_numberOfStaticVisibleRows
+- (NSInteger)_numberOfStaticVisibleRows
 {
 	int i=0;
 	if (self.mode != sectionModeDynamic)
@@ -678,7 +678,7 @@
 	return i;
 }
 
-- (int)_numberOfDynamicObjects
+- (NSInteger)_numberOfDynamicObjects
 {
 	if (self.dynamicArrayBindingObject)
 	{
@@ -690,7 +690,7 @@
 	return [self.controller.delegate tableDataController:self.controller numberOfDynamicObjectsInSection:self];
 }
 
-- (id) objectForDynamicRowNumber:(int)num
+- (id) objectForDynamicRowNumber:(NSInteger)num
 {
 	if (self.dynamicArrayBindingObject)
 	{
@@ -780,7 +780,7 @@
 #pragma mark Doing things to rows
 
 
-- (AGTableRow*)_staticRowForTag:(int)aTag;
+- (AGTableRow*)_staticRowForTag:(NSInteger)aTag;
 {
 	for (AGTableRow *r in self.rows)
 	{

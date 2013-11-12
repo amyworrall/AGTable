@@ -542,7 +542,7 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 
 - (void)saveTextField:(UITextField*)textField
 {
-	int tfTag = [textField tag];
+	NSInteger tfTag = [textField tag];
 	NSNumber *tagNumber = @(tfTag);
 	
 	NSString *content = [textField text];

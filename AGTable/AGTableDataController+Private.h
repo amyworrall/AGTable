@@ -41,7 +41,7 @@
 - (BOOL)canPerformActionForRow:(AGTableRow*)row;
 - (void) textFieldDidEndEditing:(UITextField *)textField forRow:(AGTableRow*)row;
 - (void)textFieldShouldReturn:(UITextField*)textField forRow:(AGTableRow*)row;
-- (int)indexOfDynamicObjectAtTableIndexPath:(NSIndexPath*)indexPath;
+- (NSInteger)indexOfDynamicObjectAtTableIndexPath:(NSIndexPath*)indexPath;
 
 // Array observing for dynamic objects
 - (void)_sectionReloadDueToDynamicObjectArrayKVO:(AGTableSection*)section;

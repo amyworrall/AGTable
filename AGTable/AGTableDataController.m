@@ -169,13 +169,13 @@
 	_justReloading = NO;
 }
 
-- (AGTableSection*)sectionForTableSectionNumber:(int)index localSectionNumber:(int*)localIndex
+- (AGTableSection*)sectionForTableSectionNumber:(NSInteger)index localSectionNumber:(NSInteger*)localIndex
 {
-	int sectionCounter = 0;
+	NSInteger sectionCounter = 0;
 	for (AGTableSection *s in self.sections_mutable)
 	{
-		int num = [s _numberOfVisibleTableSections];
-		int after = sectionCounter + num;
+		NSInteger num = [s _numberOfVisibleTableSections];
+		NSInteger after = sectionCounter + num;
 		
 		if (index < after)
 		{
@@ -188,9 +188,9 @@
 	return nil;
 }
 
-- (int)sectionNumberForSection:(AGTableSection*)section localSectionNumber:(int)localNum;
+- (NSInteger)sectionNumberForSection:(AGTableSection*)section localSectionNumber:(NSInteger)localNum;
 {
-	int sectionCounter = 0;
+	NSInteger sectionCounter = 0;
 	
 	for (AGTableSection *s in self.sections_mutable)
 	{
@@ -206,7 +206,7 @@
 
 - (AGTableRow*)rowForTableIndexPath:(NSIndexPath*)indexPath;
 {
-	int local;
+	NSInteger local;
 	AGTableSection *s = [self sectionForTableSectionNumber:indexPath.section localSectionNumber:&local];
 	
 	NSIndexPath *localIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:local];
@@ -220,9 +220,9 @@
 	NSAssert(row.isStaticRow, @"previousIndexPathForRow only supports static rows");
 	
 	AGTableSection *s = row.section;
-	int local = [s _internalSectionNumberForStaticSection];
+	NSInteger local = [s _internalSectionNumberForStaticSection];
 	
-	int sNum = [self sectionNumberForSection:s localSectionNumber:local];
+	NSInteger sNum = [self sectionNumberForSection:s localSectionNumber:local];
 	
 	return [NSIndexPath indexPathForRow:row.rowNumber inSection:sNum];
 }
@@ -232,27 +232,27 @@
 {
 	NSAssert(row.isStaticRow, @"newIndexPathForRow only supports static rows");
 	
-	int local;
-	int rowNum = [row.section _rowNumberForRow:row internalSection:&local];
+	NSInteger local;
+	NSInteger rowNum = [row.section _rowNumberForRow:row internalSection:&local];
 	
-	int sectionNum = [self sectionNumberForSection:row.section localSectionNumber:local];
+	NSInteger sectionNum = [self sectionNumberForSection:row.section localSectionNumber:local];
 	return [NSIndexPath indexPathForRow:rowNum inSection:sectionNum];
 }
 
 
-- (int)indexOfDynamicObjectAtTableIndexPath:(NSIndexPath*)indexPath
+- (NSInteger)indexOfDynamicObjectAtTableIndexPath:(NSIndexPath*)indexPath
 {
-	int local;
+	NSInteger local;
 	AGTableSection *s = [self sectionForTableSectionNumber:indexPath.section localSectionNumber:&local];
 	
 	NSIndexPath *p = [NSIndexPath indexPathForRow:indexPath.row inSection:local];
 	return [s _dynamicObjectIndexForInternalIndexPath:p];
 }
 
-- (NSIndexPath*)indexPathForDynamicObjectIndex:(int)index inSection:(AGTableSection*)s
+- (NSIndexPath*)indexPathForDynamicObjectIndex:(NSInteger)index inSection:(AGTableSection*)s
 {
 	NSIndexPath *p = [s _internalIndexPathForDynamicObjectIndex:index];
-	int sNum = [self sectionNumberForSection:s localSectionNumber:p.section];
+	NSInteger sNum = [self sectionNumberForSection:s localSectionNumber:p.section];
 	return [NSIndexPath indexPathForRow:p.row inSection:sNum];
 }
 
@@ -313,8 +313,8 @@
 		return;
 	}
 	
-	int cachedSections = row.section.cachedNumSections;
-	int noCachedSections = [row.section _numberOfVisibleTableSections_nocache];
+	NSInteger cachedSections = row.section.cachedNumSections;
+	NSInteger noCachedSections = [row.section _numberOfVisibleTableSections_nocache];
 
 	if (cachedSections != noCachedSections)
 	{
@@ -433,7 +433,7 @@
 		
 		if (row.section.cachedNumSections == 0 && [row.section _numberOfVisibleTableSections] == 1)
 		{
-			int sectionNum = [self sectionNumberForSection:row.section localSectionNumber:0];
+			NSInteger sectionNum = [self sectionNumberForSection:row.section localSectionNumber:0];
 			[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionNum] withRowAnimation:UITableViewRowAnimationFade];
 		}
 		else if (row.section.cachedNumSections == 1 && [row.section _numberOfVisibleTableSections] == 0)
@@ -532,10 +532,10 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionNum
 {
-	int local;
+	NSInteger local;
 	AGTableSection *s = [self sectionForTableSectionNumber:sectionNum localSectionNumber:&local];
 	
-	int retval = [s _numberOfRowsInInternalSectionNumber:local];
+	NSInteger retval = [s _numberOfRowsInInternalSectionNumber:local];
 	
 	return retval;
 }
@@ -718,7 +718,7 @@
 		else if ([cellClass isEqual:[UITableViewCell class]])
 		{
 			// possible optimisation: use a switch and constant strings, to get pointer comparisons.
-			reuseIdentifier = [NSString stringWithFormat:@"UITableViewCell-%i-%@-%@-%p", style, row.textFieldBoundToProperty, NSStringFromSelector(row.initialSetupSelector), row.initialSetupBlock];
+			reuseIdentifier = [NSString stringWithFormat:@"UITableViewCell-%li-%@-%@-%p", style, row.textFieldBoundToProperty, NSStringFromSelector(row.initialSetupSelector), row.initialSetupBlock];
 			reuseIdentifier = @"Bob";
 		}
 		else
@@ -1151,8 +1151,8 @@
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath 
 {
 	AGTableRow *row = [self rowForTableIndexPath:sourceIndexPath];
-	int dynamicIndex = [self indexOfDynamicObjectAtTableIndexPath:sourceIndexPath];
-	int newDynamicIndex = [self indexOfDynamicObjectAtTableIndexPath:destinationIndexPath];
+	NSInteger dynamicIndex = [self indexOfDynamicObjectAtTableIndexPath:sourceIndexPath];
+	NSInteger newDynamicIndex = [self indexOfDynamicObjectAtTableIndexPath:destinationIndexPath];
 	
 	if (dynamicIndex == newDynamicIndex)
 	{
@@ -1165,7 +1165,7 @@
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
 	// Returns the title if the table section is the first one for the local section of the section.
-	int local;
+	NSInteger local;
 	AGTableSection *s = [self sectionForTableSectionNumber:section localSectionNumber:&local];
 	
 	if (local>0)
@@ -1177,7 +1177,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionNum
 {
-	int local;
+	NSInteger local;
 	AGTableSection *section = [self sectionForTableSectionNumber:sectionNum localSectionNumber:&local];
 	UIView *hv = [section headerView];
 	
@@ -1204,7 +1204,7 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	int local;
+	NSInteger local;
 	AGTableSection *s = [self sectionForTableSectionNumber:section localSectionNumber:&local];
 	
 	
@@ -1236,7 +1236,7 @@
 
 - (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-	int local;
+	NSInteger local;
 	AGTableSection *s = [self sectionForTableSectionNumber:section localSectionNumber:&local];
 	
 	if (local != ([s _numberOfVisibleTableSections]-1))
@@ -1249,7 +1249,7 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-	int local;
+	NSInteger local;
 	AGTableSection *s = [self sectionForTableSectionNumber:section localSectionNumber:&local];
 	
 
@@ -1371,7 +1371,7 @@
 	
 	if ([s _numberOfVisibleTableSections] > [s _numberOfVisibleTableSections_nocache] && [s _numberOfVisibleTableSections_nocache]==0)
 	{
-		NSLog(@"[A] deleting section %i", p.section);
+		NSLog(@"[A] deleting section %li", (long)p.section);
 //		[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:p.section] withRowAnimation:UITableViewRowAnimationAutomatic];
 		// ^ removed since it conflicts with our handling of contentChanged: (the one where you toggle visibility of static rows)
 		[self reloadTableView];
@@ -1413,7 +1413,7 @@
 
 - (void)_sectionReloadDueToDynamicObjectArrayKVO:(AGTableSection*)section
 {
-	int numInternalSections = [section _numberOfVisibleTableSections];
+	NSInteger numInternalSections = [section _numberOfVisibleTableSections];
 	
 	if (numInternalSections > 0)
 	{
@@ -1422,7 +1422,7 @@
 		return;
 	}
 	
-	int sectionNum = [self sectionNumberForSection:section localSectionNumber:0];
+	NSInteger sectionNum = [self sectionNumberForSection:section localSectionNumber:0];
 	
 
 	if ([section _numberOfVisibleTableSections] == 0 || [section _numberOfRowsInInternalSectionNumber:0] == 0)
