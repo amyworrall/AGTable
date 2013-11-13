@@ -36,6 +36,7 @@ extern NSString * const AGBindingOptionRegisterForEditingEvents ;
 extern NSString * const AGBindingOptionsValueTransformer ;
 extern NSString * const AGBindingOptionsUseValueTransformerInReverse ;
 extern NSString * const AGBindingOptionsFormatter;
+extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 
 @class AGTableDataController;
 @class AGTableSection;

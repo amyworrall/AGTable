@@ -25,6 +25,7 @@ NSString * const AGBindingOptionRegisterForEditingEvents = @"AGBindingOptionRegi
 NSString * const AGBindingOptionsValueTransformer = @"AGBindingOptionsValueTransformer";
 NSString * const AGBindingOptionsFormatter = @"AGBindingOptionsFormatter";
 NSString * const AGBindingOptionsUseValueTransformerInReverse = @"AGBindingOptionsUseValueTransformerInReverse";
+NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates = @"AGBindingOptionsCellNeedsLayoutOnUpdates";
 
 - (id)init
 {
@@ -218,6 +219,12 @@ NSString * const AGBindingOptionsUseValueTransformerInReverse = @"AGBindingOptio
 	self.currentlyUpdatingView = YES;
 
 	[view setValue:modelValue forKeyPath:self.viewKeypath];
+	
+	if ([self boolForOption:AGBindingOptionsCellNeedsLayoutOnUpdates])
+	{
+		[view setNeedsLayout];
+	}
+	
 	self.currentlyUpdatingView = NO;
 }
 
