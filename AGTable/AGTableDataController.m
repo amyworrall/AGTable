@@ -820,6 +820,8 @@
 	
 	cell.tag = row.tag;
 	
+	cell.accessoryView = row.accessoryView;
+	
 	if ([row.optionFieldBoundToProperty length]>0)
 	{
 		id aValue = [self.delegate valueForKeyPath:row.optionFieldBoundToProperty];

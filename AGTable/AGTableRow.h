@@ -187,6 +187,7 @@ extern NSString * const AGBindingOptionsFormatter;
 
 // The type of cell accessory. If not defined, AGTable will automatically add a cheveron if an action is present.
 @property (nonatomic, assign) UITableViewCellAccessoryType accessoryType;
+@property (nonatomic, strong) UIView *accessoryView;
 
 // Some properties common to UITableViewCells
 @property (assign) UITableViewCellSelectionStyle selectionStyle;
