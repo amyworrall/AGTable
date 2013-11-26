@@ -1188,19 +1188,7 @@
 		return nil;
 	}
 	
-	if (sectionNum == 0 && hv)
-	{
-		if (section.cachedHeaderEnclosingView)
-		{
-			return section.cachedHeaderEnclosingView;
-		}
-		
-		UIView *container = [[UIView alloc] initWithFrame:CGRectMake(hv.frame.origin.x, hv.frame.origin.y, hv.frame.size.width, hv.frame.size.height+10.0)];
-		[container addSubview:hv];
-		hv.frame = CGRectMake(hv.frame.origin.x, 10.0, hv.frame.size.width, hv.frame.size.height);
-		section.cachedHeaderEnclosingView = container;
-		return container;
-	}
+	
 	return hv;
 }
 
@@ -1225,7 +1213,7 @@
 	
 	if (hv)
 	{
-		return (section == 0) ? hv.bounds.size.height + 10.0 : hv.bounds.size.height;
+		return hv.bounds.size.height;
 	}
 	
 	if ([[s title] length]>0)
