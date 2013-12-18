@@ -723,31 +723,31 @@
 	{
 		NSIndexSet *set = [change objectForKey:NSKeyValueChangeIndexesKey];
 		
-		[self.controller beginUpdates];
+//		[self.controller beginUpdates];
 		[set enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
 			[self.controller section:self insertedDynamicObjectAtIndex:idx];
 		}];
-		[self.controller endUpdates];
+//		[self.controller endUpdates];
 	}
 	else if (changeType == NSKeyValueChangeRemoval)
 	{
 		NSIndexSet *set = [change objectForKey:NSKeyValueChangeIndexesKey];
 		
-		[self.controller beginUpdates];
+//		[self.controller beginUpdates];
 		[set enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
 			[self.controller section:self deletedDynamicObjectAtIndex:idx];
 		}];
-		[self.controller endUpdates];
+//		[self.controller endUpdates];
 	}
 	else if (changeType == NSKeyValueChangeReplacement)
 	{
 		NSIndexSet *set = [change objectForKey:NSKeyValueChangeIndexesKey];
 		
-		[self.controller beginUpdates];
+//		[self.controller beginUpdates];
 		[set enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
 			[self.controller section:self replacedDynamicObjectAtIndex:idx];
 		}];
-		[self.controller endUpdates];
+//		[self.controller endUpdates];
 	}
 	
 }
