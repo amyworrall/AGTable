@@ -1216,12 +1216,12 @@
 		return hv.bounds.size.height;
 	}
 	
-	if ([[s title] length]>0)
-	{
-		return (section == 0) ? 46.0 : 36.0;
-	}
+//	if ([[s title] length]>0)
+//	{
+//		return (section == 0) ? 46.0 : 36.0;
+//	}
 	
-	return 0;
+	return -1;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
