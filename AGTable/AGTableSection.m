@@ -216,7 +216,11 @@
 		
 		if (self.mode != sectionModeStatic)
 		{
-			i += [self _numberOfDynamicObjects] * [self _numberOfRowPrototypes];
+			for (int j=0; j<[self _numberOfDynamicObjects]; j++)
+			{
+				id object = [self objectForDynamicRowNumber:j];
+				i += [self _numberOfRowPrototypesToShowForObject:object];
+			}
 		}
 		return i;
 	}
@@ -552,7 +556,6 @@
 	{
 		count += [self _numberOfRowPrototypesToShowForObject:[self objectForDynamicRowNumber:i]];
 	}
-	
 	return count;
 }
 
