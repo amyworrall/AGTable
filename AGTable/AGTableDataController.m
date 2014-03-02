@@ -557,6 +557,17 @@
 	return cellClass;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	AGTableRow *row = [self rowForTableIndexPath:indexPath];
+	
+	if (row.estimatedHeight > 0)
+	{
+		return row.estimatedHeight;
+	}
+	return UITableViewAutomaticDimension;
+}
+
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	AGTableRow *row = [self rowForTableIndexPath:indexPath];
@@ -1216,12 +1227,12 @@
 		return hv.bounds.size.height;
 	}
 	
-	if ([[s title] length]>0)
-	{
-		return (section == 0) ? 46.0 : 36.0;
-	}
+//	if ([[s title] length]>0)
+//	{
+//		return (section == 0) ? 46.0 : 36.0;
+//	}
 	
-	return 0;
+	return -1;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

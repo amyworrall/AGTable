@@ -216,7 +216,11 @@
 		
 		if (self.mode != sectionModeStatic)
 		{
-			i += [self _numberOfDynamicObjects] * [self _numberOfRowPrototypes];
+			for (int j=0; j<[self _numberOfDynamicObjects]; j++)
+			{
+				id object = [self objectForDynamicRowNumber:j];
+				i += [self _numberOfRowPrototypesToShowForObject:object];
+			}
 		}
 		return i;
 	}
@@ -552,7 +556,6 @@
 	{
 		count += [self _numberOfRowPrototypesToShowForObject:[self objectForDynamicRowNumber:i]];
 	}
-	
 	return count;
 }
 
@@ -723,31 +726,31 @@
 	{
 		NSIndexSet *set = [change objectForKey:NSKeyValueChangeIndexesKey];
 		
-		[self.controller beginUpdates];
+//		[self.controller beginUpdates];
 		[set enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
 			[self.controller section:self insertedDynamicObjectAtIndex:idx];
 		}];
-		[self.controller endUpdates];
+//		[self.controller endUpdates];
 	}
 	else if (changeType == NSKeyValueChangeRemoval)
 	{
 		NSIndexSet *set = [change objectForKey:NSKeyValueChangeIndexesKey];
 		
-		[self.controller beginUpdates];
+//		[self.controller beginUpdates];
 		[set enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
 			[self.controller section:self deletedDynamicObjectAtIndex:idx];
 		}];
-		[self.controller endUpdates];
+//		[self.controller endUpdates];
 	}
 	else if (changeType == NSKeyValueChangeReplacement)
 	{
 		NSIndexSet *set = [change objectForKey:NSKeyValueChangeIndexesKey];
 		
-		[self.controller beginUpdates];
+//		[self.controller beginUpdates];
 		[set enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
 			[self.controller section:self replacedDynamicObjectAtIndex:idx];
 		}];
-		[self.controller endUpdates];
+//		[self.controller endUpdates];
 	}
 	
 }
