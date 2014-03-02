@@ -143,6 +143,9 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 
 #pragma mark - Cell height
 
+// An estimated height for the row
+@property (assign) CGFloat estimatedHeight;
+
 // The height of the UITableView row for this AGTableRow.
 @property (assign) CGFloat rowHeight;
 
