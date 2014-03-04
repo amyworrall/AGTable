@@ -29,6 +29,8 @@
 
 @property (nonatomic, strong) NSMapTable *cellHeightPrototypesForReuseIdentifiers;
 
+@property (nonatomic, assign) NSInteger cachedRespondsToVisibilityDynamicSelector;
+
 @end
 
 @implementation AGTableDataController
@@ -65,6 +67,7 @@
 		self.indexPathsToReload = [NSMutableArray new];
 		
 		self.previousNumberOfSections = NSIntegerMax;
+		self.cachedRespondsToVisibilityDynamicSelector = NSNotFound;
 		
 	}
 	return self;
@@ -475,11 +478,33 @@
 
 - (BOOL)visibilityForDynamicRow:(AGTableRow*)row;
 {
-	if ([self.delegate respondsToSelector:@selector(tableDataController:prototypeVisibilityForDynamicRow:)])
+	if ([self delegateImplementsDynamicRowVisibility])
 	{
 		return [self.delegate tableDataController:self prototypeVisibilityForDynamicRow:row];
 	}
 	return YES;
+}
+
+- (BOOL)delegateImplementsDynamicRowVisibility;
+{
+	if (self.cachedRespondsToVisibilityDynamicSelector != NSNotFound)
+	{
+		if (self.cachedRespondsToVisibilityDynamicSelector)
+		{
+			return YES;
+		}
+		else
+		{
+			return NO;
+		}
+	}
+	if ([self.delegate respondsToSelector:@selector(tableDataController:prototypeVisibilityForDynamicRow:)])
+	{
+		self.cachedRespondsToVisibilityDynamicSelector = (NSInteger)YES;
+		return YES;
+	}
+	self.cachedRespondsToVisibilityDynamicSelector = (NSInteger)NO;
+	return NO;
 }
 
 - (BOOL)canPerformActionForRow:(AGTableRow*)row

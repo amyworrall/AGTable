@@ -6,6 +6,7 @@
 //
 
 #import "AGTableDataController.h"
+#import "AGTableDataController+Private.h"
 #import "AGTableSection.h"
 #import "AGTableSection+Private.h"
 #import "AGTableRow.h"
@@ -18,6 +19,8 @@
 }
 @property (nonatomic, weak) id dynamicArrayBindingObject;
 @property (nonatomic, copy) NSString *dynamicArrayBindingKeypath;
+@property (nonatomic, assign) NSInteger cachedNumDynamicObjects;
+@property (nonatomic, assign) NSInteger cachedNumDynamicRows;
 
 @end
 
@@ -54,6 +57,8 @@
 		self.rowPrototypes = [NSMutableArray array];
 		self.tableRowsPerDynamicObject = 1;
 		self.cachedNumSections = NSNotFound;
+		self.cachedNumDynamicObjects = NSNotFound;
+		self.cachedNumDynamicRows = NSNotFound;
 	}
 	return self;
 }
@@ -551,11 +556,18 @@
 		return 0;
 	}
 	
+	// TODO: this cache is only useful when we're doing bindings. Otherwise, how would we invalidate it? TODO come up with a way to invalidate it.
+	if (self.cachedNumDynamicRows != NSNotFound && self.dynamicArrayBindingObject)
+	{
+		return self.cachedNumDynamicRows;
+	}
+	
 	NSUInteger count = 0;
 	for (int i=0; i<self._numberOfDynamicObjects; i++)
 	{
 		count += [self _numberOfRowPrototypesToShowForObject:[self objectForDynamicRowNumber:i]];
 	}
+	self.cachedNumDynamicRows = count;
 	return count;
 }
 
@@ -570,8 +582,6 @@
 	
 	if ( rowNumber >= dynamicOffset && rowNumber < (dynamicOffset + numDynamicRows) )
 	{
-		
-		
 		NSInteger targetRow = rowNumber - dynamicOffset;
 		NSInteger rowCount = 0;
 		
@@ -579,31 +589,41 @@
 		AGTableRow *chosenPrototype;
 		NSUInteger chosenIndex = NSNotFound;
 		
-		for (int i=0; i<[self _numberOfDynamicObjects]; i++)
+		if (![self.controller delegateImplementsDynamicRowVisibility])
 		{
-			id object = [self objectForDynamicRowNumber:i];
+			int prototypeNum = targetRow % self.rowPrototypes.count;
+			int objectNum = (targetRow / self.rowPrototypes.count);
 			
-			for (AGTableRow *aPrototype in [self _prototypesToShowForObject:object])
-			{
-				
-				if (rowCount == targetRow)
-				{
-					chosenObject = object;
-					chosenPrototype = aPrototype;
-					chosenIndex = i;
-				}
-				rowCount++;
-			}
+			chosenPrototype = self.rowPrototypes[prototypeNum];
+			chosenPrototype.object = [self objectForDynamicRowNumber:objectNum];
+			chosenPrototype.rowNumber = rowNumber;
+			chosenPrototype.dynamicObjectIndex = chosenIndex;
+			return chosenPrototype;
 		}
-		
-		chosenPrototype.object = chosenObject;
-		chosenPrototype.rowNumber = rowNumber;
-		chosenPrototype.dynamicObjectIndex = chosenIndex;
-
-		
-		
-
-		return chosenPrototype;
+		else // Have to do it the long way
+		{
+			for (int i=0; i<[self _numberOfDynamicObjects]; i++)
+			{
+				id object = [self objectForDynamicRowNumber:i];
+				
+				for (AGTableRow *aPrototype in [self _prototypesToShowForObject:object])
+				{
+					
+					if (rowCount == targetRow)
+					{
+						chosenObject = object;
+						chosenPrototype = aPrototype;
+						chosenIndex = i;
+					}
+					rowCount++;
+				}
+			}
+			
+			chosenPrototype.object = chosenObject;
+			chosenPrototype.rowNumber = rowNumber;
+			chosenPrototype.dynamicObjectIndex = chosenIndex;
+			return chosenPrototype;
+		}
 	}
 	
 	if ( rowNumber >= staticOffset && rowNumber < (staticOffset + numStatic) )
@@ -685,8 +705,13 @@
 {
 	if (self.dynamicArrayBindingObject)
 	{
+		if (self.cachedNumDynamicObjects != NSNotFound)
+		{
+			return self.cachedNumDynamicObjects;
+		}
 		NSArray *array = [self.dynamicArrayBindingObject valueForKeyPath:self.dynamicArrayBindingKeypath];
-		return array.count;
+		self.cachedNumDynamicObjects = array.count;
+		return self.cachedNumDynamicObjects;
 	}
 	
 	// just use delegate methods, we're not KVOing
@@ -716,6 +741,9 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	// so far just the dynamic object array, so we assume it's that.
+	self.cachedNumDynamicObjects = NSNotFound;
+	self.cachedNumDynamicRows = NSNotFound;
+	
 	NSInteger changeType = [[change objectForKey:NSKeyValueChangeKindKey] integerValue];
 	
 	if (changeType == NSKeyValueChangeSetting)

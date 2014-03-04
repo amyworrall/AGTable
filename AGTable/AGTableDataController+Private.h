@@ -46,7 +46,7 @@
 // Array observing for dynamic objects
 - (void)_sectionReloadDueToDynamicObjectArrayKVO:(AGTableSection*)section;
 
-
+- (BOOL)delegateImplementsDynamicRowVisibility;
 
 
 @end
