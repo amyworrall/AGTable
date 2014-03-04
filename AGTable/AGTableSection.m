@@ -591,8 +591,8 @@
 		
 		if (![self.controller delegateImplementsDynamicRowVisibility])
 		{
-			int prototypeNum = targetRow % self.rowPrototypes.count;
-			int objectNum = (targetRow / self.rowPrototypes.count);
+			NSInteger prototypeNum = targetRow % self.rowPrototypes.count;
+			NSInteger objectNum = (targetRow / self.rowPrototypes.count);
 			
 			chosenPrototype = self.rowPrototypes[prototypeNum];
 			chosenPrototype.object = [self objectForDynamicRowNumber:objectNum];
