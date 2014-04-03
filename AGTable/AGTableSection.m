@@ -56,9 +56,9 @@
 		self.rows = [NSMutableArray array];
 		self.rowPrototypes = [NSMutableArray array];
 		self.tableRowsPerDynamicObject = 1;
-		self.cachedNumSections = NSNotFound;
-		self.cachedNumDynamicObjects = NSNotFound;
-		self.cachedNumDynamicRows = NSNotFound;
+		self.cachedNumSections = (int)NSNotFound;
+		self.cachedNumDynamicObjects = (int)NSNotFound;
+		self.cachedNumDynamicRows = (int)NSNotFound;
 	}
 	return self;
 }
@@ -790,7 +790,7 @@
 	{
 		[row cacheVisibility];
 	}
-	self.cachedNumSections = [self _numberOfVisibleTableSections_nocache];
+	self.cachedNumSections = (int)[self _numberOfVisibleTableSections_nocache];
 	
 	for (int i=0; i<self.cachedNumSections; i++)
 	{
