@@ -80,13 +80,13 @@ enum rowTags {
 #pragma mark AGTableDataController delegate methods
 
 
-- (NSInteger)numberOfRowsInSection:(int)sectionTag tableDataController:(AGTableDataController*)c
+- (NSInteger)numberOfRowsInSection:(NSInteger)sectionTag tableDataController:(AGTableDataController*)c
 {
 	return 0;
 }
 
 
-- (id)objectForRow:(int)row inSection:(int)sectionTag tableDataController:(AGTableDataController*)c
+- (id)objectForRow:(NSInteger)row inSection:(NSInteger)sectionTag tableDataController:(AGTableDataController*)c
 {
 	return nil;
 }

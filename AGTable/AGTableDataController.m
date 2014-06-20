@@ -130,7 +130,7 @@
 	[((AGTableSection*)[self.sections_mutable lastObject]).rows addObject:row];
 }
 
-- (void)addRow:(AGTableRow*)row toSection:(int)sectionTag;
+- (void)addRow:(AGTableRow*)row toSection:(NSInteger)sectionTag;
 {
 	NSAssert(false, @"Deprecated this method of adding rows");
 	row.controller = self;
@@ -262,7 +262,7 @@
 #pragma mark -
 #pragma mark Other section/row getters
 
-- (AGTableSection*)sectionForSectionTag:(int)tag
+- (AGTableSection*)sectionForSectionTag:(NSInteger)tag
 {
 	for (AGTableSection *s in self.sections_mutable)
 	{
@@ -1350,7 +1350,7 @@
 }
 
 
-- (void)reloadSectionTagged:(int)sectionTag animation:(UITableViewRowAnimation)animation
+- (void)reloadSectionTagged:(NSInteger)sectionTag animation:(UITableViewRowAnimation)animation
 {
 
 }
@@ -1423,7 +1423,7 @@
 
 
 
-- (void)refreshRowTagged:(int)rowTag inSection:(int)sectionTag
+- (void)refreshRowTagged:(NSInteger)rowTag inSection:(NSInteger)sectionTag
 {
 	
 	AGTableSection *s = [self sectionForSectionTag:sectionTag];

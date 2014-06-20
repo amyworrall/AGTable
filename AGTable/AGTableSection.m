@@ -56,9 +56,9 @@
 		self.rows = [NSMutableArray array];
 		self.rowPrototypes = [NSMutableArray array];
 		self.tableRowsPerDynamicObject = 1;
-		self.cachedNumSections = (int)NSNotFound;
-		self.cachedNumDynamicObjects = (int)NSNotFound;
-		self.cachedNumDynamicRows = (int)NSNotFound;
+		self.cachedNumSections = NSNotFound;
+		self.cachedNumDynamicObjects = NSNotFound;
+		self.cachedNumDynamicRows = NSNotFound;
 	}
 	return self;
 }
@@ -213,7 +213,7 @@
 	return _internalSectionsRowCache[sectionNumber];
 }
 
-- (NSInteger)_numberOfRowsInInternalSectionNumber_nocache:(int)sectionNumber
+- (NSInteger)_numberOfRowsInInternalSectionNumber_nocache:(NSInteger)sectionNumber
 {
 	if ([self.dynamicRowsSectionSplitKeypath length]==0 || self.mode == sectionModeStatic || [self _numberOfDynamicObjects]==0)
 	{
@@ -288,7 +288,7 @@
 		
 
 	}
-	[NSException raise:@"Couldn't count section" format:@"Something odd happened counting section with internal number %i", sectionNumber];
+	[NSException raise:@"Couldn't count section" format:@"Something odd happened counting section with internal number %li", (long)sectionNumber];
 	return NSNotFound;	
 }
 
@@ -701,6 +701,10 @@
 	return i;
 }
 
+- (void)setCachedNumDynamicObjects:(NSInteger)cachedNumDynamicObjects {
+	_cachedNumDynamicObjects = cachedNumDynamicObjects;
+}
+
 - (NSInteger)_numberOfDynamicObjects
 {
 	if (self.dynamicArrayBindingObject)
@@ -790,7 +794,7 @@
 	{
 		[row cacheVisibility];
 	}
-	self.cachedNumSections = (int)[self _numberOfVisibleTableSections_nocache];
+	self.cachedNumSections = [self _numberOfVisibleTableSections_nocache];
 	
 	for (int i=0; i<self.cachedNumSections; i++)
 	{
@@ -801,10 +805,6 @@
 	}
 }
 
-- (void)setCachedNumSections:(int)i
-{
-	_cachedNumSections = i;
-}
 
 
 #pragma mark -
