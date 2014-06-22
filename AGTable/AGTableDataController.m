@@ -1323,6 +1323,10 @@
 		self.hasDoneAutoFocus = YES;
 		[[cell viewWithTag:defaultTextfieldTag] becomeFirstResponder];
 	}
+	
+	if (row.willDisplayBlock) {
+		row.willDisplayBlock(row, cell, indexPath);
+	}
 }
 
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

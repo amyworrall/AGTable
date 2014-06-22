@@ -13,6 +13,7 @@ typedef void(^CellSetupBlock)(UITableViewCell **cell, AGTableRow *row);
 typedef void(^CellConfigBlock)(UITableViewCell *cell, AGTableRow *row);
 typedef void(^CellActionBlock)(AGTableRow *row);
 typedef int(^CellHeightBlock)(AGTableRow *row);
+typedef void(^WillDisplayBlock)(AGTableRow *row, UITableViewCell *cell, NSIndexPath *indexPath);
 
 #define defaultTextfieldTag 9999
 
@@ -149,6 +150,8 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 // The height of the UITableView row for this AGTableRow.
 @property (assign) CGFloat rowHeight;
 
+
+@property (copy) WillDisplayBlock willDisplayBlock;
 
 // A block or selector that is invoked to allow you to calculate the height yourself.
 @property (copy) CellHeightBlock heightBlock;
