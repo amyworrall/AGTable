@@ -12,7 +12,7 @@
 @property (nonatomic, assign) int tableRowsPerDynamicObject;
 @property (nonatomic, strong) UIView *cachedHeaderEnclosingView;
 @property (nonatomic, assign) BOOL cachedVisibility; // old, bool value.
-@property (nonatomic,assign) int cachedNumSections; // the total number of UITable… sections for this AGSection. Includes one for static rows if applicable.
+@property (nonatomic,assign) NSInteger cachedNumSections; // the total number of UITable… sections for this AGSection. Includes one for static rows if applicable.
 @property (nonatomic, copy) NSString *dynamicObjectsArrayKeypath;
 
 

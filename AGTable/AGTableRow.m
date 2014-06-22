@@ -97,7 +97,7 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	
 }
 
-- (void) bind:(id)anObject keypath:(NSString*)objectKeypath toViewWithTag:(int)tag keypath:(NSString*)viewKeypath options:(NSDictionary*)options;
+- (void) bind:(id)anObject keypath:(NSString*)objectKeypath toViewWithTag:(NSInteger)tag keypath:(NSString*)viewKeypath options:(NSDictionary*)options;
 {
 	AGBinding *binding = [[AGBinding alloc] init];
 	binding.modelObject = anObject;
@@ -125,7 +125,7 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 
 }
 
-- (void) bindDataObjectKeypath:(NSString*)rowObjectKeypath toViewWithTag:(int)tag keypath:(NSString*)viewKeypath options:(NSDictionary*)options;
+- (void) bindDataObjectKeypath:(NSString*)rowObjectKeypath toViewWithTag:(NSInteger)tag keypath:(NSString*)viewKeypath options:(NSDictionary*)options;
 {
 	AGBinding *binding = [[AGBinding alloc] init];
 	binding.modelObject = self.object;
@@ -144,7 +144,7 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	
 }
 
-- (void) unbind:(id)anObject keypath:(NSString*)objectKeypath viewWithTag:(int)tag keypath:(NSString*)viewKeypath;
+- (void) unbind:(id)anObject keypath:(NSString*)objectKeypath viewWithTag:(NSInteger)tag keypath:(NSString*)viewKeypath;
 {
 	
 }
@@ -154,7 +154,7 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	
 }
 
-- (void) unbindDataObjectKeypath:(NSString*)rowObjectKeypath viewWithTag:(int)tag keypath:(NSString*)viewKeypath;
+- (void) unbindDataObjectKeypath:(NSString*)rowObjectKeypath viewWithTag:(NSInteger)tag keypath:(NSString*)viewKeypath;
 {
 	
 }
@@ -533,7 +533,7 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	[self bindTextFieldTagged:defaultTextfieldTag toDelegatePropertyNamed:aProperty observeChanges:YES];
 }
 
-- (void)bindTextFieldTagged:(int)textFieldTag toDelegatePropertyNamed:(NSString*)property observeChanges:(BOOL)observe;
+- (void)bindTextFieldTagged:(NSInteger)textFieldTag toDelegatePropertyNamed:(NSString*)property observeChanges:(BOOL)observe;
 {
 //#warning Observing changes not yet implemented
 	

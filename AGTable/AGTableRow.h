@@ -234,7 +234,7 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 
 // A way to bind text fields with arbitrary tags to different properties.
 // This method is deprecated and should be replaced with -[AGTableRow bind:keypath:toViewWithTag:keypath:options:] with AGBindingOptionRegisterForEditingEvents
-- (void)bindTextFieldTagged:(int)textFieldTag toDelegatePropertyNamed:(NSString*)property observeChanges:(BOOL)observe; 
+- (void)bindTextFieldTagged:(NSInteger)textFieldTag toDelegatePropertyNamed:(NSString*)property observeChanges:(BOOL)observe; 
 
 
 
@@ -265,15 +265,15 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 // You can also bind to a view with a certain tag. This lets you avoid subclassing UITableViewCell if you want.
 
 - (void) bind:(id)anObject keypath:(NSString*)objectKeypath toCellKeypath:(NSString*)cellKeypath options:(NSDictionary*)options;
-- (void) bind:(id)anObject keypath:(NSString*)objectKeypath toViewWithTag:(int)tag keypath:(NSString*)viewKeypath options:(NSDictionary*)options;
+- (void) bind:(id)anObject keypath:(NSString*)objectKeypath toViewWithTag:(NSInteger)tag keypath:(NSString*)viewKeypath options:(NSDictionary*)options;
 - (void) bindDataObjectKeypath:(NSString*)rowObjectKeypath toCellKeypath:(NSString*)cellKeypath options:(NSDictionary*)options;
-- (void) bindDataObjectKeypath:(NSString*)rowObjectKeypath toViewWithTag:(int)tag keypath:(NSString*)viewKeypath options:(NSDictionary*)options;
+- (void) bindDataObjectKeypath:(NSString*)rowObjectKeypath toViewWithTag:(NSInteger)tag keypath:(NSString*)viewKeypath options:(NSDictionary*)options;
 
 // Unbinding is yet implemented as of Dec 10 2012
 - (void) unbind:(id)anObject keypath:(NSString*)objectKeypath cellKeypath:(NSString*)cellKeypath;
-- (void) unbind:(id)anObject keypath:(NSString*)objectKeypath viewWithTag:(int)tag keypath:(NSString*)viewKeypath;
+- (void) unbind:(id)anObject keypath:(NSString*)objectKeypath viewWithTag:(NSInteger)tag keypath:(NSString*)viewKeypath;
 - (void) unbindDataObjectKeypath:(NSString*)rowObjectKeypath cellKeypath:(NSString*)cellKeypath;
-- (void) unbindDataObjectKeypath:(NSString*)rowObjectKeypath viewWithTag:(int)tag keypath:(NSString*)viewKeypath;
+- (void) unbindDataObjectKeypath:(NSString*)rowObjectKeypath viewWithTag:(NSInteger)tag keypath:(NSString*)viewKeypath;
 - (void) unbindAll;
 
 // Methods used internally, but may also be useful to expose. These methods interrogate the bindings that exist on the row, and look up the appropriate value from the model.

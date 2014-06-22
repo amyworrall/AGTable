@@ -42,7 +42,7 @@
 - (BOOL)		tableDataController:(AGTableDataController*)c canPerformActionForRow:(AGTableRow*)row;
 
 // If a row has hasInsertAction set to YES, then when the table's in editing mode it'll show the green plus. When the plus is tapped, this method gets called.
-- (int)			tableDataController:(AGTableDataController*)c insertPressedForRow:(AGTableRow*)row;
+- (NSInteger)			tableDataController:(AGTableDataController*)c insertPressedForRow:(AGTableRow*)row;
 
 // Like above, but for hasDeleteAction.
 - (BOOL)		tableDataController:(AGTableDataController*)c deletePressedForRow:(AGTableRow*)row;

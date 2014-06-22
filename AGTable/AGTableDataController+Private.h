@@ -9,10 +9,10 @@
 @interface AGTableDataController ()
 
 - (void)addRow:(AGTableRow*)row;
-- (void)addRow:(AGTableRow*)row toSection:(int)sectionTag;
+- (void)addRow:(AGTableRow*)row toSection:(NSInteger)sectionTag;
 - (void)beginUpdates;
 - (void)endUpdates;
-- (void)refreshRowTagged:(int)rowTag inSection:(int)sectionTag;
+- (void)refreshRowTagged:(NSInteger)rowTag inSection:(NSInteger)sectionTag;
 - (void)commitTextFieldEditingOperations;
 @property (nonatomic, strong) NSMutableArray *sections_mutable;
 
