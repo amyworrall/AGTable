@@ -30,7 +30,6 @@
 		063FE4CB1A327CC6004104B7 /* AGTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C31A327CC6004104B7 /* AGTableSection.m */; };
 		063FE4CC1A327CC6004104B7 /* AGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C41A327CC6004104B7 /* AGTableViewController.m */; };
 		063FE4CD1A327CC6004104B7 /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */; };
-		063FE4CF1A327D15004104B7 /* AGTable-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 063FE4CE1A327D15004104B7 /* AGTable-Info.plist */; };
 		063FE4D11A327D3B004104B7 /* AGTable-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4D01A327D3B004104B7 /* AGTable-Prefix.pch */; };
 		063FE4DC1A327D98004104B7 /* AGTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D31A327D98004104B7 /* AGTableTests.m */; };
 		063FE4DD1A327D98004104B7 /* AGTablePopulatedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D51A327D98004104B7 /* AGTablePopulatedTests.m */; };
@@ -333,7 +332,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				063FE4CF1A327D15004104B7 /* AGTable-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

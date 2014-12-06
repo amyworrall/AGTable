@@ -676,7 +676,7 @@
 		// Ignoring deprecation as we're supporting iOS 5
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-		CGFloat fontHeight = [heightString sizeWithFont:font constrainedToSize:CGSizeMake(width, 4000.0) lineBreakMode:UILineBreakModeWordWrap].height;
+		CGFloat fontHeight = [heightString sizeWithFont:font constrainedToSize:CGSizeMake(width, 4000.0) lineBreakMode:NSLineBreakByWordWrapping].height;
 #pragma clang diagnostic pop
 		
 		return ((fontHeight + 20.0) > 44.0) ? fontHeight + 20.0 : 44.0;
