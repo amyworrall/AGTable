@@ -6,7 +6,6 @@
 //
 
 #import "AGTablePopulatedTests.h"
-#import "AGTableRow.h"
 #import <UIKit/UIKit.h>
 
 @interface AGTablePopulatedTests ()<AGTableDataControllerDelegate>

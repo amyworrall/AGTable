@@ -7,243 +7,223 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E12B60CE166CAC5500F56439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12B60CD166CAC5500F56439 /* Foundation.framework */; };
-		E12B60D4166CAC5500F56439 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12B60D2166CAC5500F56439 /* InfoPlist.strings */; };
-		E12B60DD166CAC5500F56439 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12B60DC166CAC5500F56439 /* SenTestingKit.framework */; };
-		E12B60DF166CAC5500F56439 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12B60DE166CAC5500F56439 /* UIKit.framework */; };
-		E12B60E0166CAC5500F56439 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12B60CD166CAC5500F56439 /* Foundation.framework */; };
-		E12B60E5166CAC5500F56439 /* AGTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12B60CA166CAC5500F56439 /* AGTable.framework */; };
-		E12B60EB166CAC5500F56439 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12B60E9166CAC5500F56439 /* InfoPlist.strings */; };
-		E12B60EE166CAC5500F56439 /* AGTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B60ED166CAC5500F56439 /* AGTableTests.m */; };
-		E12B6102166CAEEF00F56439 /* AGTable.h in Headers */ = {isa = PBXBuildFile; fileRef = E12B60FE166CAED300F56439 /* AGTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E12B6109166CAF2200F56439 /* AGTableDataControllerProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = E12B6103166CAF2200F56439 /* AGTableDataControllerProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E12B610A166CAF2200F56439 /* AGTableDataController.h in Headers */ = {isa = PBXBuildFile; fileRef = E12B6104166CAF2200F56439 /* AGTableDataController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E12B610B166CAF2200F56439 /* AGTableSection.h in Headers */ = {isa = PBXBuildFile; fileRef = E12B6105166CAF2200F56439 /* AGTableSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E12B610C166CAF2200F56439 /* AGTableRow.h in Headers */ = {isa = PBXBuildFile; fileRef = E12B6106166CAF2200F56439 /* AGTableRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E12B610D166CAF2200F56439 /* AGTableChooserViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E12B6107166CAF2200F56439 /* AGTableChooserViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E12B610E166CAF2200F56439 /* AGTableChooserTextFieldViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E12B6108166CAF2200F56439 /* AGTableChooserTextFieldViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E12B6118166CB0C700F56439 /* AGTableDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B6113166CB0C700F56439 /* AGTableDataController.m */; };
-		E12B6119166CB0C700F56439 /* AGTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B6114166CB0C700F56439 /* AGTableSection.m */; };
-		E12B611A166CB0C700F56439 /* AGTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B6115166CB0C700F56439 /* AGTableRow.m */; };
-		E12B611B166CB0C700F56439 /* AGTableChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B6116166CB0C700F56439 /* AGTableChooserViewController.m */; };
-		E12B611C166CB0C700F56439 /* AGTableChooserTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B6117166CB0C700F56439 /* AGTableChooserTextFieldViewController.m */; };
-		E12B6178166CE63D00F56439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12B6177166CE63D00F56439 /* CoreGraphics.framework */; };
-		E12B617C166DFC4E00F56439 /* AGTablePopulatedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B617B166DFC4D00F56439 /* AGTablePopulatedTests.m */; };
-		E12B617F166E1A0300F56439 /* AGBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = E12B617D166E1A0300F56439 /* AGBinding.h */; };
-		E12B6180166E1A0300F56439 /* AGBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B617E166E1A0300F56439 /* AGBinding.m */; };
-		E16CE9B01675FF01001D0A5C /* AGTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E16CE9AE1675FF01001D0A5C /* AGTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E16CE9B11675FF01001D0A5C /* AGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16CE9AF1675FF01001D0A5C /* AGTableViewController.m */; };
-		E19E9AAF16A9617A0057CAD2 /* AGTableRPVisibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E19E9AAE16A9617A0057CAD2 /* AGTableRPVisibilityTests.m */; };
-		E1E9D684169D8D46000E2F6A /* MAKVONotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = E1E9D682169D8D46000E2F6A /* MAKVONotificationCenter.h */; };
-		E1E9D685169D8D46000E2F6A /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E9D683169D8D46000E2F6A /* MAKVONotificationCenter.m */; };
-		E1EC057B16A860090031C229 /* AGTableUnsplitMPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC057A16A860090031C229 /* AGTableUnsplitMPTests.m */; };
-		E1EC057C16A864510031C229 /* AGTableMultiplePrototypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A7983A16A84F8A00390A42 /* AGTableMultiplePrototypesTests.m */; };
+		063FE48F1A327C5D004104B7 /* AGTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FE4831A327C5D004104B7 /* AGTable.framework */; };
+		063FE4AA1A327CB2004104B7 /* AGTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A21A327CB2004104B7 /* AGTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		063FE4AB1A327CB2004104B7 /* AGTableChooserTextFieldViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A31A327CB2004104B7 /* AGTableChooserTextFieldViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		063FE4AC1A327CB2004104B7 /* AGTableChooserViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A41A327CB2004104B7 /* AGTableChooserViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		063FE4AD1A327CB2004104B7 /* AGTableDataController.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A51A327CB2004104B7 /* AGTableDataController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		063FE4AE1A327CB2004104B7 /* AGTableDataControllerProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A61A327CB2004104B7 /* AGTableDataControllerProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		063FE4AF1A327CB2004104B7 /* AGTableRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A71A327CB2004104B7 /* AGTableRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		063FE4B01A327CB2004104B7 /* AGTableSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A81A327CB2004104B7 /* AGTableSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		063FE4B11A327CB2004104B7 /* AGTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A91A327CB2004104B7 /* AGTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		063FE4B81A327CBE004104B7 /* AGBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4B21A327CBE004104B7 /* AGBinding.h */; };
+		063FE4B91A327CBE004104B7 /* AGTable+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4B31A327CBE004104B7 /* AGTable+Private.h */; };
+		063FE4BA1A327CBE004104B7 /* AGTableDataController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4B41A327CBE004104B7 /* AGTableDataController+Private.h */; };
+		063FE4BB1A327CBE004104B7 /* AGTableRow+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4B51A327CBE004104B7 /* AGTableRow+Private.h */; };
+		063FE4BC1A327CBE004104B7 /* AGTableSection+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4B61A327CBE004104B7 /* AGTableSection+Private.h */; };
+		063FE4BD1A327CBE004104B7 /* MAKVONotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4B71A327CBE004104B7 /* MAKVONotificationCenter.h */; };
+		063FE4C61A327CC6004104B7 /* AGBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BE1A327CC6004104B7 /* AGBinding.m */; };
+		063FE4C71A327CC6004104B7 /* AGTableChooserTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */; };
+		063FE4C81A327CC6004104B7 /* AGTableChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */; };
+		063FE4C91A327CC6004104B7 /* AGTableDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C11A327CC6004104B7 /* AGTableDataController.m */; };
+		063FE4CA1A327CC6004104B7 /* AGTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C21A327CC6004104B7 /* AGTableRow.m */; };
+		063FE4CB1A327CC6004104B7 /* AGTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C31A327CC6004104B7 /* AGTableSection.m */; };
+		063FE4CC1A327CC6004104B7 /* AGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C41A327CC6004104B7 /* AGTableViewController.m */; };
+		063FE4CD1A327CC6004104B7 /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */; };
+		063FE4CF1A327D15004104B7 /* AGTable-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 063FE4CE1A327D15004104B7 /* AGTable-Info.plist */; };
+		063FE4D11A327D3B004104B7 /* AGTable-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4D01A327D3B004104B7 /* AGTable-Prefix.pch */; };
+		063FE4DC1A327D98004104B7 /* AGTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D31A327D98004104B7 /* AGTableTests.m */; };
+		063FE4DD1A327D98004104B7 /* AGTablePopulatedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D51A327D98004104B7 /* AGTablePopulatedTests.m */; };
+		063FE4DE1A327D98004104B7 /* AGTableMultiplePrototypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D71A327D98004104B7 /* AGTableMultiplePrototypesTests.m */; };
+		063FE4DF1A327D98004104B7 /* AGTableUnsplitMPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D91A327D98004104B7 /* AGTableUnsplitMPTests.m */; };
+		063FE4E01A327D98004104B7 /* AGTableRPVisibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */; };
+		063FE4E21A327DB3004104B7 /* AGTableTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 063FE4E11A327DB3004104B7 /* AGTableTests-Info.plist */; };
+		063FE4E31A327E38004104B7 /* AGBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BE1A327CC6004104B7 /* AGBinding.m */; };
+		063FE4E41A327E38004104B7 /* AGTableChooserTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */; };
+		063FE4E51A327E38004104B7 /* AGTableChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */; };
+		063FE4E61A327E38004104B7 /* AGTableDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C11A327CC6004104B7 /* AGTableDataController.m */; };
+		063FE4E71A327E38004104B7 /* AGTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C21A327CC6004104B7 /* AGTableRow.m */; };
+		063FE4E81A327E38004104B7 /* AGTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C31A327CC6004104B7 /* AGTableSection.m */; };
+		063FE4E91A327E38004104B7 /* AGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C41A327CC6004104B7 /* AGTableViewController.m */; };
+		063FE4EA1A327E38004104B7 /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */; };
+		063FE4EC1A328014004104B7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FE4EB1A328014004104B7 /* SenTestingKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E12B60E1166CAC5500F56439 /* PBXContainerItemProxy */ = {
+		063FE4901A327C5D004104B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E12B60BD166CAC5400F56439 /* Project object */;
+			containerPortal = 063FE47A1A327C5D004104B7 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E12B60C9166CAC5500F56439;
-			remoteInfo = AGTable;
-		};
-		E12B60E3166CAC5500F56439 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E12B60BD166CAC5400F56439 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E12B60C9166CAC5500F56439;
+			remoteGlobalIDString = 063FE4821A327C5D004104B7;
 			remoteInfo = AGTable;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E12B60CA166CAC5500F56439 /* AGTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = AGTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E12B60CD166CAC5500F56439 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		E12B60D1166CAC5500F56439 /* AGTable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AGTable-Info.plist"; sourceTree = "<group>"; };
-		E12B60D3166CAC5500F56439 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E12B60D5166CAC5500F56439 /* AGTable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AGTable-Prefix.pch"; sourceTree = "<group>"; };
-		E12B60DB166CAC5500F56439 /* AGTableTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGTableTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E12B60DC166CAC5500F56439 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		E12B60DE166CAC5500F56439 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		E12B60E8166CAC5500F56439 /* AGTableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AGTableTests-Info.plist"; sourceTree = "<group>"; };
-		E12B60EA166CAC5500F56439 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E12B60EC166CAC5500F56439 /* AGTableTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGTableTests.h; sourceTree = "<group>"; };
-		E12B60ED166CAC5500F56439 /* AGTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGTableTests.m; sourceTree = "<group>"; };
-		E12B60FE166CAED300F56439 /* AGTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGTable.h; sourceTree = "<group>"; };
-		E12B6103166CAF2200F56439 /* AGTableDataControllerProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableDataControllerProtocols.h; sourceTree = "<group>"; };
-		E12B6104166CAF2200F56439 /* AGTableDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableDataController.h; sourceTree = "<group>"; };
-		E12B6105166CAF2200F56439 /* AGTableSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableSection.h; sourceTree = "<group>"; };
-		E12B6106166CAF2200F56439 /* AGTableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableRow.h; sourceTree = "<group>"; };
-		E12B6107166CAF2200F56439 /* AGTableChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableChooserViewController.h; sourceTree = "<group>"; };
-		E12B6108166CAF2200F56439 /* AGTableChooserTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableChooserTextFieldViewController.h; sourceTree = "<group>"; };
-		E12B610F166CAF5200F56439 /* AGTable+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AGTable+Private.h"; sourceTree = "<group>"; };
-		E12B6110166CAF5F00F56439 /* AGTableDataController+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AGTableDataController+Private.h"; sourceTree = "<group>"; };
-		E12B6111166CAF6900F56439 /* AGTableSection+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AGTableSection+Private.h"; sourceTree = "<group>"; };
-		E12B6112166CAF7200F56439 /* AGTableRow+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AGTableRow+Private.h"; sourceTree = "<group>"; };
-		E12B6113166CB0C700F56439 /* AGTableDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableDataController.m; sourceTree = "<group>"; };
-		E12B6114166CB0C700F56439 /* AGTableSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableSection.m; sourceTree = "<group>"; };
-		E12B6115166CB0C700F56439 /* AGTableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableRow.m; sourceTree = "<group>"; };
-		E12B6116166CB0C700F56439 /* AGTableChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableChooserViewController.m; sourceTree = "<group>"; };
-		E12B6117166CB0C700F56439 /* AGTableChooserTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableChooserTextFieldViewController.m; sourceTree = "<group>"; };
-		E12B6177166CE63D00F56439 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E12B617A166DFC4D00F56439 /* AGTablePopulatedTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTablePopulatedTests.h; sourceTree = "<group>"; };
-		E12B617B166DFC4D00F56439 /* AGTablePopulatedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTablePopulatedTests.m; sourceTree = "<group>"; };
-		E12B617D166E1A0300F56439 /* AGBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGBinding.h; sourceTree = "<group>"; };
-		E12B617E166E1A0300F56439 /* AGBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGBinding.m; sourceTree = "<group>"; };
-		E16CE9AE1675FF01001D0A5C /* AGTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableViewController.h; sourceTree = "<group>"; };
-		E16CE9AF1675FF01001D0A5C /* AGTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableViewController.m; sourceTree = "<group>"; };
-		E19E9AAD16A9617A0057CAD2 /* AGTableRPVisibilityTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableRPVisibilityTests.h; sourceTree = "<group>"; };
-		E19E9AAE16A9617A0057CAD2 /* AGTableRPVisibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableRPVisibilityTests.m; sourceTree = "<group>"; };
-		E1A7983916A84F8A00390A42 /* AGTableMultiplePrototypesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableMultiplePrototypesTests.h; sourceTree = "<group>"; };
-		E1A7983A16A84F8A00390A42 /* AGTableMultiplePrototypesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableMultiplePrototypesTests.m; sourceTree = "<group>"; };
-		E1E9D682169D8D46000E2F6A /* MAKVONotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAKVONotificationCenter.h; sourceTree = "<group>"; };
-		E1E9D683169D8D46000E2F6A /* MAKVONotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAKVONotificationCenter.m; sourceTree = "<group>"; };
-		E1EC057916A860090031C229 /* AGTableUnsplitMPTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableUnsplitMPTests.h; sourceTree = "<group>"; };
-		E1EC057A16A860090031C229 /* AGTableUnsplitMPTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableUnsplitMPTests.m; sourceTree = "<group>"; };
+		063FE4831A327C5D004104B7 /* AGTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AGTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		063FE48E1A327C5D004104B7 /* AGTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		063FE4A21A327CB2004104B7 /* AGTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTable.h; sourceTree = "<group>"; };
+		063FE4A31A327CB2004104B7 /* AGTableChooserTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableChooserTextFieldViewController.h; sourceTree = "<group>"; };
+		063FE4A41A327CB2004104B7 /* AGTableChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableChooserViewController.h; sourceTree = "<group>"; };
+		063FE4A51A327CB2004104B7 /* AGTableDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableDataController.h; sourceTree = "<group>"; };
+		063FE4A61A327CB2004104B7 /* AGTableDataControllerProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableDataControllerProtocols.h; sourceTree = "<group>"; };
+		063FE4A71A327CB2004104B7 /* AGTableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableRow.h; sourceTree = "<group>"; };
+		063FE4A81A327CB2004104B7 /* AGTableSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableSection.h; sourceTree = "<group>"; };
+		063FE4A91A327CB2004104B7 /* AGTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableViewController.h; sourceTree = "<group>"; };
+		063FE4B21A327CBE004104B7 /* AGBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGBinding.h; sourceTree = "<group>"; };
+		063FE4B31A327CBE004104B7 /* AGTable+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGTable+Private.h"; sourceTree = "<group>"; };
+		063FE4B41A327CBE004104B7 /* AGTableDataController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGTableDataController+Private.h"; sourceTree = "<group>"; };
+		063FE4B51A327CBE004104B7 /* AGTableRow+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGTableRow+Private.h"; sourceTree = "<group>"; };
+		063FE4B61A327CBE004104B7 /* AGTableSection+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGTableSection+Private.h"; sourceTree = "<group>"; };
+		063FE4B71A327CBE004104B7 /* MAKVONotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAKVONotificationCenter.h; sourceTree = "<group>"; };
+		063FE4BE1A327CC6004104B7 /* AGBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGBinding.m; sourceTree = "<group>"; };
+		063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableChooserTextFieldViewController.m; sourceTree = "<group>"; };
+		063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableChooserViewController.m; sourceTree = "<group>"; };
+		063FE4C11A327CC6004104B7 /* AGTableDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableDataController.m; sourceTree = "<group>"; };
+		063FE4C21A327CC6004104B7 /* AGTableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableRow.m; sourceTree = "<group>"; };
+		063FE4C31A327CC6004104B7 /* AGTableSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableSection.m; sourceTree = "<group>"; };
+		063FE4C41A327CC6004104B7 /* AGTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableViewController.m; sourceTree = "<group>"; };
+		063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAKVONotificationCenter.m; sourceTree = "<group>"; };
+		063FE4CE1A327D15004104B7 /* AGTable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AGTable-Info.plist"; sourceTree = "<group>"; };
+		063FE4D01A327D3B004104B7 /* AGTable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGTable-Prefix.pch"; sourceTree = "<group>"; };
+		063FE4D21A327D98004104B7 /* AGTableTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableTests.h; sourceTree = "<group>"; };
+		063FE4D31A327D98004104B7 /* AGTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableTests.m; sourceTree = "<group>"; };
+		063FE4D41A327D98004104B7 /* AGTablePopulatedTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTablePopulatedTests.h; sourceTree = "<group>"; };
+		063FE4D51A327D98004104B7 /* AGTablePopulatedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTablePopulatedTests.m; sourceTree = "<group>"; };
+		063FE4D61A327D98004104B7 /* AGTableMultiplePrototypesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableMultiplePrototypesTests.h; sourceTree = "<group>"; };
+		063FE4D71A327D98004104B7 /* AGTableMultiplePrototypesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableMultiplePrototypesTests.m; sourceTree = "<group>"; };
+		063FE4D81A327D98004104B7 /* AGTableUnsplitMPTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableUnsplitMPTests.h; sourceTree = "<group>"; };
+		063FE4D91A327D98004104B7 /* AGTableUnsplitMPTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableUnsplitMPTests.m; sourceTree = "<group>"; };
+		063FE4DA1A327D98004104B7 /* AGTableRPVisibilityTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableRPVisibilityTests.h; sourceTree = "<group>"; };
+		063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableRPVisibilityTests.m; sourceTree = "<group>"; };
+		063FE4E11A327DB3004104B7 /* AGTableTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AGTableTests-Info.plist"; sourceTree = "<group>"; };
+		063FE4EB1A328014004104B7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E12B60C4166CAC5500F56439 /* Frameworks */ = {
+		063FE47F1A327C5D004104B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12B60CE166CAC5500F56439 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E12B60D7166CAC5500F56439 /* Frameworks */ = {
+		063FE48B1A327C5D004104B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12B6178166CE63D00F56439 /* CoreGraphics.framework in Frameworks */,
-				E12B60DD166CAC5500F56439 /* SenTestingKit.framework in Frameworks */,
-				E12B60DF166CAC5500F56439 /* UIKit.framework in Frameworks */,
-				E12B60E0166CAC5500F56439 /* Foundation.framework in Frameworks */,
-				E12B60E5166CAC5500F56439 /* AGTable.framework in Frameworks */,
+				063FE4EC1A328014004104B7 /* SenTestingKit.framework in Frameworks */,
+				063FE48F1A327C5D004104B7 /* AGTable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E12B60BB166CAC5400F56439 = {
+		063FE4791A327C5D004104B7 = {
 			isa = PBXGroup;
 			children = (
-				E12B60CF166CAC5500F56439 /* AGTable */,
-				E12B60E6166CAC5500F56439 /* AGTableTests */,
-				E12B60CC166CAC5500F56439 /* Frameworks */,
-				E12B60CB166CAC5500F56439 /* Products */,
+				063FE4EB1A328014004104B7 /* SenTestingKit.framework */,
+				063FE4851A327C5D004104B7 /* AGTable */,
+				063FE4921A327C5D004104B7 /* AGTableTests */,
+				063FE4841A327C5D004104B7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E12B60CB166CAC5500F56439 /* Products */ = {
+		063FE4841A327C5D004104B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E12B60CA166CAC5500F56439 /* AGTable.framework */,
-				E12B60DB166CAC5500F56439 /* AGTableTests.octest */,
+				063FE4831A327C5D004104B7 /* AGTable.framework */,
+				063FE48E1A327C5D004104B7 /* AGTableTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E12B60CC166CAC5500F56439 /* Frameworks */ = {
+		063FE4851A327C5D004104B7 /* AGTable */ = {
 			isa = PBXGroup;
 			children = (
-				E12B6177166CE63D00F56439 /* CoreGraphics.framework */,
-				E12B60CD166CAC5500F56439 /* Foundation.framework */,
-				E12B60DC166CAC5500F56439 /* SenTestingKit.framework */,
-				E12B60DE166CAC5500F56439 /* UIKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E12B60CF166CAC5500F56439 /* AGTable */ = {
-			isa = PBXGroup;
-			children = (
-				E12B60FA166CAEAC00F56439 /* Public headers */,
-				E12B60FC166CAEB400F56439 /* Private headers */,
-				E12B60FD166CAEBF00F56439 /* Classes */,
-				E12B60D0166CAC5500F56439 /* Supporting Files */,
+				063FE49F1A327C8D004104B7 /* Public Headers */,
+				063FE4A01A327C91004104B7 /* Private Headers */,
+				063FE4A11A327C98004104B7 /* Classes */,
+				063FE4861A327C5D004104B7 /* Supporting Files */,
 			);
 			path = AGTable;
 			sourceTree = "<group>";
 		};
-		E12B60D0166CAC5500F56439 /* Supporting Files */ = {
+		063FE4861A327C5D004104B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E12B60D1166CAC5500F56439 /* AGTable-Info.plist */,
-				E12B60D2166CAC5500F56439 /* InfoPlist.strings */,
-				E12B60D5166CAC5500F56439 /* AGTable-Prefix.pch */,
+				063FE4CE1A327D15004104B7 /* AGTable-Info.plist */,
+				063FE4D01A327D3B004104B7 /* AGTable-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E12B60E6166CAC5500F56439 /* AGTableTests */ = {
+		063FE4921A327C5D004104B7 /* AGTableTests */ = {
 			isa = PBXGroup;
 			children = (
-				E12B60EC166CAC5500F56439 /* AGTableTests.h */,
-				E12B60ED166CAC5500F56439 /* AGTableTests.m */,
-				E12B617A166DFC4D00F56439 /* AGTablePopulatedTests.h */,
-				E12B617B166DFC4D00F56439 /* AGTablePopulatedTests.m */,
-				E1A7983916A84F8A00390A42 /* AGTableMultiplePrototypesTests.h */,
-				E1A7983A16A84F8A00390A42 /* AGTableMultiplePrototypesTests.m */,
-				E1EC057916A860090031C229 /* AGTableUnsplitMPTests.h */,
-				E1EC057A16A860090031C229 /* AGTableUnsplitMPTests.m */,
-				E19E9AAD16A9617A0057CAD2 /* AGTableRPVisibilityTests.h */,
-				E19E9AAE16A9617A0057CAD2 /* AGTableRPVisibilityTests.m */,
-				E12B60E7166CAC5500F56439 /* Supporting Files */,
+				063FE4D21A327D98004104B7 /* AGTableTests.h */,
+				063FE4D31A327D98004104B7 /* AGTableTests.m */,
+				063FE4D41A327D98004104B7 /* AGTablePopulatedTests.h */,
+				063FE4D51A327D98004104B7 /* AGTablePopulatedTests.m */,
+				063FE4D61A327D98004104B7 /* AGTableMultiplePrototypesTests.h */,
+				063FE4D71A327D98004104B7 /* AGTableMultiplePrototypesTests.m */,
+				063FE4D81A327D98004104B7 /* AGTableUnsplitMPTests.h */,
+				063FE4D91A327D98004104B7 /* AGTableUnsplitMPTests.m */,
+				063FE4DA1A327D98004104B7 /* AGTableRPVisibilityTests.h */,
+				063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */,
+				063FE4931A327C5D004104B7 /* Supporting Files */,
 			);
 			path = AGTableTests;
 			sourceTree = "<group>";
 		};
-		E12B60E7166CAC5500F56439 /* Supporting Files */ = {
+		063FE4931A327C5D004104B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E12B60E8166CAC5500F56439 /* AGTableTests-Info.plist */,
-				E12B60E9166CAC5500F56439 /* InfoPlist.strings */,
+				063FE4E11A327DB3004104B7 /* AGTableTests-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E12B60FA166CAEAC00F56439 /* Public headers */ = {
+		063FE49F1A327C8D004104B7 /* Public Headers */ = {
 			isa = PBXGroup;
 			children = (
-				E12B60FE166CAED300F56439 /* AGTable.h */,
-				E12B6103166CAF2200F56439 /* AGTableDataControllerProtocols.h */,
-				E12B6104166CAF2200F56439 /* AGTableDataController.h */,
-				E12B6105166CAF2200F56439 /* AGTableSection.h */,
-				E12B6106166CAF2200F56439 /* AGTableRow.h */,
-				E12B6107166CAF2200F56439 /* AGTableChooserViewController.h */,
-				E12B6108166CAF2200F56439 /* AGTableChooserTextFieldViewController.h */,
-				E16CE9AE1675FF01001D0A5C /* AGTableViewController.h */,
+				063FE4A21A327CB2004104B7 /* AGTable.h */,
+				063FE4A31A327CB2004104B7 /* AGTableChooserTextFieldViewController.h */,
+				063FE4A41A327CB2004104B7 /* AGTableChooserViewController.h */,
+				063FE4A51A327CB2004104B7 /* AGTableDataController.h */,
+				063FE4A61A327CB2004104B7 /* AGTableDataControllerProtocols.h */,
+				063FE4A71A327CB2004104B7 /* AGTableRow.h */,
+				063FE4A81A327CB2004104B7 /* AGTableSection.h */,
+				063FE4A91A327CB2004104B7 /* AGTableViewController.h */,
 			);
-			name = "Public headers";
+			name = "Public Headers";
 			sourceTree = "<group>";
 		};
-		E12B60FC166CAEB400F56439 /* Private headers */ = {
+		063FE4A01A327C91004104B7 /* Private Headers */ = {
 			isa = PBXGroup;
 			children = (
-				E12B610F166CAF5200F56439 /* AGTable+Private.h */,
-				E12B6110166CAF5F00F56439 /* AGTableDataController+Private.h */,
-				E12B6111166CAF6900F56439 /* AGTableSection+Private.h */,
-				E12B6112166CAF7200F56439 /* AGTableRow+Private.h */,
-				E12B617D166E1A0300F56439 /* AGBinding.h */,
-				E1E9D682169D8D46000E2F6A /* MAKVONotificationCenter.h */,
+				063FE4B21A327CBE004104B7 /* AGBinding.h */,
+				063FE4B31A327CBE004104B7 /* AGTable+Private.h */,
+				063FE4B41A327CBE004104B7 /* AGTableDataController+Private.h */,
+				063FE4B51A327CBE004104B7 /* AGTableRow+Private.h */,
+				063FE4B61A327CBE004104B7 /* AGTableSection+Private.h */,
+				063FE4B71A327CBE004104B7 /* MAKVONotificationCenter.h */,
 			);
-			name = "Private headers";
+			name = "Private Headers";
 			sourceTree = "<group>";
 		};
-		E12B60FD166CAEBF00F56439 /* Classes */ = {
+		063FE4A11A327C98004104B7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E12B6113166CB0C700F56439 /* AGTableDataController.m */,
-				E12B6114166CB0C700F56439 /* AGTableSection.m */,
-				E12B6115166CB0C700F56439 /* AGTableRow.m */,
-				E12B6116166CB0C700F56439 /* AGTableChooserViewController.m */,
-				E12B6117166CB0C700F56439 /* AGTableChooserTextFieldViewController.m */,
-				E12B617E166E1A0300F56439 /* AGBinding.m */,
-				E16CE9AF1675FF01001D0A5C /* AGTableViewController.m */,
-				E1E9D683169D8D46000E2F6A /* MAKVONotificationCenter.m */,
+				063FE4BE1A327CC6004104B7 /* AGBinding.m */,
+				063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */,
+				063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */,
+				063FE4C11A327CC6004104B7 /* AGTableDataController.m */,
+				063FE4C21A327CC6004104B7 /* AGTableRow.m */,
+				063FE4C31A327CC6004104B7 /* AGTableSection.m */,
+				063FE4C41A327CC6004104B7 /* AGTableViewController.m */,
+				063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -251,37 +231,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		E12B60C5166CAC5500F56439 /* Headers */ = {
+		063FE4801A327C5D004104B7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12B6102166CAEEF00F56439 /* AGTable.h in Headers */,
-				E12B6109166CAF2200F56439 /* AGTableDataControllerProtocols.h in Headers */,
-				E12B610A166CAF2200F56439 /* AGTableDataController.h in Headers */,
-				E12B610B166CAF2200F56439 /* AGTableSection.h in Headers */,
-				E12B610C166CAF2200F56439 /* AGTableRow.h in Headers */,
-				E12B610D166CAF2200F56439 /* AGTableChooserViewController.h in Headers */,
-				E12B610E166CAF2200F56439 /* AGTableChooserTextFieldViewController.h in Headers */,
-				E12B617F166E1A0300F56439 /* AGBinding.h in Headers */,
-				E16CE9B01675FF01001D0A5C /* AGTableViewController.h in Headers */,
-				E1E9D684169D8D46000E2F6A /* MAKVONotificationCenter.h in Headers */,
+				063FE4AD1A327CB2004104B7 /* AGTableDataController.h in Headers */,
+				063FE4B81A327CBE004104B7 /* AGBinding.h in Headers */,
+				063FE4AE1A327CB2004104B7 /* AGTableDataControllerProtocols.h in Headers */,
+				063FE4B01A327CB2004104B7 /* AGTableSection.h in Headers */,
+				063FE4B91A327CBE004104B7 /* AGTable+Private.h in Headers */,
+				063FE4AA1A327CB2004104B7 /* AGTable.h in Headers */,
+				063FE4AF1A327CB2004104B7 /* AGTableRow.h in Headers */,
+				063FE4D11A327D3B004104B7 /* AGTable-Prefix.pch in Headers */,
+				063FE4AC1A327CB2004104B7 /* AGTableChooserViewController.h in Headers */,
+				063FE4BB1A327CBE004104B7 /* AGTableRow+Private.h in Headers */,
+				063FE4BA1A327CBE004104B7 /* AGTableDataController+Private.h in Headers */,
+				063FE4BD1A327CBE004104B7 /* MAKVONotificationCenter.h in Headers */,
+				063FE4BC1A327CBE004104B7 /* AGTableSection+Private.h in Headers */,
+				063FE4AB1A327CB2004104B7 /* AGTableChooserTextFieldViewController.h in Headers */,
+				063FE4B11A327CB2004104B7 /* AGTableViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E12B60C9166CAC5500F56439 /* AGTable */ = {
+		063FE4821A327C5D004104B7 /* AGTable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E12B60F1166CAC5500F56439 /* Build configuration list for PBXNativeTarget "AGTable" */;
+			buildConfigurationList = 063FE4991A327C5D004104B7 /* Build configuration list for PBXNativeTarget "AGTable" */;
 			buildPhases = (
-				E12B60C2166CAC5500F56439 /* ShellScript */,
-				E12B60C3166CAC5500F56439 /* Sources */,
-				E12B60C4166CAC5500F56439 /* Frameworks */,
-				E12B60C5166CAC5500F56439 /* Headers */,
-				E12B60C6166CAC5500F56439 /* Resources */,
-				E12B60C7166CAC5500F56439 /* ShellScript */,
-				E12B60C8166CAC5500F56439 /* ShellScript */,
+				063FE47E1A327C5D004104B7 /* Sources */,
+				063FE47F1A327C5D004104B7 /* Frameworks */,
+				063FE4801A327C5D004104B7 /* Headers */,
+				063FE4811A327C5D004104B7 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -289,203 +271,149 @@
 			);
 			name = AGTable;
 			productName = AGTable;
-			productReference = E12B60CA166CAC5500F56439 /* AGTable.framework */;
-			productType = "com.apple.product-type.framework.static";
+			productReference = 063FE4831A327C5D004104B7 /* AGTable.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		E12B60DA166CAC5500F56439 /* AGTableTests */ = {
+		063FE48D1A327C5D004104B7 /* AGTableTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E12B60F4166CAC5500F56439 /* Build configuration list for PBXNativeTarget "AGTableTests" */;
+			buildConfigurationList = 063FE49C1A327C5D004104B7 /* Build configuration list for PBXNativeTarget "AGTableTests" */;
 			buildPhases = (
-				E12B60D6166CAC5500F56439 /* Sources */,
-				E12B60D7166CAC5500F56439 /* Frameworks */,
-				E12B60D8166CAC5500F56439 /* Resources */,
-				E12B60D9166CAC5500F56439 /* ShellScript */,
+				063FE48A1A327C5D004104B7 /* Sources */,
+				063FE48B1A327C5D004104B7 /* Frameworks */,
+				063FE48C1A327C5D004104B7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E12B60E2166CAC5500F56439 /* PBXTargetDependency */,
-				E12B60E4166CAC5500F56439 /* PBXTargetDependency */,
+				063FE4911A327C5D004104B7 /* PBXTargetDependency */,
 			);
 			name = AGTableTests;
 			productName = AGTableTests;
-			productReference = E12B60DB166CAC5500F56439 /* AGTableTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 063FE48E1A327C5D004104B7 /* AGTableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E12B60BD166CAC5400F56439 /* Project object */ = {
+		063FE47A1A327C5D004104B7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Agant;
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Amy Worrall";
+				TargetAttributes = {
+					063FE4821A327C5D004104B7 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					063FE48D1A327C5D004104B7 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
 			};
-			buildConfigurationList = E12B60C0166CAC5400F56439 /* Build configuration list for PBXProject "AGTable" */;
+			buildConfigurationList = 063FE47D1A327C5D004104B7 /* Build configuration list for PBXProject "AGTable" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = E12B60BB166CAC5400F56439;
-			productRefGroup = E12B60CB166CAC5500F56439 /* Products */;
+			mainGroup = 063FE4791A327C5D004104B7;
+			productRefGroup = 063FE4841A327C5D004104B7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E12B60C9166CAC5500F56439 /* AGTable */,
-				E12B60DA166CAC5500F56439 /* AGTableTests */,
+				063FE4821A327C5D004104B7 /* AGTable */,
+				063FE48D1A327C5D004104B7 /* AGTableTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E12B60C6166CAC5500F56439 /* Resources */ = {
+		063FE4811A327C5D004104B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12B60D4166CAC5500F56439 /* InfoPlist.strings in Resources */,
+				063FE4CF1A327D15004104B7 /* AGTable-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E12B60D8166CAC5500F56439 /* Resources */ = {
+		063FE48C1A327C5D004104B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12B60EB166CAC5500F56439 /* InfoPlist.strings in Resources */,
+				063FE4E21A327DB3004104B7 /* AGTableTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		E12B60C2166CAC5500F56439 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n\tUFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version  from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\nONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM:-$ONLY_ACTIVE_ARCH}\n\n# Short-circuit if all binaries are up to date\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n   [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n   [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n  ([[ \"${ONLY_ACTIVE_PLATFORM}\" == \"YES\" ]] || \\\n    ([[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n     [[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n     [[ ! \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\n    )\n  )\nthen\n    exit 0\nfi\n\n\n# Clean other platform if needed\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]]\nthen\n\techo \"Platform \\\"$UFW_SDK_PLATFORM\\\" was cleaned recently. Cleaning \\\"$UFW_OTHER_PLATFORM\\\" as well\"\n\techo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\n\txcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\nfi\n\n\n# Make sure we are building from fresh binaries\n\nrm -rf \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\n\nif [[ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]]\nthen\n    rm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n    rm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nfi\n";
-		};
-		E12B60C7166CAC5500F56439 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "HEADERS_ROOT=$SRCROOT/$PRODUCT_NAME\nFRAMEWORK_HEADERS_DIR=\"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME/Versions/$FRAMEWORK_VERSION/Headers\"\n\n## only header files expected at this point\nPUBLIC_HEADERS=$(find $FRAMEWORK_HEADERS_DIR/. -not -type d 2> /dev/null | sed -e \"s@.*/@@g\")\n\nFIND_OPTS=\"\"\nfor PUBLIC_HEADER in $PUBLIC_HEADERS; do\n  if [ -n \"$FIND_OPTS\" ]; then\n    FIND_OPTS=\"$FIND_OPTS -o\"\n  fi\n  FIND_OPTS=\"$FIND_OPTS -name '$PUBLIC_HEADER'\"\ndone\n\nif [ -n \"$FIND_OPTS\" ]; then\n  for ORIG_HEADER in $(eval \"find $HEADERS_ROOT/. $FIND_OPTS\" 2> /dev/null | sed -e \"s@^$HEADERS_ROOT/./@@g\"); do\n    PUBLIC_HEADER=$(basename $ORIG_HEADER)\n    RELATIVE_PATH=$(dirname $ORIG_HEADER)\n    if [ -e $FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER ]; then\n      mkdir -p \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH\"\n      mv \"$FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER\" \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH/$PUBLIC_HEADER\"\n    fi\n  done\nfi\n";
-		};
-		E12B60C8166CAC5500F56439 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\nexport UFW_MASTER_SCRIPT_RUNNING=1\n\n\n# Functions\n\n## List files in the specified directory, storing to the specified array.\n#\n# @param $1 The path to list\n# @param $2 The name of the array to fill\n#\n##\nlist_files ()\n{\n    filelist=$(ls \"$1\")\n    while read line\n    do\n        eval \"$2[\\${#$2[*]}]=\\\"\\$line\\\"\"\n    done <<< \"$filelist\"\n}\n\n\n# Sanity check\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]]\nthen\n    echo \"Framework target \\\"${TARGET_NAME}\\\" had no source files to build from. Make sure your source files have the correct target membership\"\n    exit 1\nfi\n\n\n# Gather information\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n    UFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\nONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM:-$ONLY_ACTIVE_ARCH}\n\n# Short-circuit if all binaries are up to date.\n# We already checked the other platform in the prerun script.\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\nthen\n    exit 0\nfi\n\nif [ \"${ONLY_ACTIVE_PLATFORM}\" == \"YES\" ]\nthen\n    echo \"ONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM}: Skipping other platform build\"\nelse\n    # Make sure the other platform gets built\n    \n    echo \"Build other platform\"\n    \n    echo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n    xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n    \n    \n    # Build the fat static library binary\n    \necho \"Xcode version: $XCODE_VERSION_MAJOR\"\n\nif [[ \"$XCODE_VERSION_MAJOR\" == \"0500\" ]]\nthen\necho \"$DT_TOOLCHAIN_DIR/usr/bin/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n\"$DT_TOOLCHAIN_DIR/usr/bin/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\nelse\necho \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n\"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\nfi\necho mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nmv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nfi\n\n# Build embedded framework structure\n\necho \"Build Embedded Framework\"\n\necho rm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\necho mkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\necho cp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\ncp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\n\ndeclare -a UFW_FILE_LIST\nlist_files \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\" UFW_FILE_LIST\nfor filename in \"${UFW_FILE_LIST[@]}\"\ndo\n    if [[ \"${filename}\" != \"Info.plist\" ]] && [[ ! \"${filename}\" =~ .*\\.lproj$ ]]\n    then\n        echo ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n        ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n    fi\ndone\n\n\nif [ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]\nthen\n    # Replace other platform's framework with a copy of this one (so that both have the same universal binary)\n    \n    echo \"Copy from $UFW_SDK_PLATFORM to $UFW_OTHER_PLATFORM\"\n    \n    echo rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    echo cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\nfi\n";
-		};
-		E12B60D9166CAC5500F56439 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		E12B60C3166CAC5500F56439 /* Sources */ = {
+		063FE47E1A327C5D004104B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12B6118166CB0C700F56439 /* AGTableDataController.m in Sources */,
-				E12B6119166CB0C700F56439 /* AGTableSection.m in Sources */,
-				E12B611A166CB0C700F56439 /* AGTableRow.m in Sources */,
-				E12B611B166CB0C700F56439 /* AGTableChooserViewController.m in Sources */,
-				E12B611C166CB0C700F56439 /* AGTableChooserTextFieldViewController.m in Sources */,
-				E12B6180166E1A0300F56439 /* AGBinding.m in Sources */,
-				E16CE9B11675FF01001D0A5C /* AGTableViewController.m in Sources */,
-				E1E9D685169D8D46000E2F6A /* MAKVONotificationCenter.m in Sources */,
+				063FE4CB1A327CC6004104B7 /* AGTableSection.m in Sources */,
+				063FE4CA1A327CC6004104B7 /* AGTableRow.m in Sources */,
+				063FE4CD1A327CC6004104B7 /* MAKVONotificationCenter.m in Sources */,
+				063FE4C91A327CC6004104B7 /* AGTableDataController.m in Sources */,
+				063FE4C61A327CC6004104B7 /* AGBinding.m in Sources */,
+				063FE4CC1A327CC6004104B7 /* AGTableViewController.m in Sources */,
+				063FE4C71A327CC6004104B7 /* AGTableChooserTextFieldViewController.m in Sources */,
+				063FE4C81A327CC6004104B7 /* AGTableChooserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E12B60D6166CAC5500F56439 /* Sources */ = {
+		063FE48A1A327C5D004104B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12B60EE166CAC5500F56439 /* AGTableTests.m in Sources */,
-				E12B617C166DFC4E00F56439 /* AGTablePopulatedTests.m in Sources */,
-				E1EC057B16A860090031C229 /* AGTableUnsplitMPTests.m in Sources */,
-				E1EC057C16A864510031C229 /* AGTableMultiplePrototypesTests.m in Sources */,
-				E19E9AAF16A9617A0057CAD2 /* AGTableRPVisibilityTests.m in Sources */,
+				063FE4EA1A327E38004104B7 /* MAKVONotificationCenter.m in Sources */,
+				063FE4DE1A327D98004104B7 /* AGTableMultiplePrototypesTests.m in Sources */,
+				063FE4E31A327E38004104B7 /* AGBinding.m in Sources */,
+				063FE4E61A327E38004104B7 /* AGTableDataController.m in Sources */,
+				063FE4DF1A327D98004104B7 /* AGTableUnsplitMPTests.m in Sources */,
+				063FE4E51A327E38004104B7 /* AGTableChooserViewController.m in Sources */,
+				063FE4E91A327E38004104B7 /* AGTableViewController.m in Sources */,
+				063FE4E71A327E38004104B7 /* AGTableRow.m in Sources */,
+				063FE4E41A327E38004104B7 /* AGTableChooserTextFieldViewController.m in Sources */,
+				063FE4DC1A327D98004104B7 /* AGTableTests.m in Sources */,
+				063FE4E81A327E38004104B7 /* AGTableSection.m in Sources */,
+				063FE4E01A327D98004104B7 /* AGTableRPVisibilityTests.m in Sources */,
+				063FE4DD1A327D98004104B7 /* AGTablePopulatedTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E12B60E2166CAC5500F56439 /* PBXTargetDependency */ = {
+		063FE4911A327C5D004104B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E12B60C9166CAC5500F56439 /* AGTable */;
-			targetProxy = E12B60E1166CAC5500F56439 /* PBXContainerItemProxy */;
-		};
-		E12B60E4166CAC5500F56439 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E12B60C9166CAC5500F56439 /* AGTable */;
-			targetProxy = E12B60E3166CAC5500F56439 /* PBXContainerItemProxy */;
+			target = 063FE4821A327C5D004104B7 /* AGTable */;
+			targetProxy = 063FE4901A327C5D004104B7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		E12B60D2166CAC5500F56439 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E12B60D3166CAC5500F56439 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E12B60E9166CAC5500F56439 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E12B60EA166CAC5500F56439 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		E12B60EF166CAC5500F56439 /* Debug */ = {
+		063FE4971A327C5D004104B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -494,136 +422,162 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		E12B60F0166CAC5500F56439 /* Release */ = {
+		063FE4981A327C5D004104B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		E12B60F2166CAC5500F56439 /* Debug */ = {
+		063FE49A1A327C5D004104B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGTable/AGTable-Prefix.pch";
-				GCC_THUMB_SUPPORT = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "AGTable/AGTable-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
 		};
-		E12B60F3166CAC5500F56439 /* Release */ = {
+		063FE49B1A327C5D004104B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGTable/AGTable-Prefix.pch";
-				GCC_THUMB_SUPPORT = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "AGTable/AGTable-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
-		E12B60F5166CAC5500F56439 /* Debug */ = {
+		063FE49D1A327C5D004104B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AGTable/AGTable-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AGTableTests/AGTableTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		063FE49E1A327C5D004104B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGTable/AGTable-Prefix.pch";
 				INFOPLIST_FILE = "AGTableTests/AGTableTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		E12B60F6166CAC5500F56439 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AGTable/AGTable-Prefix.pch";
-				INFOPLIST_FILE = "AGTableTests/AGTableTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E12B60C0166CAC5400F56439 /* Build configuration list for PBXProject "AGTable" */ = {
+		063FE47D1A327C5D004104B7 /* Build configuration list for PBXProject "AGTable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E12B60EF166CAC5500F56439 /* Debug */,
-				E12B60F0166CAC5500F56439 /* Release */,
+				063FE4971A327C5D004104B7 /* Debug */,
+				063FE4981A327C5D004104B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E12B60F1166CAC5500F56439 /* Build configuration list for PBXNativeTarget "AGTable" */ = {
+		063FE4991A327C5D004104B7 /* Build configuration list for PBXNativeTarget "AGTable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E12B60F2166CAC5500F56439 /* Debug */,
-				E12B60F3166CAC5500F56439 /* Release */,
+				063FE49A1A327C5D004104B7 /* Debug */,
+				063FE49B1A327C5D004104B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E12B60F4166CAC5500F56439 /* Build configuration list for PBXNativeTarget "AGTableTests" */ = {
+		063FE49C1A327C5D004104B7 /* Build configuration list for PBXNativeTarget "AGTableTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E12B60F5166CAC5500F56439 /* Debug */,
-				E12B60F6166CAC5500F56439 /* Release */,
+				063FE49D1A327C5D004104B7 /* Debug */,
+				063FE49E1A327C5D004104B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E12B60BD166CAC5400F56439 /* Project object */;
+	rootObject = 063FE47A1A327C5D004104B7 /* Project object */;
 }

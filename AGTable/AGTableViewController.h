@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AGTable/AGTable.h>
 
 @interface AGTableViewController : UITableViewController<AGTableDataControllerDelegate>
 

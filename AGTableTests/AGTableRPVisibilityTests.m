@@ -88,6 +88,7 @@
 	{
 		return (row.tag != 1);
 	}
+    return NO;
 }
 
 #pragma mark - Tests
