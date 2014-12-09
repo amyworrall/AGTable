@@ -31,6 +31,8 @@
 
 @property (nonatomic, assign) NSInteger cachedRespondsToVisibilityDynamicSelector;
 
+@property (nonatomic, assign) BOOL insideReorderingOperation;
+
 @end
 
 @implementation AGTableDataController
@@ -1188,16 +1190,21 @@
 
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath 
 {
+    self.insideReorderingOperation = YES;
+    
 	AGTableRow *row = [self rowForTableIndexPath:sourceIndexPath];
+    id object = row.object; // have to grab the object now. The indexOfDynamicObjectAtTableIndexPath methods mutate the row prototype, so we can't rely on row being the same after those have been called.
 	NSInteger dynamicIndex = [self indexOfDynamicObjectAtTableIndexPath:sourceIndexPath];
 	NSInteger newDynamicIndex = [self indexOfDynamicObjectAtTableIndexPath:destinationIndexPath];
-	
+ 	
 	if (dynamicIndex == newDynamicIndex)
 	{
 		return;
 	}
-	
-	[self.delegate tableDataController:self dynamicItem:row.object index:dynamicIndex inSection:row.section didMoveToIndex:newDynamicIndex];
+    
+ 	[self.delegate tableDataController:self dynamicItem:object index:dynamicIndex inSection:row.section didMoveToIndex:newDynamicIndex];
+    
+    self.insideReorderingOperation = NO;
 }
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -1443,6 +1450,10 @@
 
 - (void)_sectionReloadDueToDynamicObjectArrayKVO:(AGTableSection*)section
 {
+    if (self.insideReorderingOperation == YES) {
+        return;
+    }
+    
 	NSInteger numInternalSections = [section _numberOfVisibleTableSections];
 	
 	if (numInternalSections > 0)

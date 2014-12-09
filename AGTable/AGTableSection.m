@@ -593,6 +593,7 @@
 		{
 			NSInteger prototypeNum = targetRow % self.rowPrototypes.count;
 			NSInteger objectNum = (targetRow / self.rowPrototypes.count);
+            chosenIndex = objectNum;
 			
 			chosenPrototype = self.rowPrototypes[prototypeNum];
 			chosenPrototype.object = [self objectForDynamicRowNumber:objectNum];
