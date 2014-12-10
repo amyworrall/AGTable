@@ -1479,6 +1479,14 @@
 #pragma mark -
 #pragma mark UITableView delegate methods
 
+-(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.editing)
+        return YES;
+    
+    AGTableRow *row = [self rowForTableIndexPath:indexPath];
+    return row.canSelectDuringEditing;
+}
 
 - (void) tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

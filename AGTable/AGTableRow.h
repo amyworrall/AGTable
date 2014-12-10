@@ -119,7 +119,9 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 @property (assign) BOOL hasDeleteAction;
 @property (assign) BOOL hasInsertAction;
 
-
+// Note that this requires the table view to have "allowsSelectionDuringEditing" set.
+// TODO: AGTable to automatically set that property if any rows have this set.
+@property (assign) BOOL canSelectDuringEditing;
 
 
 #pragma mark - Configuring the UITableViewCell
