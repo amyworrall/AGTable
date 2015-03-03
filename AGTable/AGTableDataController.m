@@ -626,7 +626,13 @@
 		else
 		{
 			UITableViewCell<AGTableCellHeight> *agCell = (UITableViewCell<AGTableCellHeight> *)heightTestCell;
-			height = [agCell desiredCellHeight];
+
+      // Kludge to fix cell height bug (see radar 19242003)
+      if (agCell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
+        agCell.frame = CGRectMake(0, 0, self.tableView.bounds.size.width - 8, 0.0);
+      }
+
+      height = [agCell desiredCellHeight];
 		}
 		return height;
 	}
@@ -757,7 +763,6 @@
 		{
 			// possible optimisation: use a switch and constant strings, to get pointer comparisons.
 			reuseIdentifier = [NSString stringWithFormat:@"UITableViewCell-%li-%@-%@-%p", (long)style, row.textFieldBoundToProperty, NSStringFromSelector(row.initialSetupSelector), row.initialSetupBlock];
-			reuseIdentifier = @"Bob";
 		}
 		else
 		{
@@ -787,25 +792,20 @@
 	
 	if (!cell)
 	{
-		
-		if (row.cellNibName.length > 0)
-		{
-			NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:row.cellNibName owner:self options:nil];
-			
-			for (NSObject *obj in topLevelObjects)
-			{
-				if ([obj isKindOfClass:[UITableViewCell class]])
-				{
-					cell = (UITableViewCell*)obj;
-				}
-			}
-		}
-		
-		if (!cell) // still no cell after loading the xib
-		{
-			cell = [[cellClass alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
-		}
-		
+    if (row.cellNibName.length > 0)
+    {
+      [self.tableView registerNib:[UINib nibWithNibName:row.cellNibName bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+    } else {
+      [self.tableView registerClass:cellClass forCellReuseIdentifier:reuseIdentifier];
+    }
+    cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+  }
+
+  NSNumber *hasDoneInitialSetup = objc_getAssociatedObject(cell, "assoc");
+  if (![hasDoneInitialSetup boolValue])
+  {
+    objc_setAssociatedObject(cell, "assoc", @YES, OBJC_ASSOCIATION_COPY);
+
 		if (row.initialSetupKeyValueData)
 		{
 			for (NSString *key in row.initialSetupKeyValueData)
