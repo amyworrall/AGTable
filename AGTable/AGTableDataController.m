@@ -794,18 +794,22 @@
 	{
     if (row.cellNibName.length > 0)
     {
-      [self.tableView registerNib:[UINib nibWithNibName:row.cellNibName bundle:nil] forCellReuseIdentifier:reuseIdentifier];
-    } else {
-      [self.tableView registerClass:cellClass forCellReuseIdentifier:reuseIdentifier];
+      NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:row.cellNibName owner:self options:nil];
+
+      for (NSObject *obj in topLevelObjects)
+      {
+        if ([obj isKindOfClass:[UITableViewCell class]])
+        {
+          cell = (UITableViewCell*)obj;
+        }
+      }
     }
-    cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-  }
 
-  NSNumber *hasDoneInitialSetup = objc_getAssociatedObject(cell, "assoc");
-  if (![hasDoneInitialSetup boolValue])
-  {
-    objc_setAssociatedObject(cell, "assoc", @YES, OBJC_ASSOCIATION_COPY);
-
+    if (!cell) // still no cell after loading the xib
+    {
+      cell = [[cellClass alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
+    }
+    
 		if (row.initialSetupKeyValueData)
 		{
 			for (NSString *key in row.initialSetupKeyValueData)
