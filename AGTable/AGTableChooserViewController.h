@@ -21,7 +21,6 @@
 @property (nonatomic, strong) NSArray *options; // takes an array of dictionaries, with "value" and "title".
 @property (nonatomic, weak) id delegate;
 @property (nonatomic, strong) NSString *delegateKeypath;
-@property (nonatomic, strong) NSString *title;
 
 @property (nonatomic, assign) BOOL allowsOther;
 @property (nonatomic, strong) id currentlySelected;
