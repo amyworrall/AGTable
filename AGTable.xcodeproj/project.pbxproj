@@ -36,7 +36,6 @@
 		063FE4DE1A327D98004104B7 /* AGTableMultiplePrototypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D71A327D98004104B7 /* AGTableMultiplePrototypesTests.m */; };
 		063FE4DF1A327D98004104B7 /* AGTableUnsplitMPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D91A327D98004104B7 /* AGTableUnsplitMPTests.m */; };
 		063FE4E01A327D98004104B7 /* AGTableRPVisibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */; };
-		063FE4E21A327DB3004104B7 /* AGTableTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 063FE4E11A327DB3004104B7 /* AGTableTests-Info.plist */; };
 		063FE4E31A327E38004104B7 /* AGBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BE1A327CC6004104B7 /* AGBinding.m */; };
 		063FE4E41A327E38004104B7 /* AGTableChooserTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */; };
 		063FE4E51A327E38004104B7 /* AGTableChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */; };
@@ -297,7 +296,7 @@
 		063FE47A1A327C5D004104B7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amy Worrall";
 				TargetAttributes = {
 					063FE4821A327C5D004104B7 = {
@@ -339,7 +338,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				063FE4E21A327DB3004104B7 /* AGTableTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +411,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -490,6 +489,7 @@
 				INFOPLIST_FILE = "AGTable/AGTable-Info.plist";
 				INSTALL_GROUP = admin;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amyworrall.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -510,6 +510,7 @@
 				INFOPLIST_FILE = "AGTable/AGTable-Info.plist";
 				INSTALL_GROUP = admin;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amyworrall.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -532,6 +533,7 @@
 				);
 				INFOPLIST_FILE = "AGTableTests/AGTableTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amyworrall.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -548,6 +550,7 @@
 				GCC_PREFIX_HEADER = "AGTable/AGTable-Prefix.pch";
 				INFOPLIST_FILE = "AGTableTests/AGTableTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.amyworrall.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
