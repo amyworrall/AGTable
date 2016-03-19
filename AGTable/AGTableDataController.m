@@ -1459,17 +1459,15 @@
     }
     
 	NSInteger numInternalSections = [section _numberOfVisibleTableSections];
-	
-	if (numInternalSections > 0)
+  NSInteger sectionNum = [self sectionNumberForSection:section localSectionNumber:0];
+
+	if (numInternalSections > 1)
 	{
 		// Not trying this -- would have to work out inserts/removals for the internal sections
 		[self reloadTableView];
 		return;
 	}
 	
-	NSInteger sectionNum = [self sectionNumberForSection:section localSectionNumber:0];
-	
-
 	if ([section _numberOfVisibleTableSections] == 0 || [section _numberOfRowsInInternalSectionNumber:0] == 0)
 	{
 		// if section is empty, reload data. At the future, maybe
