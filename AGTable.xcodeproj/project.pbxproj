@@ -296,6 +296,7 @@
 		063FE47A1A327C5D004104B7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amy Worrall";
 				TargetAttributes = {

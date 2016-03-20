@@ -753,7 +753,9 @@
 	
 	if (changeType == NSKeyValueChangeSetting)
 	{
-		[self.controller _sectionReloadDueToDynamicObjectArrayKVO:self];
+    if (![change[NSKeyValueChangeNewKey] isEqual:change[NSKeyValueChangeOldKey]]) {
+      [self.controller _sectionReloadDueToDynamicObjectArrayKVO:self];
+    }
 	}
 	else if (changeType == NSKeyValueChangeInsertion)
 	{
