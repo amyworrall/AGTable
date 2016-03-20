@@ -65,7 +65,6 @@
 
 - (AGTableRow*)rowPrototype
 {
-	NSLog(@"Accessing old method of RP");
 	if (self.rowPrototypes.count>0)
 	{
 		return [self.rowPrototypes objectAtIndex:0];

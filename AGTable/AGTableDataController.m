@@ -551,8 +551,8 @@
 	
 	// remember this for last time it was checked (see perform mutations)
 	self.previousNumberOfSections = snum;
-	
-	return snum;
+
+  return snum;
 }
 
 
@@ -564,7 +564,7 @@
 	
 	NSInteger retval = [s _numberOfRowsInInternalSectionNumber:local];
 	
-	return retval;
+  return retval;
 }
 
 - (Class)cellClassForRow:(AGTableRow*)row
@@ -1457,10 +1457,17 @@
     if (self.insideReorderingOperation == YES) {
         return;
     }
-    
+
+  NSInteger prevNumInternalSections = [section _numberOfVisibleTableSections];
+  [section cacheVisibility];
 	NSInteger numInternalSections = [section _numberOfVisibleTableSections];
   NSInteger sectionNum = [self sectionNumberForSection:section localSectionNumber:0];
 
+  if (prevNumInternalSections != numInternalSections) {
+    // number of sections changed. Abort!
+    [self reloadTableView];
+    return;
+  }
 	if (numInternalSections > 1)
 	{
 		// Not trying this -- would have to work out inserts/removals for the internal sections
@@ -1468,7 +1475,7 @@
 		return;
 	}
 	
-	if ([section _numberOfVisibleTableSections] == 0 || [section _numberOfRowsInInternalSectionNumber:0] == 0)
+	if (numInternalSections == 0 || [section _numberOfRowsInInternalSectionNumber:0] == 0)
 	{
 		// if section is empty, reload data. At the future, maybe
 		[self reloadTableView];
