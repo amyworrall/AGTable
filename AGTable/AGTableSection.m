@@ -273,20 +273,25 @@
 		
 		if (![oldComparator isEqual:comparator])
 		{
+      if (sectionCounter == sectionNumber)
+      {
+        return withinCounter;
+      }
+
 			sectionCounter ++;
 			withinCounter = [self _numberOfRowPrototypesToShowForObject:object]; // this row counts as one for the next section.
 		}
 		else {
 			withinCounter+=[self _numberOfRowPrototypesToShowForObject:object];
 		}
-
-		if (sectionCounter == sectionNumber)
-		{
-			return withinCounter;
-		}
-		
-
 	}
+
+  // was last section correct?
+  if (sectionCounter == sectionNumber)
+  {
+    return withinCounter;
+  }
+
 	[NSException raise:@"Couldn't count section" format:@"Something odd happened counting section with internal number %li", (long)sectionNumber];
 	return NSNotFound;	
 }
