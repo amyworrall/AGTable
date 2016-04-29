@@ -508,12 +508,12 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	(self.configurationKeyValueData)[@"detailTextLabel.font"] = font;
 }
 
-- (UITextAlignment)textAlignment
+- (NSTextAlignment)textAlignment
 {
 	return [(self.configurationKeyValueData)[@"textLabel.textAlignment"] intValue];
 }
 
-- (void)setTextAlignment:(UITextAlignment)textAlignment
+- (void)setTextAlignment:(NSTextAlignment)textAlignment
 {
 	(self.configurationKeyValueData)[@"textLabel.textAlignment"] = [NSNumber numberWithInt:textAlignment];
 }

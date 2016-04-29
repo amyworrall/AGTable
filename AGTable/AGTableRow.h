@@ -210,7 +210,7 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 @property (strong) UIFont *detailFont;
 
 @property (strong) UIColor *textColor;
-@property (assign) UITextAlignment textAlignment;
+@property (assign) NSTextAlignment textAlignment;
 @property (strong) UIColor *backgroundColor;
 
 // For doing alternating table row backgrounds

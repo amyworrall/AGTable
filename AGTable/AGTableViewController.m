@@ -17,12 +17,7 @@
 
 - (id)init
 {
-	if (self = [super initWithStyle:[self tableViewStyle]])
-	{
-		self.tableDataController = [[AGTableDataController alloc] initWithTableView:nil];
-		self.tableDataController.delegate = self;
-	}
-	return self;
+  return [self initWithStyle:UITableViewStylePlain];
 }
 
 - (UITableViewStyle)tableViewStyle
@@ -32,7 +27,12 @@
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    return [self init];
+  if (self = [super initWithStyle:[self tableViewStyle]])
+  {
+    self.tableDataController = [[AGTableDataController alloc] initWithTableView:nil];
+    self.tableDataController.delegate = self;
+  }
+  return self;
 }
 
 - (void)loadView
