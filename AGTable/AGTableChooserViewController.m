@@ -45,6 +45,7 @@ enum rowTags {
 	{
 		self.view.backgroundColor = self.backgroundColor;
 	}
+  [super viewDidLoad];
 }
 
 
@@ -200,16 +201,6 @@ enum rowTags {
 {
 	
 }
-
-#pragma mark -
-#pragma mark Disposal
-
-
-- (void)viewDidUnload 
-{
-    self.tableDataController = nil;
-}
-
 
 
 
