@@ -1481,8 +1481,10 @@
 		[self reloadTableView];
 		return;		
 	}
-	
-	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionNum] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+  [UIView performWithoutAnimation:^{
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionNum] withRowAnimation:UITableViewRowAnimationNone];
+  }];
 }
 
 #pragma mark -
