@@ -202,6 +202,7 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 @property (assign) UITableViewCellSelectionStyle selectionStyle;
 @property (assign) UITableViewCellStyle cellStyle;
 @property (assign) UIAccessibilityTraits accessibilityTraits;
+@property (copy) NSString *accessibilityIdentifier;
 
 // For the cell's textLabel
 @property (strong) UIFont *font;

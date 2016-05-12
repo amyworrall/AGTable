@@ -1007,6 +1007,7 @@
 	{
 		cell.accessibilityTraits = cell.accessibilityTraits | UIAccessibilityTraitButton;
 	}
+  cell.accessibilityIdentifier = row.accessibilityIdentifier;
 	
 	if (row.textFieldBoundToProperty)
 	{
