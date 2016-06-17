@@ -215,7 +215,9 @@
 	AGTableSection *s = [self sectionForTableSectionNumber:indexPath.section localSectionNumber:&local];
 	
 	NSIndexPath *localIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:local];
-	return [s _rowForInternalIndexPath:localIndexPath];
+	AGTableRow *row = [s _rowForInternalIndexPath:localIndexPath];
+  row.tableIndexPath = indexPath;
+  return row;
 }
 
 

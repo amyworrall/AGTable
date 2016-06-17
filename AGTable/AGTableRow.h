@@ -99,6 +99,7 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 
 // The row number (i.e. this is the Nth UITableViewCell in this section)
 @property (readonly, nonatomic, assign) NSInteger rowNumber;
+@property (readonly, nonatomic, strong) NSIndexPath *tableIndexPath;
 
 
 

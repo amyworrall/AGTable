@@ -15,6 +15,7 @@
 
 // override to make writeable
 @property (nonatomic,assign) NSInteger rowNumber;
+@property (readwrite, nonatomic, strong) NSIndexPath *tableIndexPath;
 
 
 
