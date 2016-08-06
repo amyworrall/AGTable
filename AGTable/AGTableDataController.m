@@ -604,21 +604,24 @@
 	
 	if (row.calculateHeightWithAutoLayout || row.calculateHeightWithPrototypeCell)
 	{
+    CGFloat tableViewWidth = self.tableView.bounds.size.width;
+
 		// 1. create cell to do the height calculation if needed
 		NSString *reuseIdentifier = [self reuseIdentifierForIndexPath:indexPath];
-		UITableViewCell *heightTestCell = [self.cellHeightPrototypesForReuseIdentifiers objectForKey:reuseIdentifier];
+    NSString *widthAmendedReuseIdentifier = [reuseIdentifier stringByAppendingFormat:@"%f", tableViewWidth];
+		UITableViewCell *heightTestCell = [self.cellHeightPrototypesForReuseIdentifiers objectForKey:widthAmendedReuseIdentifier];
 		 if (!heightTestCell)
 		 {
-			 heightTestCell = [self createCellForIndexPath:indexPath];
-			 [self.cellHeightPrototypesForReuseIdentifiers setObject:heightTestCell forKey:reuseIdentifier];
+			 heightTestCell = [self createCellForIndexPath:indexPath overrideReuseIdentifier:widthAmendedReuseIdentifier];
+			 [self.cellHeightPrototypesForReuseIdentifiers setObject:heightTestCell forKey:widthAmendedReuseIdentifier];
 		 }
 		
 		// 2. configure the cell, then ask for its layout
-		heightTestCell.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 0.0);
+		heightTestCell.frame = CGRectMake(0, 0, tableViewWidth, 0.0);
 		heightTestCell.accessoryType = [self accessoryTypeForRow:row];
 		[self configureCell:heightTestCell forIndexPath:indexPath isForOffscreenUse:YES];
 		[heightTestCell layoutIfNeeded];
-		
+
 		CGFloat height;
 		if (row.calculateHeightWithAutoLayout)
 		{
@@ -713,7 +716,7 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell *cell = [self createCellForIndexPath:indexPath];
+	UITableViewCell *cell = [self createCellForIndexPath:indexPath overrideReuseIdentifier:nil];
 	[self configureCell:cell forIndexPath:indexPath isForOffscreenUse:NO];
 	
 	return cell;
@@ -774,7 +777,10 @@
 	return reuseIdentifier;
 }
 
-- (UITableViewCell*)createCellForIndexPath:(NSIndexPath*)indexPath;
+// The overridden reuse identifier is useful for the prototype cells used in size calculation: there's an Apple bug
+// which means that an offscreen cell doesn't correctly lay out the size of its content view when its width changes (even if
+// setNeedsLayout and layoutIfNeeded are called). Making a new cell each time fixes that.
+- (UITableViewCell*)createCellForIndexPath:(NSIndexPath*)indexPath overrideReuseIdentifier:(NSString*)override;
 {
 	AGTableRow *row = [self rowForTableIndexPath:indexPath];
 	row.objectIndex = [self indexOfDynamicObjectAtTableIndexPath:indexPath];
@@ -785,7 +791,7 @@
 		
 	
 	// dequeue cell
-	NSString *reuseIdentifier = [self reuseIdentifierForIndexPath:indexPath];
+  NSString *reuseIdentifier = override ?: [self reuseIdentifierForIndexPath:indexPath];
 	
 	// Attempt to dequeue
 	UITableViewCell *cell = nil;
