@@ -45,6 +45,7 @@
 		063FE4E91A327E38004104B7 /* AGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C41A327CC6004104B7 /* AGTableViewController.m */; };
 		063FE4EA1A327E38004104B7 /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */; };
 		063FE4EC1A328014004104B7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FE4EB1A328014004104B7 /* SenTestingKit.framework */; };
+		06F2CB891DE1D43A008DFB30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2CB861DE1D22F008DFB30 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableRPVisibilityTests.m; sourceTree = "<group>"; };
 		063FE4E11A327DB3004104B7 /* AGTableTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AGTableTests-Info.plist"; sourceTree = "<group>"; };
 		063FE4EB1A328014004104B7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		06F2CB841DE1D228008DFB30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		06F2CB861DE1D22F008DFB30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F2CB891DE1D43A008DFB30 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +129,7 @@
 				063FE4851A327C5D004104B7 /* AGTable */,
 				063FE4921A327C5D004104B7 /* AGTableTests */,
 				063FE4841A327C5D004104B7 /* Products */,
+				06F2CB831DE1D228008DFB30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,6 +231,15 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		06F2CB831DE1D228008DFB30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06F2CB861DE1D22F008DFB30 /* UIKit.framework */,
+				06F2CB841DE1D228008DFB30 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -297,7 +311,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Amy Worrall";
 				TargetAttributes = {
 					063FE4821A327C5D004104B7 = {
@@ -404,8 +418,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -451,8 +467,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -481,8 +499,9 @@
 		063FE49A1A327C5D004104B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -491,6 +510,7 @@
 				GCC_PREFIX_HEADER = "AGTable/AGTable-Prefix.pch";
 				INFOPLIST_FILE = "AGTable/AGTable-Info.plist";
 				INSTALL_GROUP = admin;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amyworrall.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,8 +522,9 @@
 		063FE49B1A327C5D004104B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -512,6 +533,7 @@
 				GCC_PREFIX_HEADER = "AGTable/AGTable-Prefix.pch";
 				INFOPLIST_FILE = "AGTable/AGTable-Info.plist";
 				INSTALL_GROUP = admin;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amyworrall.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
