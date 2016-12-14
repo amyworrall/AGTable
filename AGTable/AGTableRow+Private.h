@@ -28,16 +28,6 @@
 @property (assign) BOOL cachedVisibility;
 
 
-@property (strong) NSMutableDictionary *textFieldBindings;
-@property (nonatomic, strong) UITextField *cachedTextField;
-@property (nonatomic, assign) BOOL textFieldShowsNextButton; // NB set by TDC
-- (void)refreshImageCache;
-@property (nonatomic,strong) UIImage *imageFieldCachedSmallImage;
-
-/// Not yet implemented.
-@property (nonatomic, assign) CGFloat imageFieldImageMaxWidth;
-
-
 @property (nonatomic, weak, readwrite) AGTableSection *section;
 
 

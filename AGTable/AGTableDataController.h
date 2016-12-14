@@ -60,9 +60,6 @@
 // Call this to reload the whole table view. Calling this rather than just calling reloadData on the table view makes sure that AGTable is not trying to reload the table view at the same time.
 - (void)reloadTableView;
 
-// Used to make an AGTable-created text field resign the first responder.
-- (void)commitTextFieldEditingOperations;
-
 // If YES, the UITableView's selectedRows are cleared when the action is pressed. Doing this means you don't get the nice fade out when the user goes back to the screen, but it means you don't have to worry about deselecting things manually when you do actions that don't push things onto a navigation controller.
 @property (nonatomic, assign) BOOL clearSelectionOnAction;
 

@@ -45,7 +45,7 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 
 
 
-@interface AGTableRow : NSObject<UITextFieldDelegate>
+@interface AGTableRow : NSObject
 
 // Create a new row with the given cell class. Pass in nil to use UITableViewCell.
 - (id)initWithCellClass:(Class)aCellClass;
@@ -220,45 +220,6 @@ extern NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates;
 
 
 
-#pragma mark - Convenience text field
-
-// Methods to easily obtain a text field that the user can type into. With the introduction of the general method for doing bindings (see below), these methods are less useful and will eventually be deprecated and replaced with methods built on top of the new system.
-
-// The keypath on the TDC's delegate that the text field is bound to.
-@property (nonatomic, copy) NSString *textFieldBoundToProperty;
-
-// Some properties on the text field.
-@property (assign) UIKeyboardType textFieldKeyboardType;
-@property (strong) NSCharacterSet *textFieldLimitToCharactersInSet;
-@property (copy) NSString *textFieldPlaceholder;
-@property (nonatomic, assign) BOOL textFieldClearButton;
-@property (nonatomic, assign) UITextAutocapitalizationType textFieldAutocapitalizationType;
-@property (nonatomic, assign) UITextAutocorrectionType textFieldAutocorrectionType;
-@property (nonatomic, assign) BOOL textFieldAutoFocus;
-
-// A way to bind text fields with arbitrary tags to different properties.
-// This method is deprecated and should be replaced with -[AGTableRow bind:keypath:toViewWithTag:keypath:options:] with AGBindingOptionRegisterForEditingEvents
-- (void)bindTextFieldTagged:(NSInteger)textFieldTag toDelegatePropertyNamed:(NSString*)property observeChanges:(BOOL)observe; 
-
-
-
-#pragma mark - Convenience other fields
-
-
-// In a similar way to the convenience text field described above, these options give you an option picker (pushes a view controller with a choice of options), a date picker, and an image picker.
-
-// AGTable is not a very comprehensive forms library at present. These fields are useful but not very customisable, and may not be suited to all apps. They were also all written before AGTable gained generic bindings support. One day they may be replaced with newer methods built on top of the new bindings system.
-
-@property (strong) NSArray *optionChoices;
-@property (strong) NSString *optionFieldBoundToProperty;
-@property (strong) Class customOptionSelectorViewController;
-@property (assign) BOOL optionAllowsOther;
-
-@property (strong) NSString *dateFieldBoundToProperty;
-@property (assign) UIDatePickerMode datePickerMode;
-@property (nonatomic, strong) NSTimeZone *datePickerTimeZone;
-
-@property (strong) NSString *imageFieldBoundToProperty;
 
 
 

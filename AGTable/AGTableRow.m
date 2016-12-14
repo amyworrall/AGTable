@@ -40,17 +40,13 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	{
 		self.initialSetupKeyValueData = [NSMutableDictionary dictionary];
 		self.configurationKeyValueData = [NSMutableDictionary dictionary];
-		self.textFieldBindings = [NSMutableDictionary dictionary];
-		
+
 		self.staticBindings = [NSMutableArray array];
 		self.dataObjectBindings = [NSMutableArray array];
 		
 		self.visible = YES;
 		self.visibilityMode = visibilityModeStandard;
-		self.textFieldClearButton = YES;
-		self.textFieldAutocapitalizationType = UITextAutocapitalizationTypeSentences;
-		self.textFieldAutocorrectionType = UITextAutocorrectionTypeNo;
-		
+
 		self.cellClass = aCellClass;
 		
 		
@@ -414,32 +410,6 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 	self.cachedVisibility = [self _isVisible];
 }
 
-- (UIImage*)imageFieldCachedSmallImage
-{
-	if (_imageFieldCachedSmallImage)
-		return _imageFieldCachedSmallImage;
-	
-	[self refreshImageCache];
-	return _imageFieldCachedSmallImage;
-}
-
-- (void)refreshImageCache
-{
-	UIImage *image = [self.controller.delegate valueForKeyPath:self.imageFieldBoundToProperty];
-	
-	if (!image)
-		return;
-	
-	CGSize newSize = CGSizeMake(image.size.width/(image.size.height/88.0), 88.0);
-	
-	UIGraphicsBeginImageContext(newSize);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();    
-    UIGraphicsEndImageContext();
-	
-	self.imageFieldCachedSmallImage = newImage;
-	
-}
 
 #pragma mark -
 #pragma mark Convenience key/values accessors
@@ -522,59 +492,6 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 {
 	_accessoryType = t;
 	self.accessoryTypeExplicitlySet = YES;
-}
-
-- (void) setTextFieldBoundToProperty:(NSString*)aProperty;
-{
-	if (_textFieldBoundToProperty != aProperty)
-	{
-		_textFieldBoundToProperty = [aProperty copy];
-	}
-	[self bindTextFieldTagged:defaultTextfieldTag toDelegatePropertyNamed:aProperty observeChanges:YES];
-}
-
-- (void)bindTextFieldTagged:(NSInteger)textFieldTag toDelegatePropertyNamed:(NSString*)property observeChanges:(BOOL)observe;
-{
-//#warning Observing changes not yet implemented
-	
-	(self.textFieldBindings)[@(textFieldTag)] = property;
-}
-
-- (void)saveTextField:(UITextField*)textField
-{
-	NSInteger tfTag = [textField tag];
-	NSNumber *tagNumber = @(tfTag);
-	
-	NSString *content = [textField text];
-	
-	[_controller textFieldChangedText:content forProperty:(self.textFieldBindings)[tagNumber]];
-}
-
-- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-//#warning Limiting to character set not implemented
-	[self saveTextField:textField];
-	return YES;
-}
-
--(void) textFieldDidBeginEditing:(UITextField *)textField
-{
-	[self.controller textFieldDidBeginEditing:textField];
-}
-
-- (void) textFieldDidEndEditing:(UITextField *)textField
-{	
-	[self saveTextField:textField];
-	[self.controller textFieldDidEndEditing:textField forRow:self];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	
-	[self saveTextField:textField];
-	NSLog(@"Return");
-	[self.controller textFieldShouldReturn:textField forRow:self];
-	
-	return YES;	
 }
 
 - (void)_setSection:(AGTableSection*)aSection;

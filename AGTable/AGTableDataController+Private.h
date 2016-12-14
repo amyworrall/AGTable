@@ -13,7 +13,6 @@
 - (void)beginUpdates;
 - (void)endUpdates;
 - (void)refreshRowTagged:(NSInteger)rowTag inSection:(NSInteger)sectionTag;
-- (void)commitTextFieldEditingOperations;
 @property (nonatomic, strong) NSMutableArray *sections_mutable;
 
 @property (nonatomic, weak) UITextField *editingTextField;
@@ -23,15 +22,8 @@
 
 
 @property (nonatomic, assign) BOOL inUpdateBlock;
-@property (nonatomic, assign) BOOL hasDoneAutoFocus;
-
-@property (nonatomic, assign) BOOL hasDoneTextFieldNextButtonCache;
 
 @property (nonatomic, assign) BOOL versionCheckMin3_1;
-- (IBAction)showDatePicker:(id)sender;
-- (void) textFieldDidBeginEditing:(UITextField *)textField;
-//- (void) textFieldDidEndEditing:(UITextField *)textField;
-- (void) textFieldChangedText:(NSString*)text forProperty:(NSString*)property;
 
 - (id) delegateObjectForKeyPath:(NSString*)keypath;
 - (id) objectForStaticRow:(AGTableRow*)row;
@@ -39,8 +31,6 @@
 - (BOOL)performVisibilityCheckForRow:(AGTableRow*)row;
 - (BOOL)visibilityForDynamicRow:(AGTableRow*)row;
 - (BOOL)canPerformActionForRow:(AGTableRow*)row;
-- (void) textFieldDidEndEditing:(UITextField *)textField forRow:(AGTableRow*)row;
-- (void)textFieldShouldReturn:(UITextField*)textField forRow:(AGTableRow*)row;
 - (NSInteger)indexOfDynamicObjectAtTableIndexPath:(NSIndexPath*)indexPath;
 
 // Array observing for dynamic objects

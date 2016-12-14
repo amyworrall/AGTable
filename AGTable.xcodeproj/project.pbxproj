@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		063FE48F1A327C5D004104B7 /* AGTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FE4831A327C5D004104B7 /* AGTable.framework */; };
 		063FE4AA1A327CB2004104B7 /* AGTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A21A327CB2004104B7 /* AGTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		063FE4AB1A327CB2004104B7 /* AGTableChooserTextFieldViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A31A327CB2004104B7 /* AGTableChooserTextFieldViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		063FE4AC1A327CB2004104B7 /* AGTableChooserViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A41A327CB2004104B7 /* AGTableChooserViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		063FE4AD1A327CB2004104B7 /* AGTableDataController.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A51A327CB2004104B7 /* AGTableDataController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		063FE4AE1A327CB2004104B7 /* AGTableDataControllerProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A61A327CB2004104B7 /* AGTableDataControllerProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		063FE4AF1A327CB2004104B7 /* AGTableRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4A71A327CB2004104B7 /* AGTableRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,8 +21,6 @@
 		063FE4BC1A327CBE004104B7 /* AGTableSection+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4B61A327CBE004104B7 /* AGTableSection+Private.h */; };
 		063FE4BD1A327CBE004104B7 /* MAKVONotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 063FE4B71A327CBE004104B7 /* MAKVONotificationCenter.h */; };
 		063FE4C61A327CC6004104B7 /* AGBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BE1A327CC6004104B7 /* AGBinding.m */; };
-		063FE4C71A327CC6004104B7 /* AGTableChooserTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */; };
-		063FE4C81A327CC6004104B7 /* AGTableChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */; };
 		063FE4C91A327CC6004104B7 /* AGTableDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C11A327CC6004104B7 /* AGTableDataController.m */; };
 		063FE4CA1A327CC6004104B7 /* AGTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C21A327CC6004104B7 /* AGTableRow.m */; };
 		063FE4CB1A327CC6004104B7 /* AGTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C31A327CC6004104B7 /* AGTableSection.m */; };
@@ -37,8 +33,6 @@
 		063FE4DF1A327D98004104B7 /* AGTableUnsplitMPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4D91A327D98004104B7 /* AGTableUnsplitMPTests.m */; };
 		063FE4E01A327D98004104B7 /* AGTableRPVisibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */; };
 		063FE4E31A327E38004104B7 /* AGBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BE1A327CC6004104B7 /* AGBinding.m */; };
-		063FE4E41A327E38004104B7 /* AGTableChooserTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */; };
-		063FE4E51A327E38004104B7 /* AGTableChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */; };
 		063FE4E61A327E38004104B7 /* AGTableDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C11A327CC6004104B7 /* AGTableDataController.m */; };
 		063FE4E71A327E38004104B7 /* AGTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C21A327CC6004104B7 /* AGTableRow.m */; };
 		063FE4E81A327E38004104B7 /* AGTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C31A327CC6004104B7 /* AGTableSection.m */; };
@@ -62,8 +56,6 @@
 		063FE4831A327C5D004104B7 /* AGTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AGTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		063FE48E1A327C5D004104B7 /* AGTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		063FE4A21A327CB2004104B7 /* AGTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTable.h; sourceTree = "<group>"; };
-		063FE4A31A327CB2004104B7 /* AGTableChooserTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableChooserTextFieldViewController.h; sourceTree = "<group>"; };
-		063FE4A41A327CB2004104B7 /* AGTableChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableChooserViewController.h; sourceTree = "<group>"; };
 		063FE4A51A327CB2004104B7 /* AGTableDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableDataController.h; sourceTree = "<group>"; };
 		063FE4A61A327CB2004104B7 /* AGTableDataControllerProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableDataControllerProtocols.h; sourceTree = "<group>"; };
 		063FE4A71A327CB2004104B7 /* AGTableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableRow.h; sourceTree = "<group>"; };
@@ -76,8 +68,6 @@
 		063FE4B61A327CBE004104B7 /* AGTableSection+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGTableSection+Private.h"; sourceTree = "<group>"; };
 		063FE4B71A327CBE004104B7 /* MAKVONotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAKVONotificationCenter.h; sourceTree = "<group>"; };
 		063FE4BE1A327CC6004104B7 /* AGBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGBinding.m; sourceTree = "<group>"; };
-		063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableChooserTextFieldViewController.m; sourceTree = "<group>"; };
-		063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableChooserViewController.m; sourceTree = "<group>"; };
 		063FE4C11A327CC6004104B7 /* AGTableDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableDataController.m; sourceTree = "<group>"; };
 		063FE4C21A327CC6004104B7 /* AGTableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableRow.m; sourceTree = "<group>"; };
 		063FE4C31A327CC6004104B7 /* AGTableSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableSection.m; sourceTree = "<group>"; };
@@ -191,8 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				063FE4A21A327CB2004104B7 /* AGTable.h */,
-				063FE4A31A327CB2004104B7 /* AGTableChooserTextFieldViewController.h */,
-				063FE4A41A327CB2004104B7 /* AGTableChooserViewController.h */,
 				063FE4A51A327CB2004104B7 /* AGTableDataController.h */,
 				063FE4A61A327CB2004104B7 /* AGTableDataControllerProtocols.h */,
 				063FE4A71A327CB2004104B7 /* AGTableRow.h */,
@@ -219,8 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				063FE4BE1A327CC6004104B7 /* AGBinding.m */,
-				063FE4BF1A327CC6004104B7 /* AGTableChooserTextFieldViewController.m */,
-				063FE4C01A327CC6004104B7 /* AGTableChooserViewController.m */,
 				063FE4C11A327CC6004104B7 /* AGTableDataController.m */,
 				063FE4C21A327CC6004104B7 /* AGTableRow.m */,
 				063FE4C31A327CC6004104B7 /* AGTableSection.m */,
@@ -255,12 +241,10 @@
 				063FE4AA1A327CB2004104B7 /* AGTable.h in Headers */,
 				063FE4AF1A327CB2004104B7 /* AGTableRow.h in Headers */,
 				063FE4D11A327D3B004104B7 /* AGTable-Prefix.pch in Headers */,
-				063FE4AC1A327CB2004104B7 /* AGTableChooserViewController.h in Headers */,
 				063FE4BB1A327CBE004104B7 /* AGTableRow+Private.h in Headers */,
 				063FE4BA1A327CBE004104B7 /* AGTableDataController+Private.h in Headers */,
 				063FE4BD1A327CBE004104B7 /* MAKVONotificationCenter.h in Headers */,
 				063FE4BC1A327CBE004104B7 /* AGTableSection+Private.h in Headers */,
-				063FE4AB1A327CB2004104B7 /* AGTableChooserTextFieldViewController.h in Headers */,
 				063FE4B11A327CB2004104B7 /* AGTableViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,8 +353,6 @@
 				063FE4C91A327CC6004104B7 /* AGTableDataController.m in Sources */,
 				063FE4C61A327CC6004104B7 /* AGBinding.m in Sources */,
 				063FE4CC1A327CC6004104B7 /* AGTableViewController.m in Sources */,
-				063FE4C71A327CC6004104B7 /* AGTableChooserTextFieldViewController.m in Sources */,
-				063FE4C81A327CC6004104B7 /* AGTableChooserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,10 +365,8 @@
 				063FE4E31A327E38004104B7 /* AGBinding.m in Sources */,
 				063FE4E61A327E38004104B7 /* AGTableDataController.m in Sources */,
 				063FE4DF1A327D98004104B7 /* AGTableUnsplitMPTests.m in Sources */,
-				063FE4E51A327E38004104B7 /* AGTableChooserViewController.m in Sources */,
 				063FE4E91A327E38004104B7 /* AGTableViewController.m in Sources */,
 				063FE4E71A327E38004104B7 /* AGTableRow.m in Sources */,
-				063FE4E41A327E38004104B7 /* AGTableChooserTextFieldViewController.m in Sources */,
 				063FE4DC1A327D98004104B7 /* AGTableTests.m in Sources */,
 				063FE4E81A327E38004104B7 /* AGTableSection.m in Sources */,
 				063FE4E01A327D98004104B7 /* AGTableRPVisibilityTests.m in Sources */,

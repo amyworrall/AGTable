@@ -12,8 +12,6 @@
 #import "AGTableSection.h"
 #import "AGTableRow.h"
 #import "AGTableDataControllerProtocols.h"
-#import "AGTableChooserViewController.h"
-#import "AGTableChooserTextFieldViewController.h"
 #import "AGTableViewController.h"
 
 

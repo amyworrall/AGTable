@@ -9,12 +9,11 @@
 
 
 #import "AGTableDataController.h"
-#import "AGTableChooserViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
 
 
-@interface AGTableDataController()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@interface AGTableDataController()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 {
 	BOOL editing;
 	BOOL _justReloading;
@@ -516,10 +515,6 @@
 
 - (BOOL)canPerformActionForRow:(AGTableRow*)row
 {
-	if ([row.optionFieldBoundToProperty length]>0 || [row.imageFieldBoundToProperty length] > 0)
-	{
-		return YES;
-	}
 	if ([self.delegate respondsToSelector:@selector(tableDataController:canPerformActionForRow:)])
 	{
 		if ([self.delegate tableDataController:self canPerformActionForRow:row])
@@ -540,13 +535,6 @@
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-	// Some initial setup
-	if (!self.hasDoneTextFieldNextButtonCache)
-	{
-		[self cacheTableViewNextButtons];
-	}
-	
-	
 	int snum=0;
 	for (AGTableSection *s in self.sections_mutable)
 	{
@@ -730,22 +718,7 @@
 	AGTableRow *row = [self rowForTableIndexPath:indexPath];
 	row.objectIndex = [self indexOfDynamicObjectAtTableIndexPath:indexPath];
 	
-	UITableViewCellStyle style = row.cellStyle;
-	if ([row.textFieldBoundToProperty length]>0 && style == UITableViewCellStyleDefault && [row.text length]>0)
-	{
-		style = UITableViewCellStyleValue2;
-	}
-	
-	if ([row.optionFieldBoundToProperty length]>0 && style == UITableViewCellStyleDefault && [row.text length]>0)
-	{
-		style = UITableViewCellStyleValue2;
-	}
-	
-	if ([row.dateFieldBoundToProperty length]>0 && style == UITableViewCellStyleDefault && [row.text length]>0)
-	{
-		style = UITableViewCellStyleValue2;
-	}
-	return style;
+	return row.cellStyle;
 }
 
 - (NSString*)reuseIdentifierForIndexPath:(NSIndexPath*)indexPath
@@ -770,7 +743,7 @@
 		else if ([cellClass isEqual:[UITableViewCell class]])
 		{
 			// possible optimisation: use a switch and constant strings, to get pointer comparisons.
-			reuseIdentifier = [NSString stringWithFormat:@"UITableViewCell-%li-%@-%@-%p", (long)style, row.textFieldBoundToProperty, NSStringFromSelector(row.initialSetupSelector), row.initialSetupBlock];
+			reuseIdentifier = [NSString stringWithFormat:@"UITableViewCell-%li-%@-%p", (long)style, NSStringFromSelector(row.initialSetupSelector), row.initialSetupBlock];
 		}
 		else
 		{
@@ -839,28 +812,7 @@
 		{
 			row.initialSetupBlock(&cell, row);
 		}
-		
-		if ([row.textFieldBoundToProperty length]>0)
-		{
-			UITextField *tf = [[UITextField alloc] init];
-			tf.adjustsFontSizeToFitWidth = YES;
-			
-			
-			//tf.textColor = cell.detailTextLabel.textColor; // [UIColor colorWithRed:56.0f/255.0f green:84.0f/255.0f blue:135.0f/255.0f alpha:1.0f];
-			tf.tag = defaultTextfieldTag;
-			
-			
-			[cell addSubview:tf];
-		}
-		
-		
-		
-		if ([row.imageFieldBoundToProperty length]>0)
-		{
-			cell.imageView.layer.masksToBounds = YES;
-			cell.imageView.layer.cornerRadius = 10.0;
-		}
-		
+
 	}
 
 	return cell;
@@ -874,91 +826,6 @@
 	cell.tag = row.tag;
 	
 	cell.accessoryView = row.accessoryView;
-	
-	if ([row.optionFieldBoundToProperty length]>0)
-	{
-		id aValue = [self.delegate valueForKeyPath:row.optionFieldBoundToProperty];
-		
-		BOOL flag = NO;
-		for (NSDictionary *aChoice in row.optionChoices)
-		{
-			if ([aChoice[@"value"] isEqual:aValue])
-			{
-				cell.detailTextLabel.text = aChoice[@"title"];
-				flag = YES;
-			}
-		}
-		if (row.optionAllowsOther && !flag)
-		{
-			cell.detailTextLabel.text = aValue;
-		}
-		
-	}
-	
-	
-	if ([row.dateFieldBoundToProperty length]>0)
-	{
-		if (row.datePickerTimeZone)
-		{
-			self.dateDisplayFormatter.timeZone = row.datePickerTimeZone;
-		}
-		else
-		{
-			self.dateDisplayFormatter.timeZone = [NSTimeZone defaultTimeZone];
-		}
-		
-		cell.detailTextLabel.text = [self.dateDisplayFormatter stringFromDate:[self.delegate valueForKeyPath:row.dateFieldBoundToProperty]];
-	}
-	
-	
-	if ([row.imageFieldBoundToProperty length]>0)
-	{
-		cell.imageView.image = row.imageFieldCachedSmallImage;
-	}
-	
-	if ([row.textFieldBoundToProperty length]>0)
-	{
-		UITextField *tf = (UITextField*)[cell viewWithTag:defaultTextfieldTag];
-		
-		tf.placeholder = row.textFieldPlaceholder ;
-		tf.autocorrectionType = row.textFieldAutocorrectionType ;
-		tf.autocapitalizationType = row.textFieldAutocapitalizationType;
-		tf.keyboardType = row.textFieldKeyboardType;
-		
-		CGRect tfRect = ([row.text length]>0) ? CGRectMake(93, 11, 210, 20) : CGRectMake(20, 11, 320-40, 22);
-		
-		if (indexPath.row == 0 && self.tableView.style == UITableViewStyleGrouped)
-		{
-			tfRect.origin.y++;
-		}
-		tf.frame = tfRect;
-		
-		if ([self cellStyleForIndexPath:indexPath] == UITableViewCellStyleValue2)
-		{
-			tf.font = [UIFont boldSystemFontOfSize:15.0];
-		}
-		
-		
-		tf.clearButtonMode = row.textFieldClearButton ? UITextFieldViewModeWhileEditing : UITextFieldViewModeNever;
-		tf.accessibilityLabel = row.text;
-	}
-	
-	if ([[row.textFieldBindings allKeys] count]>0)
-	{
-		for (NSNumber *key in row.textFieldBindings)
-		{
-			int tfTag = [key intValue];
-			NSString *property = (row.textFieldBindings)[key];
-			
-			UITextField *tf = (UITextField*)[cell viewWithTag:tfTag];
-			
-			if (tf)
-			{
-				tf.delegate = row;
-				tf.text = [self.delegate valueForKey:property];
-			}
-		}
-	}
 	
 	if ([row.textBoundToKeypath length]>0)
 	{
@@ -1019,24 +886,6 @@
 		cell.accessibilityTraits = cell.accessibilityTraits | UIAccessibilityTraitButton;
 	}
   cell.accessibilityIdentifier = row.accessibilityIdentifier;
-	
-	if (row.textFieldBoundToProperty)
-	{
-		UITextField *tf = (UITextField*)[cell viewWithTag:defaultTextfieldTag];
-		
-		cell.isAccessibilityElement = NO;
-		cell.accessibilityTraits = UIAccessibilityTraitNone;
-		cell.accessibilityLabel = nil;
-		cell.textLabel.isAccessibilityElement = NO;
-		cell.textLabel.accessibilityTraits = UIAccessibilityTraitNone;
-		
-		cell.accessibilityValue = tf.text;
-		cell.accessibilityHint = @"Double tap to edit text field.";
-		
-		tf.returnKeyType = row.textFieldShowsNextButton ? UIReturnKeyNext : UIReturnKeyDone;
-		
-		row.cachedTextField = tf;
-	}
 	
 	if (row.configurationKeyValueData)
 	{
@@ -1341,12 +1190,6 @@
 		cell.backgroundColor = row.alternatingBackgroundColor;
 	}
 	
-	if (row.textFieldAutoFocus && !self.hasDoneAutoFocus)
-	{
-		self.hasDoneAutoFocus = YES;
-		[[cell viewWithTag:defaultTextfieldTag] becomeFirstResponder];
-	}
-	
 	if (row.willDisplayBlock) {
 		row.willDisplayBlock(row, cell, indexPath);
 	}
@@ -1513,13 +1356,11 @@
 
 - (void) tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	[self commitTextFieldEditingOperations];
-
 	AGTableRow *row = [self rowForTableIndexPath:indexPath];
 	row.objectIndex = [self indexOfDynamicObjectAtTableIndexPath:indexPath];
 
 	
-	if (![self canPerformActionForRow:row] && !row.textFieldBoundToProperty && !row.optionFieldBoundToProperty && !row.dateFieldBoundToProperty && !row.imageFieldBoundToProperty)
+	if (![self canPerformActionForRow:row])
 	{
 		return;
 	}
@@ -1539,119 +1380,12 @@
 	{
 		row.actionBlock(row);
 	}
-	else if (row.textFieldBoundToProperty)
-	{
-		// If no other action to do and it has a default text field, we select that.
-		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-		UITextField *tf = (UITextField *)[cell viewWithTag:defaultTextfieldTag];
-		[tf becomeFirstResponder];
-	}
-	else if (row.optionFieldBoundToProperty)
-	{
-		AGTableChooserViewController *vc = nil;
-		if (row.customOptionSelectorViewController)
-		{
-			vc = [[row.customOptionSelectorViewController alloc] init];
-		}
-		else
-		{
-			vc = [[AGTableChooserViewController alloc] init];
-		}
-		
-		vc.title = [row.text capitalizedString];
-		vc.delegate = self.delegate;
-		vc.delegateKeypath = row.optionFieldBoundToProperty;
-		vc.options = row.optionChoices;
-		vc.allowsOther = row.optionAllowsOther;
-		vc.backgroundColor = self.delegate.view.backgroundColor;
-		
-		[[self.delegate valueForKeyPath:@"navigationController"] pushViewController:vc animated:YES];
-	}
-	else if (row.dateFieldBoundToProperty)
-	{
-		self.rowForDateEditing = row;
-		[self showDatePicker:self];
-	}
-	else if (row.imageFieldBoundToProperty)
-	{
-		self.rowForImageEditing = row;
-		
-		if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-		{
-			UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Choose an image source" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Photo Library", @"Camera", nil];
-			[as showInView:self.delegate.view];
-		}
-		else {
-			[self summonImagePickerForSource:UIImagePickerControllerSourceTypePhotoLibrary];
-		}
 
-		
-		
-	}
-	
 	if (self.clearSelectionOnAction)
 	{
 		[aTableView deselectRowAtIndexPath:indexPath animated:YES];
 	}
 
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	//NSLog(@"Chosen %i", buttonIndex);
-	// Has to be image picker sheet
-	switch (buttonIndex) {
-		case 0:
-			[self summonImagePickerForSource:UIImagePickerControllerSourceTypePhotoLibrary];
-			break;
-		case 1:
-			[self summonImagePickerForSource:UIImagePickerControllerSourceTypeCamera];
-			break;
-		default:
-			break;
-	}
-}
-
-- (void)summonImagePickerForSource:(UIImagePickerControllerSourceType)source
-{
-	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-	imagePicker.delegate = self;
-	imagePicker.sourceType = source;
-	[self.delegate presentViewController:imagePicker animated:YES completion:nil];
-}
-
-- (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-	AGTableRow *row = [self rowForTableIndexPath:indexPath];
-	
-	if (row.accessoryActionSelector)
-	{
-		if ([self.delegate respondsToSelector:row.accessoryActionSelector])
-		{
-			[[UIApplication sharedApplication] sendAction:row.accessoryActionSelector to:self.delegate from:row forEvent:nil];
-		}
-
-		
-	}
-	
-}
-
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-	[self.delegate setValue:info[UIImagePickerControllerOriginalImage] forKeyPath:self.rowForImageEditing.imageFieldBoundToProperty];
-	[self.rowForImageEditing refreshImageCache];
-	
-	[picker dismissViewControllerAnimated:YES completion:nil];
-	
-	self.rowForImageEditing = nil;
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-	//NSLog(@"Cancel");
-	[picker dismissViewControllerAnimated:YES completion:nil];
-	self.rowForImageEditing = nil;
 }
 
 #pragma mark -
@@ -1680,172 +1414,6 @@
 
 
 
-#pragma mark -
-
-- (void) textFieldDidBeginEditing:(UITextField *)textField;
-{
-	self.editingTextField = textField;
-}
-
-- (void) textFieldDidEndEditing:(UITextField *)textField forRow:(AGTableRow*)row
-{
-	UITableViewCell *c = (UITableViewCell*)[textField superview];
-	c.accessibilityValue = textField.text;
-	
-	self.editingTextField = nil;
-}
-
-- (void)textFieldShouldReturn:(UITextField*)textField forRow:(AGTableRow*)row
-{
-	//NSLog(@"ReturnReturn");
-	BOOL foundTarget = NO;
-	BOOL doneBecome = NO;
-	for (AGTableSection *s in self.sections_mutable)
-	{
-		for (AGTableRow *r in s.rows)
-		{
-			//NSLog(@"FoundTarget %i, doneBecome %i, bound %@", foundTarget, doneBecome, r.textFieldBoundToProperty);
-			if (foundTarget == YES && doneBecome == NO && r.textFieldBoundToProperty)
-			{
-				//NSLog(@"Trying");
-				[self.tableView scrollToRowAtIndexPath:[self previousIndexPathForRow:r] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-				[r.cachedTextField becomeFirstResponder];
-				doneBecome = YES;
-			}
-			if (r == row)
-			{
-				//NSLog(@"Target");
-				foundTarget = YES;
-			}
-		}
-	}
-	if (!doneBecome)
-	{
-		[textField resignFirstResponder];
-	}
-	
-}
-
-- (void)commitTextFieldEditingOperations
-{
-	if (self.editingTextField)
-	{
-		[self.editingTextField resignFirstResponder];
-	}
-}
-
-- (void) textFieldChangedText:(NSString*)text forProperty:(NSString*)property;
-{
-	[self.delegate setValue:text forKey:property];
-}
-
-
-
-#pragma mark -
-#pragma mark Date Picker Methods
-
-- (void)changeDate:(UIDatePicker *)sender {
-	[self.delegate setValue:sender.date forKeyPath:self.rowForDateEditing.dateFieldBoundToProperty];
-	[self refreshStaticRow:self.rowForDateEditing];
-}
-
-- (void)removeViews:(id)object {
-	UIView *dpView = [[UIApplication sharedApplication] windows][0];
-	
-	[[dpView viewWithTag:9] removeFromSuperview];
-	[[dpView viewWithTag:10] removeFromSuperview];
-	[[dpView viewWithTag:11] removeFromSuperview];
-	self.rowForDateEditing = nil;
-}
-
-- (void)dismissDatePicker:(id)sender {
-	UIView *dpView = [[UIApplication sharedApplication] windows][0];
-	
-	[self changeDate:(UIDatePicker*)[dpView viewWithTag:10]];
-	
-	CGRect toolbarTargetFrame = CGRectMake(0, dpView.bounds.size.height, 320, 44);
-	CGRect datePickerTargetFrame = CGRectMake(0, dpView.bounds.size.height+44, 320, 216);
-	[UIView beginAnimations:@"MoveOut" context:nil];
-	[dpView viewWithTag:9].alpha = 0;
-	[dpView viewWithTag:10].frame = datePickerTargetFrame;
-	[dpView viewWithTag:11].frame = toolbarTargetFrame;
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDidStopSelector:@selector(removeViews:)];
-	[UIView commitAnimations];
-}
-
-- (void)showDatePicker:(id)sender {
-	UIView *dpView = [[UIApplication sharedApplication] windows][0];
-	
-	if ([dpView viewWithTag:9]) {
-		return;
-	}
-	
-	CGRect toolbarTargetFrame = CGRectMake(0, dpView.bounds.size.height-216-44, 320, 44);
-	CGRect datePickerTargetFrame = CGRectMake(0, dpView.bounds.size.height-216, 320, 216);
-	
-	UIView *darkView = [[UIView alloc] initWithFrame:dpView.bounds];
-	darkView.alpha = 0;
-	darkView.backgroundColor = [UIColor blackColor];
-	darkView.tag = 9;
-	UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDatePicker:)];
-	[darkView addGestureRecognizer:tapGesture];
-	[dpView addSubview:darkView];
-	
-	UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, dpView.bounds.size.height+44, 320, 216)];
-	datePicker.tag = 10;
-	
-	
-	
-	[datePicker addTarget:self action:@selector(changeDate:) forControlEvents:UIControlEventValueChanged];
-	
-	if (self.rowForDateEditing.datePickerTimeZone)
-	{
-		datePicker.timeZone = self.rowForDateEditing.datePickerTimeZone;
-	}
-
-	NSDate *d = [self.delegate valueForKeyPath:self.rowForDateEditing.dateFieldBoundToProperty];
-	if ([d isKindOfClass:[NSDate class]])
-	{
-		datePicker.date = d;
-	}
-	
-	[dpView addSubview:datePicker];
-	
-	UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, dpView.bounds.size.height, 320, 44)];
-	toolBar.tag = 11;
-	toolBar.barStyle = UIBarStyleBlackTranslucent;
-	UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissDatePicker:)];
-	[toolBar setItems:@[spacer, doneButton]];
-	[dpView addSubview:toolBar];
-	
-	[UIView beginAnimations:@"MoveIn" context:nil];
-	toolBar.frame = toolbarTargetFrame;
-	datePicker.frame = datePickerTargetFrame;
-	darkView.alpha = 0.5;
-	[UIView commitAnimations];
-	
-	//NSLog(@"Date picker %@", NSStringFromCGRect(datePicker.frame));
-}
-
-
-- (void)cacheTableViewNextButtons
-{
-	AGTableRow *previous = nil;
-	for (AGTableSection *s in self.sections_mutable)
-	{
-		for (AGTableRow *r in s.rows)
-		{
-			if (r.textFieldBoundToProperty)
-			{
-				previous.textFieldShowsNextButton = YES;
-				previous = r;
-			}
-		}
-	}
-	self.hasDoneTextFieldNextButtonCache = YES;
-}
 
 
 @end
