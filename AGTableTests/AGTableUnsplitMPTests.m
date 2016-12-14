@@ -75,14 +75,14 @@
 - (void)testNumSectionsInTableView
 {
 	NSInteger num = [self.tdc numberOfSectionsInTableView:self.tableView];
-	STAssertEquals(num, 1, @"Number of sections");
+	XCTAssertEqual(num, 1, @"Number of sections");
 }
 
 - (void)testNumRowsInSection0
 {
 	[self.tdc numberOfSectionsInTableView:self.tableView]; // Needed because this pre-caches the row visibility
 	NSInteger num = [self.tdc tableView:self.tableView numberOfRowsInSection:0];
-	STAssertEquals(num, 30, @"30 rows: 3 per 10 obects");
+	XCTAssertEqual(num, 30, @"30 rows: 3 per 10 obects");
 }
 
 @end

@@ -5,8 +5,8 @@
 //  Created by Amy Worrall on 17/01/2013.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface AGTableUnsplitMPTests : SenTestCase
+@interface AGTableUnsplitMPTests : XCTestCase
 
 @end

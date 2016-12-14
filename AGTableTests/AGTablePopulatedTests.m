@@ -45,7 +45,7 @@
 
 - (void)testPrototypeCount
 {
-	STAssertTrue(self.s.rowPrototypes.count == 1, @"Add a single row prototype, shoves it in the array");
+	XCTAssertTrue(self.s.rowPrototypes.count == 1, @"Add a single row prototype, shoves it in the array");
 }
 
 - (void)testConfigSelectors
@@ -57,14 +57,14 @@
 
 - (void)setupCell:(UITableViewCell**)cell forRow:(AGTableRow*)row
 {
-	STAssertTrue([*cell isKindOfClass:[UITableViewCell class]], @"Setup selector should get a cell");
-	STAssertTrue([row isKindOfClass:[AGTableRow class]], @"Setup selector should get a row");
+	XCTAssertTrue([*cell isKindOfClass:[UITableViewCell class]], @"Setup selector should get a cell");
+	XCTAssertTrue([row isKindOfClass:[AGTableRow class]], @"Setup selector should get a row");
 }
 
 - (void)configureCell:(UITableViewCell*)cell forRow:(AGTableRow*)row
 {
-	STAssertTrue([cell isKindOfClass:[UITableViewCell class]], @"Config selector should get a cell");
-	STAssertTrue([row isKindOfClass:[AGTableRow class]], @"Config selector should get a row");
+	XCTAssertTrue([cell isKindOfClass:[UITableViewCell class]], @"Config selector should get a cell");
+	XCTAssertTrue([row isKindOfClass:[AGTableRow class]], @"Config selector should get a row");
 }
 
 - (void)testActionSelectorForm
@@ -75,14 +75,14 @@
 
 - (void)actionSelectorTest:(AGTableRow*)row
 {
-	STAssertTrue([row isKindOfClass:[AGTableRow class]], @"Action selector should get a row");
+	XCTAssertTrue([row isKindOfClass:[AGTableRow class]], @"Action selector should get a row");
 }
 
 
 - (void)testActionBlock
 {
 	self.firstRow.actionBlock = ^(AGTableRow *row){
-		STAssertTrue([row isKindOfClass:[AGTableRow class]], @"Action block should get a row");
+		XCTAssertTrue([row isKindOfClass:[AGTableRow class]], @"Action block should get a row");
 	};
 	[self.tdc tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 }

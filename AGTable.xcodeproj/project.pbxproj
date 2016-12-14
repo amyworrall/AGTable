@@ -44,8 +44,8 @@
 		063FE4E81A327E38004104B7 /* AGTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C31A327CC6004104B7 /* AGTableSection.m */; };
 		063FE4E91A327E38004104B7 /* AGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C41A327CC6004104B7 /* AGTableViewController.m */; };
 		063FE4EA1A327E38004104B7 /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */; };
-		063FE4EC1A328014004104B7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063FE4EB1A328014004104B7 /* SenTestingKit.framework */; };
 		06F2CB891DE1D43A008DFB30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2CB861DE1D22F008DFB30 /* UIKit.framework */; };
+		06F502011E016AB800E088C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F502001E016AB800E088C0 /* XCTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,19 +86,19 @@
 		063FE4CE1A327D15004104B7 /* AGTable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AGTable-Info.plist"; sourceTree = "<group>"; };
 		063FE4D01A327D3B004104B7 /* AGTable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AGTable-Prefix.pch"; sourceTree = "<group>"; };
 		063FE4D21A327D98004104B7 /* AGTableTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableTests.h; sourceTree = "<group>"; };
-		063FE4D31A327D98004104B7 /* AGTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableTests.m; sourceTree = "<group>"; };
+		063FE4D31A327D98004104B7 /* AGTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AGTableTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		063FE4D41A327D98004104B7 /* AGTablePopulatedTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTablePopulatedTests.h; sourceTree = "<group>"; };
-		063FE4D51A327D98004104B7 /* AGTablePopulatedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTablePopulatedTests.m; sourceTree = "<group>"; };
+		063FE4D51A327D98004104B7 /* AGTablePopulatedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AGTablePopulatedTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		063FE4D61A327D98004104B7 /* AGTableMultiplePrototypesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableMultiplePrototypesTests.h; sourceTree = "<group>"; };
-		063FE4D71A327D98004104B7 /* AGTableMultiplePrototypesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableMultiplePrototypesTests.m; sourceTree = "<group>"; };
+		063FE4D71A327D98004104B7 /* AGTableMultiplePrototypesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AGTableMultiplePrototypesTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		063FE4D81A327D98004104B7 /* AGTableUnsplitMPTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableUnsplitMPTests.h; sourceTree = "<group>"; };
-		063FE4D91A327D98004104B7 /* AGTableUnsplitMPTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableUnsplitMPTests.m; sourceTree = "<group>"; };
+		063FE4D91A327D98004104B7 /* AGTableUnsplitMPTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AGTableUnsplitMPTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		063FE4DA1A327D98004104B7 /* AGTableRPVisibilityTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableRPVisibilityTests.h; sourceTree = "<group>"; };
-		063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTableRPVisibilityTests.m; sourceTree = "<group>"; };
+		063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AGTableRPVisibilityTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		063FE4E11A327DB3004104B7 /* AGTableTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AGTableTests-Info.plist"; sourceTree = "<group>"; };
-		063FE4EB1A328014004104B7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		06F2CB841DE1D228008DFB30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		06F2CB861DE1D22F008DFB30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		06F502001E016AB800E088C0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				063FE4EC1A328014004104B7 /* SenTestingKit.framework in Frameworks */,
+				06F502011E016AB800E088C0 /* XCTest.framework in Frameworks */,
 				063FE48F1A327C5D004104B7 /* AGTable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,7 +125,6 @@
 		063FE4791A327C5D004104B7 = {
 			isa = PBXGroup;
 			children = (
-				063FE4EB1A328014004104B7 /* SenTestingKit.framework */,
 				063FE4851A327C5D004104B7 /* AGTable */,
 				063FE4921A327C5D004104B7 /* AGTableTests */,
 				063FE4841A327C5D004104B7 /* Products */,
@@ -234,6 +233,7 @@
 		06F2CB831DE1D228008DFB30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06F502001E016AB800E088C0 /* XCTest.framework */,
 				06F2CB861DE1D22F008DFB30 /* UIKit.framework */,
 				06F2CB841DE1D228008DFB30 /* Foundation.framework */,
 			);

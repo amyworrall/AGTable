@@ -76,14 +76,14 @@
 - (void)testNumSectionsInTableView
 {
 	NSInteger num = [self.tdc numberOfSectionsInTableView:self.tableView];
-	STAssertEquals(num, 10, @"Number of sections");
+	XCTAssertEqual(num, 10, @"Number of sections");
 }
 
 - (void)testNumRowsInSection0
 {
 	[self.tdc numberOfSectionsInTableView:self.tableView]; // Needed because this pre-caches the row visibility
 	NSInteger num = [self.tdc tableView:self.tableView numberOfRowsInSection:1];
-	STAssertEquals(num, 3, @"3 rows, for the 3 prototypes");
+	XCTAssertEqual(num, 3, @"3 rows, for the 3 prototypes");
 }
 
 - (void)testExpectRP1
@@ -92,7 +92,7 @@
 	NSInteger num = [self.tdc tableView:self.tableView numberOfRowsInSection:1];
 	UITableViewCell *cell = [self.tdc tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
 	NSString *val = objc_getAssociatedObject(cell, "val");
-	STAssertEqualObjects(val, @"Number1", @"Should get back a cell configured with rp 1");
+	XCTAssertEqualObjects(val, @"Number1", @"Should get back a cell configured with rp 1");
 }
 
 - (void)testSection1Row1IsCorrectObject
@@ -101,7 +101,7 @@
 	NSInteger num = [self.tdc tableView:self.tableView numberOfRowsInSection:1];
 	UITableViewCell *cell = [self.tdc tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
 	NSDictionary *object = objc_getAssociatedObject(cell, "obj");
-	STAssertEqualObjects([object objectForKey:@"Num"], @"1", @"Object should be number 1");
+	XCTAssertEqualObjects([object objectForKey:@"Num"], @"1", @"Object should be number 1");
 }
 
 - (void)testExpectRP2
@@ -110,7 +110,7 @@
 	NSInteger num = [self.tdc tableView:self.tableView numberOfRowsInSection:1];
 	UITableViewCell *cell = [self.tdc tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
 	NSString *val = objc_getAssociatedObject(cell, "val");
-	STAssertEqualObjects(val, @"Number2", @"Should get back a cell configured with rp 2");
+	XCTAssertEqualObjects(val, @"Number2", @"Should get back a cell configured with rp 2");
 }
 
 @end

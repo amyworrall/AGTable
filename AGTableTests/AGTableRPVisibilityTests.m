@@ -74,7 +74,7 @@
 
 - (id)tableDataController:(AGTableDataController *)c dynamicObjectForIndex:(NSInteger)index inSection:(AGTableSection *)section
 {
-	return @{@"Num" : [NSString stringWithFormat:@"%i", index]};
+	return @{@"Num" : [NSString stringWithFormat:@"%li", (long)index]};
 }
 
 - (BOOL)tableDataController:(AGTableDataController *)c prototypeVisibilityForDynamicRow:(AGTableRow *)row
@@ -88,7 +88,7 @@
 	{
 		return (row.tag != 1);
 	}
-    return NO;
+  return YES;
 }
 
 #pragma mark - Tests
@@ -101,10 +101,10 @@
 	UITableViewCell *cell = [self.tdc tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
 	
 	NSDictionary *object = objc_getAssociatedObject(cell, "obj");
-	STAssertEqualObjects([object objectForKey:@"Num"], @"0", @"Object should be number 0");
+	XCTAssertEqualObjects([object objectForKey:@"Num"], @"0", @"Object should be number 0");
 	
 	NSString *prototypeVal = objc_getAssociatedObject(cell, "val");
-	STAssertEqualObjects(prototypeVal, @"Number2", @"Prototype should be 2 out of 3");
+	XCTAssertEqualObjects(prototypeVal, @"Number2", @"Prototype should be 2 out of 3");
 }
 
 /* Row 8 should be first of 3, not last of 2, and should use first prototype */
@@ -115,10 +115,10 @@
 	UITableViewCell *cell = [self.tdc tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:8 inSection:0]];
 	
 	NSDictionary *object = objc_getAssociatedObject(cell, "obj");
-	STAssertEqualObjects([object objectForKey:@"Num"], @"3", @"Object should be number 3");
+	XCTAssertEqualObjects([object objectForKey:@"Num"], @"3", @"Object should be number 3");
 	
 	NSString *prototypeVal = objc_getAssociatedObject(cell, "val");
-	STAssertEqualObjects(prototypeVal, @"Number1", @"Prototype should be 1 out of 3");
+	XCTAssertEqualObjects(prototypeVal, @"Number1", @"Prototype should be 1 out of 3");
 }
 
 /* Row 11 should be first of 4, which uses second prototype */
@@ -129,10 +129,10 @@
 	UITableViewCell *cell = [self.tdc tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:11 inSection:0]];
 	
 	NSDictionary *object = objc_getAssociatedObject(cell, "obj");
-	STAssertEqualObjects([object objectForKey:@"Num"], @"4", @"Object should be number 4");
+	XCTAssertEqualObjects([object objectForKey:@"Num"], @"4", @"Object should be number 4");
 	
 	NSString *prototypeVal = objc_getAssociatedObject(cell, "val");
-	STAssertEqualObjects(prototypeVal, @"Number2", @"Prototype should be 2 out of 3");
+	XCTAssertEqualObjects(prototypeVal, @"Number2", @"Prototype should be 2 out of 3");
 }
 
 - (void)testIndexOfDynamicObject
@@ -147,13 +147,13 @@
 	}
 	
 	int index = [self.tdc indexOfDynamicObjectAtTableIndexPath:[NSIndexPath indexPathForRow:8 inSection:0]];
-	STAssertEquals(index, 3, @"Object should be 3");
+	XCTAssertEqual(index, 3, @"Object should be 3");
 }
 
 - (void)testNumDynamicRows
 {
 	int dr = [self.section _numberOfDynamicRows];
-	STAssertEquals(dr, 28, @"Two are hidden");
+	XCTAssertEqual(dr, 28, @"Two are hidden");
 }
 
 @end

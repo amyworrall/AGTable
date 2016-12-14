@@ -5,8 +5,8 @@
 //  Created by Amy Worrall on 04/12/2012.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface AGTablePopulatedTests : SenTestCase
+@interface AGTablePopulatedTests : XCTestCase
 
 @end

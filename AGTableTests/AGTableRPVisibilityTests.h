@@ -5,8 +5,8 @@
 //  Created by Amy Worrall on 18/01/2013.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface AGTableRPVisibilityTests : SenTestCase
+@interface AGTableRPVisibilityTests : XCTestCase
 
 @end
