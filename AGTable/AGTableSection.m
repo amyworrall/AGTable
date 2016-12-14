@@ -812,7 +812,11 @@
 	}
 }
 
-
+- (void)resetDynamicObjectsCaches;
+{
+  self.cachedNumDynamicRows = NSNotFound;
+  self.cachedNumDynamicObjects = NSNotFound;
+}
 
 #pragma mark -
 #pragma mark Doing things to rows

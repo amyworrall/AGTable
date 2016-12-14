@@ -164,6 +164,9 @@
 	{
 		return;
 	}
+  for (AGTableSection *section in self.sections) {
+    [section resetDynamicObjectsCaches];
+  }
 	_justReloading = YES;
 	[self.tableView reloadData];
 	[self performSelector:@selector(resetReloadCounter) withObject:nil afterDelay:0.0];

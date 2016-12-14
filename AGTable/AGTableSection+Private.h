@@ -34,4 +34,6 @@
 - (NSInteger)_numberOfRowPrototypesToShowForObject:(id)object;
 - (NSUInteger)_numberOfDynamicRows;
 
+- (void)resetDynamicObjectsCaches;
+
 @end
