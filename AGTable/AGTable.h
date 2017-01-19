@@ -14,4 +14,4 @@
 #import "AGTableDataControllerProtocols.h"
 #import "AGTableViewController.h"
 
-
+#import "AGTableTextRow.h"

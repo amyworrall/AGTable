@@ -58,7 +58,7 @@ typedef enum {
 #pragma mark - Adding rows
 
 // Append an existing static row to the end of the section
-- (void)appendRow:(AGTableRow*)row;
+- (AGTableRow*)appendRow:(AGTableRow*)row;
 
 // Creates a new row and appends it to the end of the section.
 - (AGTableRow*)appendNewRow;

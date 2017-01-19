@@ -48,8 +48,6 @@ NSString * const AGRowBindingObject = @"AGRowBindingObject";
 		self.visibilityMode = visibilityModeStandard;
 
 		self.cellClass = aCellClass;
-		
-		
 	}
 	return self;
 }

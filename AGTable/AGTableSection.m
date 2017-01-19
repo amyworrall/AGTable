@@ -91,14 +91,14 @@
 	}
 }
 
-- (void)appendRow:(AGTableRow*)row
+- (AGTableRow*)appendRow:(AGTableRow*)row
 {
 	row.controller = self.controller;
 	row.isStaticRow = YES;
 	[row _setSection:self];
 	
-	
 	[self.rows addObject:row];
+  return row;
 }
 
 - (AGTableRow*)appendNewRow
