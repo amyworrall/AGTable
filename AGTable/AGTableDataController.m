@@ -1195,6 +1195,16 @@
 	}
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+  NSInteger local;
+  AGTableSection *s = [self sectionForTableSectionNumber:section localSectionNumber:&local];
+
+  if (s.willDisplayHeaderBlock) {
+    s.willDisplayHeaderBlock(s, view);
+  }
+}
+
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	AGTableRow *row = [self rowForTableIndexPath:indexPath];

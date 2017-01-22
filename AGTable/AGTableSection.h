@@ -12,6 +12,7 @@
 @class AGTableRow;
 @class AGTableDataController;
 
+typedef void(^WillDisplayHeaderBlock)(AGTableSection *section, UIView *header);
 
 @protocol AGTableDataControllerDelegate;
 
@@ -91,5 +92,6 @@ typedef enum {
 @property (nonatomic, assign) CGFloat splitSectionHeaderHeight;
 @property (nonatomic, assign) CGFloat splitSectionFooterHeight;
 
+@property (nonatomic, copy) WillDisplayHeaderBlock willDisplayHeaderBlock;
 
 @end
