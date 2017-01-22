@@ -1388,6 +1388,25 @@
 
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+  AGTableRow *row = [self rowForTableIndexPath:indexPath];
+  row.objectIndex = [self indexOfDynamicObjectAtTableIndexPath:indexPath];
+
+  if (!row.accessoryActionSelector)
+  {
+    return;
+  }
+
+  if (row.accessoryActionSelector)
+  {
+    if ([self.delegate respondsToSelector:row.accessoryActionSelector])
+    {
+      [[UIApplication sharedApplication] sendAction:row.accessoryActionSelector to:self.delegate from:row forEvent:nil];
+    }
+  }
+}
+
 #pragma mark -
 
 - (BOOL)editing
