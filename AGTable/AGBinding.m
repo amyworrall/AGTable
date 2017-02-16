@@ -22,6 +22,7 @@
 
 NSString * const AGBindingOptionRegisterForValueChanged = @"AGBindingOptionRegisterForValueChanged";
 NSString * const AGBindingOptionRegisterForEditingEvents = @"AGBindingOptionRegisterForEditingEvents";
+NSString * const AGBindingOptionRegisterForUITextViewNotifications = @"AGBindingOptionRegisterForUITextViewNotifications";
 NSString * const AGBindingOptionsValueTransformer = @"AGBindingOptionsValueTransformer";
 NSString * const AGBindingOptionsFormatter = @"AGBindingOptionsFormatter";
 NSString * const AGBindingOptionsUseValueTransformerInReverse = @"AGBindingOptionsUseValueTransformerInReverse";
@@ -119,6 +120,9 @@ NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates = @"AGBindingOptionsCe
 		}
 	}
 
+  if ([self boolForOption:AGBindingOptionRegisterForUITextViewNotifications]) {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+  }
 	
 	self.observationView = nil;
 }
@@ -191,7 +195,30 @@ NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates = @"AGBindingOptionsCe
 			}
 		}
 	}
-	
+
+  if ([self boolForOption:AGBindingOptionRegisterForUITextViewNotifications])
+  {
+    // find last keypath bit
+    UIView *testView = self.observationView;
+
+    if (![testView isKindOfClass:[UITextView class]])
+    {
+      NSInteger tempIndex = [self.viewKeypath rangeOfString:@"." options:NSBackwardsSearch].location;
+      if (tempIndex != NSNotFound)
+      {
+        NSString *prevKeypath = [self.viewKeypath substringToIndex:tempIndex];
+        testView = [self.observationView valueForKeyPath:prevKeypath];
+      }
+    }
+
+    // test again, have we got a UIControl yet?
+    if ([testView isKindOfClass:[UITextView class]])
+    {
+      UITextView *tv = (UITextView*)testView;
+
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViaNotification:) name:UITextViewTextDidChangeNotification object:tv];
+    }
+  }
 	
 	
 	self.currentlyUpdatingView = NO;
@@ -200,6 +227,11 @@ NSString * const AGBindingOptionsCellNeedsLayoutOnUpdates = @"AGBindingOptionsCe
 - (void)updateViaEvent:(id)sender
 {
 	[self populateModelFromCell];
+}
+
+- (void)updateViaNotification:(NSNotification *)notification
+{
+  [self populateModelFromCell];
 }
 
 - (void)populateCellFromModel

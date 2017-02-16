@@ -34,6 +34,7 @@ typedef enum {
 
 extern NSString * const AGBindingOptionRegisterForValueChanged ;
 extern NSString * const AGBindingOptionRegisterForEditingEvents ;
+extern NSString * const AGBindingOptionRegisterForUITextViewNotifications ;
 extern NSString * const AGBindingOptionsValueTransformer ;
 extern NSString * const AGBindingOptionsUseValueTransformerInReverse ;
 extern NSString * const AGBindingOptionsFormatter;
