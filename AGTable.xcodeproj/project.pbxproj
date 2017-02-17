@@ -38,6 +38,8 @@
 		063FE4E81A327E38004104B7 /* AGTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C31A327CC6004104B7 /* AGTableSection.m */; };
 		063FE4E91A327E38004104B7 /* AGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C41A327CC6004104B7 /* AGTableViewController.m */; };
 		063FE4EA1A327E38004104B7 /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */; };
+		068C41CF1E57457C002F78E4 /* AGPrintfStringFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 068C41CD1E57457C002F78E4 /* AGPrintfStringFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		068C41D01E57457C002F78E4 /* AGPrintfStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 068C41CE1E57457C002F78E4 /* AGPrintfStringFormatter.m */; };
 		06F2CB891DE1D43A008DFB30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2CB861DE1D22F008DFB30 /* UIKit.framework */; };
 		06F502011E016AB800E088C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F502001E016AB800E088C0 /* XCTest.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,8 @@
 		063FE4DA1A327D98004104B7 /* AGTableRPVisibilityTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTableRPVisibilityTests.h; sourceTree = "<group>"; };
 		063FE4DB1A327D98004104B7 /* AGTableRPVisibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AGTableRPVisibilityTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		063FE4E11A327DB3004104B7 /* AGTableTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AGTableTests-Info.plist"; sourceTree = "<group>"; };
+		068C41CD1E57457C002F78E4 /* AGPrintfStringFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGPrintfStringFormatter.h; sourceTree = "<group>"; };
+		068C41CE1E57457C002F78E4 /* AGPrintfStringFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGPrintfStringFormatter.m; sourceTree = "<group>"; };
 		06F2CB841DE1D228008DFB30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		06F2CB861DE1D22F008DFB30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		06F502001E016AB800E088C0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -186,6 +190,7 @@
 				063FE4A71A327CB2004104B7 /* AGTableRow.h */,
 				063FE4A81A327CB2004104B7 /* AGTableSection.h */,
 				063FE4A91A327CB2004104B7 /* AGTableViewController.h */,
+				068C41CD1E57457C002F78E4 /* AGPrintfStringFormatter.h */,
 			);
 			name = "Public Headers";
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				063FE4C31A327CC6004104B7 /* AGTableSection.m */,
 				063FE4C41A327CC6004104B7 /* AGTableViewController.m */,
 				063FE4C51A327CC6004104B7 /* MAKVONotificationCenter.m */,
+				068C41CE1E57457C002F78E4 /* AGPrintfStringFormatter.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -234,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				063FE4AD1A327CB2004104B7 /* AGTableDataController.h in Headers */,
+				068C41CF1E57457C002F78E4 /* AGPrintfStringFormatter.h in Headers */,
 				063FE4B81A327CBE004104B7 /* AGBinding.h in Headers */,
 				063FE4AE1A327CB2004104B7 /* AGTableDataControllerProtocols.h in Headers */,
 				063FE4B01A327CB2004104B7 /* AGTableSection.h in Headers */,
@@ -349,6 +356,7 @@
 			files = (
 				063FE4CB1A327CC6004104B7 /* AGTableSection.m in Sources */,
 				063FE4CA1A327CC6004104B7 /* AGTableRow.m in Sources */,
+				068C41D01E57457C002F78E4 /* AGPrintfStringFormatter.m in Sources */,
 				063FE4CD1A327CC6004104B7 /* MAKVONotificationCenter.m in Sources */,
 				063FE4C91A327CC6004104B7 /* AGTableDataController.m in Sources */,
 				063FE4C61A327CC6004104B7 /* AGBinding.m in Sources */,
